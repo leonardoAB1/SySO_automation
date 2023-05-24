@@ -65,15 +65,18 @@ class gestion_program(pd.DataFrame):
         """
         # Llamar a la API de OpenAI para generar un objetivo conciso para el peligro dado
         prompt = f"Genera un objetivo de salud y seguridad en el trabajo en máximo 5 palabras que resuelva el peligro: {peligro}. \nNo empezar el texto con saltos de linea, signos de putnuación ni similar."
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
+        
+        messages = [{"role": "user", "content": prompt}]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
             max_tokens=20,
             n=1,
             stop=None,
             temperature=0.7
         )
-        objective = response.choices[0].text.strip()
+        
+        objective = response.choices[0].message["content"].strip()
 
         return objective
 
@@ -94,16 +97,19 @@ class gestion_program(pd.DataFrame):
         """
         # Llamar a la API de OpenAI para generar una actividad enfocada en resolver 
         # los peligros en ese sector especificando los subsectores de cada indice involucrado.
-        prompt = f"Genera en pocas palabras, el resumen de una actividad enfocada en resolver los peligros en el sector {sector}, especificando los subsectores: {', '.join(subsectores).lower()}, para alcanzar el objetivo: {objetivo}. Peligro relacionado: {peligro}. \nNo empezar el texto con saltos de linea, signos de putnuación ni similar."
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
+        prompt = f"Genera en pocas palabras, el resumen de una actividad enfocada en resolver los peligros en el sector {sector}, especificando los subsectores: {', '.join(subsectores).lower()}, para alcanzar el objetivo: {objetivo}. Peligro relacionado: {peligro}. \nNo empezar el texto con saltos de linea, signos de putnuación ni similar.\n Escribir la respuesta en futuro y con tono imperativo."
+        
+        messages = [{"role": "user", "content": prompt}]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
             max_tokens=60,
             n=1,
             stop=None,
             temperature=0.9
         )
-        activity = response.choices[0].text.strip()
+
+        activity = response.choices[0].message["content"].strip()
 
         return activity
 
@@ -123,5 +129,5 @@ if __name__ == '__main__':
 
     # Guardar la instancia en un archivo Excel
     filename = 'programa_de_gestion.xlsx'
-    program.to_excel(filename, index=False)
+    program.to_excel(filename, index=True)
     print(f"Programa de gestión guardado como {filename}")
