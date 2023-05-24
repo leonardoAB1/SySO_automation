@@ -71,31 +71,27 @@ class IPER_Row:
             - Muerte.
             - Daños a equipos con costos estimados superiores a 100,000 USD.
     '''
-    def __init__(self, sector, subsector, implemented_controls,  problem_description):
-        
-        self.sector = sector # string
-        self.subsector = subsector # string
-        self.problem_description = problem_description # string
-        self.implemented_controls = implemented_controls # list
-        #self.person_count = person_count #int
-        #self.usage_time = usage_time #int horas-semana
+    def __init__(self):
+        while True:
+            self.sector= input("Define el sector: ")
+            self.subsector= input("Define el area: ")
+            self.problem_description = input("Define el area: ")
+            self.implemented_controls = self._implemented_controls
+            # Indices
+            self.INPE = self._get_inpe()
+            self.IFDE = self._get_ifde() 
+            self.ICO = self._get_ico()
 
-        # Indices
-        self.INPE = self._get_inpe()
-        self.IFDE = self._get_ifde() 
-        self.ICO = self._get_ico()
-
-        self.probabilidad = self._evaluar_probabilidad()
-        self.nivel_de_riesgo = self._calcular_nivel_riesgo()
-        self.aceptabilidad = self._evaluar_aceptabilidad()
-
-        self.severidad_daño = self._get_severidad()
-        self.string_severidad_daño = self._get_severidad_daño()
-
-        self.condicion_evaluacion = self._elegir_condicion()
-        self.peligro = self._seleccionar_peligro()
-        self.origen_peligro = self._generar_origen_peligrp()
-        self.controles_pre_existentes = self._generar_controles_pre_existentes() 
+            self.probabilidad = self._evaluar_probabilidad()
+            self.nivel_de_riesgo = self._calcular_nivel_riesgo()
+            self.aceptabilidad = self._evaluar_aceptabilidad()
+            self.severidad_daño = self._get_severidad()
+            self.string_severidad_daño = self._get_severidad_daño()
+            self.condicion_evaluacion = self._elegir_condicion()
+            self.peligro = self._seleccionar_peligro()
+            self.origen_peligro = self._generar_origen_peligro()
+            self.controles_pre_existentes = self._generar_controles_pre_existentes() 
+            break
 
         self.opciones_peligro = {
             1: "A1. Caída de personas al mismo nivel",
@@ -386,7 +382,19 @@ class IPER_Row:
                 return 6
             elif x == 1:
                 return 10
-        
+
+    def _implemented_controls(self):
+        lista = []
+        contador = 0
+        longitud = input("Numero de controloes")
+        while len(lista) < longitud:
+            string = input(contador)
+            lista.append(string)
+            contador += 1
+            return lista
+
+
+
 if __name__ == "__main__":
     while():
         sector= input("Define el sector: ")
