@@ -1,16 +1,16 @@
 import os
 import openai
 import pandas as pd
+import numpy as np
 from IPython.display import display, Markdown
 import questionary
 from questionary import select
-
 
 openai.api_key = os.environ['SYS_OPENIA_API_KEY']
 
 class IPER_Row:
     '''
-    Fila de la Matriz IPER.
+    Fila de la Matriz de Identificación de Peligros y la Evaluación de Riesgos(IPER).
     En términos simples, IPER es una descripción organizada de las actividades, 
     controles y peligros que permitan identificar los posibles riesgos. 
     Esta permitirá evaluar, monitorear, controlar y comunicar estos peligros 
@@ -71,27 +71,26 @@ class IPER_Row:
             - Muerte.
             - Daños a equipos con costos estimados superiores a 100,000 USD.
     '''
-    def __init__(self):
-        while True:
-            self.sector= input("Define el sector: ")
-            self.subsector= input("Define el area: ")
-            self.problem_description = input("Define el area: ")
-            self.implemented_controls = self._implemented_controls
-            # Indices
-            self.INPE = self._get_inpe()
-            self.IFDE = self._get_ifde() 
-            self.ICO = self._get_ico()
+    def __init__(self, sector, subsector,  problem_description):
 
-            self.probabilidad = self._evaluar_probabilidad()
-            self.nivel_de_riesgo = self._calcular_nivel_riesgo()
-            self.aceptabilidad = self._evaluar_aceptabilidad()
-            self.severidad_daño = self._get_severidad()
-            self.string_severidad_daño = self._get_severidad_daño()
-            self.condicion_evaluacion = self._elegir_condicion()
-            self.peligro = self._seleccionar_peligro()
-            self.origen_peligro = self._generar_origen_peligro()
-            self.controles_pre_existentes = self._generar_controles_pre_existentes() 
-            break
+        self.df = pd.DataFrame(columns=['SECTOR / AREA / UNIDAD / PROCESO O SUB-PROCESO',
+            'ACTIVIDAD / TAREA / LUGAR / EQUIPO / EVENTO',
+            'CONDICIÓN DE EVALUACIÓN',
+            'PELIGRO_x000D_\n_x000D_\n(Evento Peligroso, categorias de Lista Maestra OST-SGI.SI.001)',
+            'CONSECUENCIAS_x000D_\nmas probables_x000D_\n_x000D_\n(Lesiones o daños mas probables)',
+            'DESVIO O CAUSA QUE ORIGINA EL PELIGRO_x000D_\n¿Por qué se genera el peligro?_x000D_\n_x000D_\nCausas/Devío: (Condiciones inseguras / Factores inseguros del Trabajo / Deficiencias de seguridad/ Actos Inseguros que generan el peligro)_x000D_\n_x000D_\nElementos: (Energías, equipos, maquinarias, sustancias, etc.)',
+            'DETERMINACIÓN DE LOS CONTROLES O PROTECCIÓNES EXISTENTES_x000D_\n_x000D_\n(Determine aquellos controles preventivos o de protección actualmente existentes)',
+            'SEVERIDAD_x000D_\n_x000D_\nDEL DAÑO',
+            'SEVERIDAD_x000D_\n_x000D_\nDEL DAÑO.1', 'INPE', 'IFDE', 'ICO',
+            '∑', 'Prob.', 'Prob..1', 'NIVEL DEL RIESGO',
+            'ACEPTABLE / NO ACEPTABLE', 'ES REQUISITO LEGAL? CUAL',
+            'MEDIDAS ADICIONALES DE CONTROL O PROTECCIÓN  PROPUESTAS_x000D_\n_x000D_\n(Debe atacar las CAUSAS identificadas)_x000D_\n_x000D_\n1. Eliminacion: _x000D_\n2. Sustitucion: _x000D_\n3.Controles Ingenieria/Protección colectiva:_x000D_\n4. Señalización/Controles administrativos: _x000D_\n5. EPP:',
+            'SEVERIDAD RESIDUAL _x000D_\nDEL DAÑO_x000D_\n_x000D_\n(analizar si hay disminución)',
+            'SEVERIDAD RESIDUAL _x000D_\nDEL DAÑO_x000D_\n_x000D_\n(analizar si hay disminución).1',
+            'INPE.1', 'IFDE.1', 'ICO.1', '∑.1', 'Prob..2', 'Prob..3',
+            'NUEVO NIVEL DEL RIESGO', 'ACEPTABLE / NO ACEPTABLE.1'])
+            
+        self.df.index.name = '#'
 
         self.opciones_peligro = {
             1: "A1. Caída de personas al mismo nivel",
@@ -138,6 +137,46 @@ class IPER_Row:
             42: "D6. Convulsión social"
         }
 
+        self.sector = sector
+        self.subsector = subsector 
+        self.problem_description = problem_description 
+        self.controles_implementados = self._get_controles_implementados()
+
+        # Indices
+        self.INPE = self._get_inpe()
+        self.IFDE = self._get_ifde() 
+        self.ICO = self._get_ico()
+
+        self.condicion_evaluacion = self._elegir_condicion()
+        self.peligro = self._seleccionar_peligro()
+        self.origen_peligro = self._generar_origen_peligro()
+        self.controles_pre_existentes = self._generar_controles_pre_existentes()
+
+        self.severidad_daño = None
+        self.string_severidad_daño = self._get_severidad_daño()
+
+        self.string_probabilidad = None
+        self.probabilidad = self._evaluar_probabilidad()
+
+        self.nivel_de_riesgo = self._calcular_nivel_riesgo()
+        self.aceptabilidad = self._evaluar_aceptabilidad()
+        
+        # Nuevos Indices #TODO
+        self.nueva_INPE = self._get_nueva_inpe()
+        self.nueva_IFDE = self._get_nueva_ifde() 
+        self.nueva_ICO = self._get_nueva_ico()
+
+        self.controles_adicionales = self._get_controles_adicionales()
+
+        self.nueva_severidad_daño = None
+        self.string_nueva_severidad_daño = self._get_string_nueva_severidad_daño()
+
+        self.nueva_probabilidad = self._evaluar_probabilidad_nueva()
+        self.nuevo_nivel_de_riesgo = self._get_nuevo_nivel_de_riesgo()
+        self.nueva_aceptabilidad =self._get_nueva_aceptabilidad()
+
+        self._fill_data()
+
     def _evaluar_probabilidad(self):
         '''
         Evalúa la probabilidad de riesgo en función de los indicadores.
@@ -152,17 +191,24 @@ class IPER_Row:
         '''
         suma = self.INPE + self.IFDE + self.ICO
         if suma <= 6:
+            self.string_probabilidad = 'Muy baja'
             return 1
         elif suma <= 10:
+            self.string_probabilidad = 'Baja'
             return 2
         elif suma <= 14:
+            self.string_probabilidad = 'Media'
             return 3
         elif suma <= 18:
+            self.string_probabilidad = 'Alta'
             return 4
         elif suma > 18:
+            self.string_probabilidad = 'Muy Alta'
             return 5
         else:
-            return None
+            self.string_probabilidad = '0'
+            return 0
+
 
     def _calcular_nivel_riesgo(self):
         '''
@@ -210,38 +256,33 @@ class IPER_Row:
 
         return nivel
 
+    def _evaluar_aceptabilidad_nueva(self):
+        '''
+        Evalúa la aceptabilidad del riesgo en función de la probabilidad y la severidad del daño.
+
+        Args:
+            self.probabilidad (int): Valor de la probabilidad de riesgo (1-5).
+            self.severidad_daño (int): Valor de la severidad del daño (1-5).
+
+        Returns:
+            str: Aceptabilidad del riesgo ("Aceptable" o "No Aceptable").
+        '''
+        resultado = self.nueva_probabilidad * self.severidad_daño
+        nivel = ""
+        if resultado > 7:
+            nivel = "No Aceptable"
+        else:
+            nivel = "Aceptable"
+
+        return nivel
+
     def _elegir_condicion(self):
 
-        # Define the prompt using self.problem_description
-        prompt = f"""Selecciona la condición más adecuada basada en la siguiente descripción:
-
-        Descripción del problema: 
-        {self.problem_description}
-
-        Opciones de condición:
-        0. Normal/Rutinaria
-        1. Anormal/Emergencia/No rutinaria
-        """
-
-        # Generate a response using the ChatGPT API
-        response = openai.Completion.create(
-            engine='davinci',
-            prompt=prompt,
-            max_tokens=1,
-            n=1,
-            stop=None,
-            temperature=0,
-        )
-
-        # Extract the selected option (con_eval) from the generated response
-        con_eval = int(response.choices[0].text.strip())
-
-        if con_eval == 0:
-            return "Normal/Rutinaria"
-        elif con_eval == 1:
-            return "Anormal/Emergencia/No rutinaria"
+        if self.IFDE == 2:
+            return 'Anormal/Emergencia/No rutinaria'
         else:
-            return None
+            return 'Normal/Rutinaria'
+            
 
     def _seleccionar_peligro(self):
         # Define the prompt using self.problem_description and opciones_peligro
@@ -254,39 +295,36 @@ class IPER_Row:
         """
 
         # Generate a response using the ChatGPT API
-        response = openai.Completion.create(
-            engine='davinci',
-            prompt=prompt,
+        messages = [{"role": "user", "content": prompt}]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
             max_tokens=1,
             n=1,
             stop=None,
-            temperature=0,
+            temperature=0
         )
 
         # Extract the selected option (key) from the generated response
-        selected_option = int(response.choices[0].text.strip())
+        selected_option = int(response.choices[0].message["content"].strip())
 
         return selected_option
 
     def _generar_origen_peligro(self):
-        pass
-
-    def _generar_controles_pre_existentes(self):
-        pass
+        return None
     
     def _get_severidad(self):
-        daño_menor = [1, 2, 5, 9, 10, 14, 19, 20, 21, 22, 23, 25, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42]
-        daño_mediano = [3, 4, 7, 8, 13, 17, 18, 24, 27, 37]
-        daño_mayor = [6, 11, 16, 26, 38]
-        daño_extremo = [15, 25]
-
-        if self.peligro in daño_menor:
+        danio_menor = [1, 2, 5, 9, 10, 14, 19, 20, 21, 22, 23, 25, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42]
+        danio_mediano = [3, 4, 7, 8, 13, 17, 18, 24, 27, 37]
+        danio_mayor = [6, 11, 16, 26, 38]
+        danio_extremo = [15, 25]
+        if self.peligro in danio_menor:
             return 1 
-        elif self.peligro in daño_mediano:
+        elif self.peligro in danio_mediano:
             return 2 
-        elif self.peligro in daño_mayor:
+        elif self.peligro in danio_mayor:
             return 3 
-        elif self.peligro in daño_extremo:
+        elif self.peligro in danio_extremo:
             return 4
         else:
             return 0
@@ -298,16 +336,20 @@ class IPER_Row:
         daño_extremo = [15, 25]
 
         if self.peligro in daño_menor:
+            self.severidad_daño = 1
             return 'daño menor'
         elif self.peligro in daño_mediano:
+            self.severidad_daño = 2
             return 'daño mediano'
         elif self.peligro in daño_mayor:
+            self.severidad_daño = 3
             return 'daño mayor'
         elif self.peligro in daño_extremo:
+            self.severidad_daño = 4
             return 'daño extremo'
         else:
             return 0
-
+    
     def _get_inpe(self):
         opciones_cantidad = [
             'No aplica (NO existe exposición de personas, sólo de equipos/infraestructura',
@@ -372,35 +414,137 @@ class IPER_Row:
             return 2
         else:
             return None
-        
 
     def _get_ico(self):
-            x = len(self.implemented_controls)
-            if x == 3:
-                return 1 
-            elif x == 2:
-                return 6
-            elif x == 1:
-                return 10
+        x = len(controles_implementados)
+        if x >= 3:
+            return 1 
+        elif x == 2:
+            return 6
+        elif x == 1:
+            return 10
+    
+    def _get_nueva_ico(self):
+        controles_previos = self.controles_implementados
+        controles_implementados =  self.get_controles_adicionales()  # Llamada al método controles_implementados()
+        x = len(controles_implementados) + len(controles_previos)
+        if x >= 3:
+            return 1 
+        elif x == 2:
+            return 6
+        elif x == 1:
+            return 10
 
-    def _implemented_controls(self):
+    def _evaluar_probabilidad_nueva(self):
+        '''
+        Evalúa la probabilidad de riesgo en función de los indicadores.
+
+        Args:
+            self.INPE (int): Índice de número de personas expuestas. (0-3)
+            self.IFDE (int): Índice de Frecuencia y Duración de la exposición. (1-5)
+            self.ICO (int): Índice de Controles existentes. (1, 6, 10)
+
+        Returns:
+            int: Valor de la probabilidad de riesgo (1-5) o None si no se cumple ninguna condición.
+        '''
+        suma = self.INPE + self.IFDE + self.nueva_ICO
+        if suma <= 6:
+            return 1
+        elif suma <= 10:
+            return 2
+        elif suma <= 14:
+            return 3
+        elif suma <= 18:
+            return 4
+        elif suma > 18:
+            return 5
+        else:
+            return None
+ 
+    def _get_controles_implementados(self):
         lista = []
         contador = 0
-        longitud = input("Numero de controloes")
-        while len(lista) < longitud:
+        longitud = input("Numero de controles:")
+        while len(lista) < int(longitud):
             string = input(contador)
             lista.append(string)
             contador += 1
             return lista
 
+    def get_controles_adicionales(self):
+        controles = []  
+        while True:
+            print('El riesgo se considera:', self.aceptabilidad)
+            respuesta = questionary.select(
+                "¿Deseas agregar un nuevo control?",
+                choices=["Si", "No"]
+                ).ask()
+            if respuesta == "No":
+                break
+            control = input('Agrega un control: ')
+            controles.append(control)
 
+
+    def _fill_data(self):
+        '''
+        Genera la fila del riesgo
+        '''
+        row = [
+            self.sector,
+            self.subsector,
+            self.condicion_evaluacion,
+            self.peligro,
+            self.problem_description,
+            self.origen_peligro, #TODO
+            self.controles_implementados,
+            self.string_severidad_daño,
+            self.severidad_daño,
+            self.INPE,
+            self.IFDE,
+            self.ICO,
+            self.INPE+self.IFDE+self.ICO,
+            self.string_probabilidad,
+            self.probabilidad,
+            self.nivel_de_riesgo,
+            self.aceptabilidad,
+            None, #Esquema legal
+            self.controles_adicionales,
+            self.string_nueva_severidad_daño,
+            self.nueva_severidad_daño, 
+            self.nueva_INPE, 
+            self.nueva_IFDE, 
+            self.nueva_ICO, 
+            self.nueva_INPE+self.nueva_IFDE+self.nueva_ICO,
+            self.nueva_probabilidad, 
+            self.nuevo_nivel_de_riesgo,
+            self.nueva_aceptabilidad 
+            ]
+        self.df.loc[0] = row
 
 if __name__ == "__main__":
-    while():
-        sector= input("Define el sector: ")
-        subsector= input("Define el area: ")
-        problem_description = input("Define el area: ")
-        person_count = None
-        usage_time = None
-        implemented_controls = None
-        print('')
+    filas = []
+
+    while True:
+        sector = input("Define el sector: ")
+        subsector = input("Define el área: ")
+        problem_description = input("Define la descripción del problema: ")
+
+        iper_row = IPER_Row(sector, subsector, problem_description).df
+
+        filas.append(iper_row)
+
+        respuesta = questionary.select(
+            "Desea agregar otro riesgo?",
+            choices=["Si", "No"]
+        ).ask()
+
+        if respuesta == "No":
+            break
+    if len(filas)>=1:
+        iper = pd.concat(filas, axis=0)
+    else:
+        iper=filas[0]
+    # Guardar la instancia en un archivo Excel
+    filename = 'matriz_iper.xlsx'
+    iper.to_excel(filename, index=True)
+    print(f"Matriz de Identificación de Peligros y la Evaluación de Riesgos(IPER) {filename}")
