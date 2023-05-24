@@ -161,8 +161,8 @@ class IPER_Row:
         self.nivel_de_riesgo = self._calcular_nivel_riesgo()
         self.aceptabilidad = self._evaluar_aceptabilidad()
         
-        # Nuevos Indices #TODO
-        self.nueva_INPE = self._get_nueva_inpe()
+        # Nuevos Indices 
+        self.nueva_INPE = self._get_nueva_inpe() 
         self.nueva_IFDE = self._get_nueva_ifde() 
         self.nueva_ICO = self._get_nueva_ico()
 
@@ -350,6 +350,16 @@ class IPER_Row:
         else:
             return 0
     
+    def _get_controles_implementados(self):
+        lista = []
+        contador = 0
+        longitud = input("Numero de controles:")
+        while len(lista) < int(longitud):
+            string = input(contador)
+            lista.append(string)
+            contador += 1
+        return lista
+
     def _get_inpe(self):
         opciones_cantidad = [
             'No aplica (NO existe exposición de personas, sólo de equipos/infraestructura',
@@ -423,6 +433,12 @@ class IPER_Row:
             return 6
         elif x == 1:
             return 10
+
+    def _get_nueva_inpe(self):
+        pass
+
+    def _get_nueva_ifde(self):
+        pass
     
     def _get_nueva_ico(self):
         controles_previos = self.controles_implementados
@@ -461,29 +477,19 @@ class IPER_Row:
         else:
             return None
  
-    def _get_controles_implementados(self):
-        lista = []
-        contador = 0
-        longitud = input("Numero de controles:")
-        while len(lista) < int(longitud):
-            string = input(contador)
-            lista.append(string)
-            contador += 1
-            return lista
-
-    def get_controles_adicionales(self):
+    def _get_controles_adicionales(self):
         controles = []  
         while True:
             print('El riesgo se considera:', self.aceptabilidad)
             respuesta = questionary.select(
-                "¿Deseas agregar un nuevo control?",
+                "¿Deseas agregar alguna nueva medida de control para disminuir el riesgo?",
                 choices=["Si", "No"]
                 ).ask()
             if respuesta == "No":
                 break
-            control = input('Agrega un control: ')
+            control = input('Agrega una nueva medida de control: ')
             controles.append(control)
-
+        return controles
 
     def _fill_data(self):
         '''
@@ -544,7 +550,7 @@ if __name__ == "__main__":
         iper = pd.concat(filas, axis=0)
     else:
         iper=filas[0]
-    # Guardar la instancia en un archivo Excel
+    #Guardar la instancia en un archivo Excel
     filename = 'matriz_iper.xlsx'
     iper.to_excel(filename, index=True)
     print(f"Matriz de Identificación de Peligros y la Evaluación de Riesgos(IPER) {filename}")
