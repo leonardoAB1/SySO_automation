@@ -356,7 +356,12 @@ class IPER_Row:
 
     def _generar_origen_peligro(self):
         # Llamar a la API de OpenAI para generar un objetivo conciso para el peligro dado
-        prompt = f"Genera una posible causa del siguiente peligro de salud y seguridad en el trbajo: {peligro}. \nNo empezar el texto con saltos de linea, signos de putnuación ni similar.\nResponde en una oracion de maximo 6 palabras."
+        prompt = f"""
+        Genera una posible causa del siguiente peligro de salud y seguridad en el trabajo de manera forta y consisa: {self.peligro}.
+
+        No empezar el texto con saltos de linea, signos de putnuación ni similar.
+        Responde en una oracion de maximo 6 palabras.
+        """
         
         messages = [{"role": "user", "content": prompt}]
         response = openai.ChatCompletion.create(
