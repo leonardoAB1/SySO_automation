@@ -20,7 +20,18 @@ Este proyecto tiene como objetivo automatizar el proceso de generación de un pr
    pip install -r requirements.yml
    ```
 
-4. Ejecuta el programa utilizando el siguiente comando:
+4. Configura la variable de entorno del sistema con el nombre 'SYS_OPENIA_API_KEY' y asigna tu API key de OpenAI como valor. Puedes solicitar tu API key personal en la dirección: [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
+
+   **En Windows:**
+   
+   - Abre el menú de inicio y busca "Variables de entorno".
+   - Selecciona "Editar las variables de entorno del sistema".
+   - Haz clic en el botón "Variables de entorno".
+   - En la sección "Variables del sistema", busca la variable "SYS_OPENIA_API_KEY" y haz clic en "Editar".
+   - Ingresa tu API key de OpenAI en el campo "Valor de la variable".
+   - Haz clic en "Aceptar" para guardar los cambios.
+
+5. Ejecuta el programa utilizando el siguiente comando:
 
    ```
    python generar_programa_gestion.py
@@ -43,5 +54,7 @@ Este proyecto tiene como objetivo automatizar el proceso de generación de un pr
 5. Abre un pull request en este repositorio.
 
 ## Licencia
+
+
 
 Este proyecto se encuentra bajo la [Licencia MIT](LICENSE).
