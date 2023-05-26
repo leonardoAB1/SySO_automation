@@ -27,7 +27,7 @@ Este proyecto tiene como objetivo automatizar el proceso de generación de un pr
    - Abre el menú de inicio y busca "Variables de entorno".
    - Selecciona "Editar las variables de entorno del sistema".
    - Haz clic en el botón "Variables de entorno".
-   - En la sección "Variables del sistema", busca la variable "SYS_OPENIA_API_KEY" y haz clic en "Editar".
+   - En la sección "Variables del sistema", crea la variable "SYS_OPENIA_API_KEY" y haz clic en "Editar".
    - Ingresa tu API key de OpenAI en el campo "Valor de la variable".
    - Haz clic en "Aceptar" para guardar los cambios.
 
