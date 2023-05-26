@@ -370,7 +370,7 @@ class IPER_Row:
             max_tokens=80,
             n=1,
             stop=None,
-            temperature=0.4
+            temperature=0.7
         )
         
         origen_peligro = response.choices[0].message["content"].strip()
@@ -450,7 +450,6 @@ class IPER_Row:
             return 5
         else:
             return None
-
         
     def _get_ifde(self):
         opciones_frecuencia = [
@@ -538,7 +537,7 @@ class IPER_Row:
             self.sector,
             self.subsector,
             self.condicion_evaluacion,
-            self.peligro,
+            self.opciones_peligro.get(self.peligro), 
             self.problem_description,
             self.origen_peligro, #TODO
             self.controles_implementados[0],
@@ -580,7 +579,7 @@ if __name__ == "__main__":
         filas.append(iper_row)
 
         respuesta = questionary.select(
-            "Desea agregar otro riesgo?",
+            "¿Desea agregar otro riesgo?(Caso contrario se generara el archivo xlsx de la IPER)",
             choices=["Si", "No"]
         ).ask()
 
