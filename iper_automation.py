@@ -73,7 +73,8 @@ class IPER_Row:
     '''
     def __init__(self, sector, subsector,  problem_description):
 
-        self.df = pd.DataFrame(columns=['SECTOR / AREA / UNIDAD / PROCESO O SUB-PROCESO',
+        self.df = pd.DataFrame(columns=[
+            'SECTOR / AREA / UNIDAD / PROCESO O SUB-PROCESO',
             'ACTIVIDAD / TAREA / LUGAR / EQUIPO / EVENTO',
             'CONDICIÓN DE EVALUACIÓN',
             'PELIGRO_x000D_\n_x000D_\n(Evento Peligroso, categorias de Lista Maestra OST-SGI.SI.001)',
@@ -81,14 +82,27 @@ class IPER_Row:
             'DESVIO O CAUSA QUE ORIGINA EL PELIGRO_x000D_\n¿Por qué se genera el peligro?_x000D_\n_x000D_\nCausas/Devío: (Condiciones inseguras / Factores inseguros del Trabajo / Deficiencias de seguridad/ Actos Inseguros que generan el peligro)_x000D_\n_x000D_\nElementos: (Energías, equipos, maquinarias, sustancias, etc.)',
             'DETERMINACIÓN DE LOS CONTROLES O PROTECCIÓNES EXISTENTES_x000D_\n_x000D_\n(Determine aquellos controles preventivos o de protección actualmente existentes)',
             'SEVERIDAD_x000D_\n_x000D_\nDEL DAÑO',
-            'SEVERIDAD_x000D_\n_x000D_\nDEL DAÑO.1', 'INPE', 'IFDE', 'ICO',
-            '∑', 'Prob.', 'Prob..1', 'NIVEL DEL RIESGO',
-            'ACEPTABLE / NO ACEPTABLE', 'ES REQUISITO LEGAL? CUAL',
+            'SEVERIDAD_x000D_\n_x000D_\nDEL DAÑO.1', 
+            'INPE', 
+            'IFDE', 
+            'ICO',
+            '∑', 
+            'Prob.', 
+            'Prob..1', 
+            'NIVEL DEL RIESGO',
+            'ACEPTABLE / NO ACEPTABLE', 
+            'ES REQUISITO LEGAL? CUAL',
             'MEDIDAS ADICIONALES DE CONTROL O PROTECCIÓN  PROPUESTAS_x000D_\n_x000D_\n(Debe atacar las CAUSAS identificadas)_x000D_\n_x000D_\n1. Eliminacion: _x000D_\n2. Sustitucion: _x000D_\n3.Controles Ingenieria/Protección colectiva:_x000D_\n4. Señalización/Controles administrativos: _x000D_\n5. EPP:',
             'SEVERIDAD RESIDUAL _x000D_\nDEL DAÑO_x000D_\n_x000D_\n(analizar si hay disminución)',
             'SEVERIDAD RESIDUAL _x000D_\nDEL DAÑO_x000D_\n_x000D_\n(analizar si hay disminución).1',
-            'INPE.1', 'IFDE.1', 'ICO.1', '∑.1', 'Prob..2', 'Prob..3',
-            'NUEVO NIVEL DEL RIESGO', 'ACEPTABLE / NO ACEPTABLE.1'])
+            'INPE.1', 
+            'IFDE.1', 
+            'ICO.1', 
+            '∑.1', 
+            'Prob..2', 
+            'Prob..3',
+            'NUEVO NIVEL DEL RIESGO', 
+            'ACEPTABLE / NO ACEPTABLE.1'])
             
         self.df.index.name = '#'
 
@@ -150,34 +164,40 @@ class IPER_Row:
         self.condicion_evaluacion = self._elegir_condicion()
         self.peligro = self._seleccionar_peligro()
         self.origen_peligro = self._generar_origen_peligro()
-        self.controles_pre_existentes = self._generar_controles_pre_existentes()
 
         self.severidad_daño = None
         self.string_severidad_daño = self._get_severidad_daño()
 
         self.string_probabilidad = None
-        self.probabilidad = self._evaluar_probabilidad()
+        self.probabilidad = self._evaluar_probabilidad(self.INPE, self.IFDE, self.ICO)
+        self._set_string_probabilidad()
 
-        self.nivel_de_riesgo = self._calcular_nivel_riesgo()
-        self.aceptabilidad = self._evaluar_aceptabilidad()
-        
+        self.nivel_de_riesgo = self._calcular_nivel_riesgo(self.probabilidad, self.severidad_daño)
+        self.aceptabilidad = self._evaluar_aceptabilidad(self.probabilidad, self.severidad_daño)
+
+        print('El riesgo se considera:', self.aceptabilidad)
+
         # Nuevos Indices 
-        self.nueva_INPE = self._get_nueva_inpe() 
-        self.nueva_IFDE = self._get_nueva_ifde() 
+        self.controles_adicionales = self._get_controles_adicionales(self.controles_implementados)
+     
+        self.nueva_INPE = self.INPE 
+        self.nueva_IFDE = self.IFDE 
         self.nueva_ICO = self._get_nueva_ico()
+        self.nueva_probabilidad = self._evaluar_probabilidad(self.nueva_INPE, self.nueva_IFDE, self.nueva_ICO)
 
-        self.controles_adicionales = self._get_controles_adicionales()
+        self.nueva_severidad_daño = self.severidad_daño
+        self.string_nueva_severidad_daño = self.string_severidad_daño
 
-        self.nueva_severidad_daño = None
-        self.string_nueva_severidad_daño = self._get_string_nueva_severidad_daño()
-
-        self.nueva_probabilidad = self._evaluar_probabilidad_nueva()
-        self.nuevo_nivel_de_riesgo = self._get_nuevo_nivel_de_riesgo()
-        self.nueva_aceptabilidad =self._get_nueva_aceptabilidad()
+        self.nueva_string_probabilidad = None
+        self._set_string_nueva_probabilidad()
+        self.nuevo_nivel_de_riesgo = self._calcular_nivel_riesgo(self.nueva_probabilidad, self.nueva_severidad_daño)
+        self.nueva_aceptabilidad =self._evaluar_aceptabilidad(self.nueva_probabilidad, self.nueva_severidad_daño)
 
         self._fill_data()
 
-    def _evaluar_probabilidad(self):
+        print('El riesgo se considera:', self.nueva_aceptabilidad)
+
+    def _evaluar_probabilidad(self, inpe, ifde, ico):
         '''
         Evalúa la probabilidad de riesgo en función de los indicadores.
 
@@ -189,28 +209,51 @@ class IPER_Row:
         Returns:
             int: Valor de la probabilidad de riesgo (1-5) o None si no se cumple ninguna condición.
         '''
-        suma = self.INPE + self.IFDE + self.ICO
+        suma = inpe + ifde + ico
         if suma <= 6:
-            self.string_probabilidad = 'Muy baja'
             return 1
         elif suma <= 10:
-            self.string_probabilidad = 'Baja'
             return 2
         elif suma <= 14:
-            self.string_probabilidad = 'Media'
             return 3
         elif suma <= 18:
-            self.string_probabilidad = 'Alta'
             return 4
         elif suma > 18:
-            self.string_probabilidad = 'Muy Alta'
             return 5
         else:
-            self.string_probabilidad = '0'
             return 0
 
+    def _set_string_probabilidad(self):
+        match self.probabilidad:
+            case 1:
+                self.string_probabilidad = 'Muy baja'
+            case 2:
+                self.string_probabilidad = 'Baja'
+            case 3:
+                self.string_probabilidad = 'Media'
+            case 4:
+                self.string_probabilidad = 'Alta'
+            case 5:
+                self.string_probabilidad = 'Muy Alta'
+            case _:
+                self.string_probabilidad = '0'
 
-    def _calcular_nivel_riesgo(self):
+    def _set_string_nueva_probabilidad(self):
+        match self.probabilidad:
+            case 1:
+                self.nueva_string_probabilidad = 'Muy baja'
+            case 2:
+                self.nueva_string_probabilidad = 'Baja'
+            case 3:
+                self.nueva_string_probabilidad = 'Media'
+            case 4:
+                self.nueva_string_probabilidad = 'Alta'
+            case 5:
+                self.nueva_string_probabilidad = 'Muy Alta'
+            case _:
+                self.nueva_string_probabilidad = '0'
+
+    def _calcular_nivel_riesgo(self, probabilidad, severidad_daño):
         '''
         Calcula el nivel de riesgo en función de la probabilidad y la severidad del daño.
 
@@ -221,7 +264,7 @@ class IPER_Row:
         Returns:
             str: Nivel de riesgo ("Trivial", "Bajo", "Moderado", "Alto" o "Intolerable").
         '''
-        resultado = self.probabilidad * self.severidad_daño
+        resultado = probabilidad * severidad_daño
         nivel = ""
         if resultado <= 2:
             nivel = "Trivial"
@@ -236,7 +279,7 @@ class IPER_Row:
 
         return nivel
 
-    def _evaluar_aceptabilidad(self):
+    def _evaluar_aceptabilidad(self, probabilidad, severidad_daño):
         '''
         Evalúa la aceptabilidad del riesgo en función de la probabilidad y la severidad del daño.
 
@@ -247,7 +290,7 @@ class IPER_Row:
         Returns:
             str: Aceptabilidad del riesgo ("Aceptable" o "No Aceptable").
         '''
-        resultado = self.probabilidad * self.severidad_daño
+        resultado = probabilidad * severidad_daño
         nivel = ""
         if resultado > 7:
             nivel = "No Aceptable"
@@ -286,7 +329,8 @@ class IPER_Row:
 
     def _seleccionar_peligro(self):
         # Define the prompt using self.problem_description and opciones_peligro
-        prompt = f"""Selecciona el peligro más adecuado basado en la siguiente descripción:
+        prompt = f"""Selecciona el peligro más adecuado lista de opciones de peligro basado en la siguiente descripción:
+        Devuelve solo el indice correspondiente, un entero.
 
         Descripción del problema: {self.problem_description}
 
@@ -311,7 +355,22 @@ class IPER_Row:
         return selected_option
 
     def _generar_origen_peligro(self):
-        return None
+        # Llamar a la API de OpenAI para generar un objetivo conciso para el peligro dado
+        prompt = f"Genera una posible causa del siguiente peligro de salud y seguridad en el trbajo: {peligro}. \nNo empezar el texto con saltos de linea, signos de putnuación ni similar.\nResponde en una oracion de maximo 6 palabras."
+        
+        messages = [{"role": "user", "content": prompt}]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            max_tokens=80,
+            n=1,
+            stop=None,
+            temperature=0.4
+        )
+        
+        origen_peligro = response.choices[0].message["content"].strip()
+
+        return origen_peligro
     
     def _get_severidad(self):
         danio_menor = [1, 2, 5, 9, 10, 14, 19, 20, 21, 22, 23, 25, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 41, 42]
@@ -351,14 +410,22 @@ class IPER_Row:
             return 0
     
     def _get_controles_implementados(self):
-        lista = []
-        contador = 0
-        longitud = input("Numero de controles:")
-        while len(lista) < int(longitud):
-            string = input(contador)
-            lista.append(string)
-            contador += 1
-        return lista
+        controles = [] 
+        respuesta = questionary.select(
+                "¿Existen medidas de control preexistentes?",
+                choices=["Si", "No"]
+                ).ask()
+        if  respuesta == "Si":
+            while True:
+                control = input('Agrega una medida de control preexistente: ')
+                controles.append(control)
+                respuesta = questionary.select(
+                    "¿Existen otras mediadas de control preexistentes?",
+                    choices=["Si", "No"]
+                    ).ask()
+                if respuesta == "No":
+                    break
+        return controles
 
     def _get_inpe(self):
         opciones_cantidad = [
@@ -368,7 +435,7 @@ class IPER_Row:
             'Más de 20 personas'
             ]
 
-        cantidad = select('Selecciona una opción', choices=opciones_cantidad).ask()
+        cantidad = select('¿Cuantas personas trabajan en estan involucradas en esta actividad?', choices=opciones_cantidad).ask()
 
         if cantidad == 'De 1 a 10 personas':
             return 1
@@ -394,28 +461,28 @@ class IPER_Row:
             'Más del 50% del turno de trabajo'
             ]
 
-        frecuencia = select('Selecciona una opción', choices=opciones_frecuencia).ask()
+        frecuencia = select('¿Con que frecuencia se realiza la actividad?', choices=opciones_frecuencia).ask()
 
         if frecuencia == 'DIARIA o todos los días':
-            duracion = select('Selecciona una opción', choices=opciones_duracion).ask()
+            duracion = select('¿Durante cuanto tiempo?', choices=opciones_duracion).ask()
             if duracion == 'Menos del 50% del turno de trabajo':
                 return 4
             else:
                 return 5
         elif frecuencia == 'SEMANALMENTE o todas las semanas (pero no se reitera cada día)':
-            duracion = select('Selecciona una opción', choices=opciones_duracion).ask()
+            duracion = select('¿Durante cuanto tiempo?', choices=opciones_duracion).ask()
             if duracion == 'Menos del 50% del turno de trabajo':
                 return 3
             else:
                 return 4
         elif frecuencia == 'MENSUALMENTE (pero no se reitera cada semana) a SEMESTRALMENTE':
-            duracion = select('Selecciona una opción', choices=opciones_duracion).ask()
+            duracion = select('¿Durante cuanto tiempo?', choices=opciones_duracion).ask()
             if duracion == 'Menos del 50% del turno de trabajo':
                 return 2
             else:
                 return 3
         elif frecuencia == 'Se realiza con una frecuencia mayor a la SEMESTRAL':
-            duracion = select('Selecciona una opción', choices=opciones_duracion).ask()
+            duracion = select('¿Durante cuanto tiempo?', choices=opciones_duracion).ask()
             if duracion == 'Menos del 50% del turno de trabajo':
                 return 1
             else:
@@ -426,61 +493,28 @@ class IPER_Row:
             return None
 
     def _get_ico(self):
-        x = len(controles_implementados)
+        x = len(self.controles_implementados)
         if x >= 3:
             return 1 
         elif x == 2:
             return 6
         elif x == 1:
             return 10
-
-    def _get_nueva_inpe(self):
-        pass
-
-    def _get_nueva_ifde(self):
-        pass
     
     def _get_nueva_ico(self):
-        controles_previos = self.controles_implementados
-        controles_implementados =  self.get_controles_adicionales()  # Llamada al método controles_implementados()
-        x = len(controles_implementados) + len(controles_previos)
+        x = len(self.controles_adicionales)
         if x >= 3:
             return 1 
         elif x == 2:
             return 6
         elif x == 1:
             return 10
-
-    def _evaluar_probabilidad_nueva(self):
-        '''
-        Evalúa la probabilidad de riesgo en función de los indicadores.
-
-        Args:
-            self.INPE (int): Índice de número de personas expuestas. (0-3)
-            self.IFDE (int): Índice de Frecuencia y Duración de la exposición. (1-5)
-            self.ICO (int): Índice de Controles existentes. (1, 6, 10)
-
-        Returns:
-            int: Valor de la probabilidad de riesgo (1-5) o None si no se cumple ninguna condición.
-        '''
-        suma = self.INPE + self.IFDE + self.nueva_ICO
-        if suma <= 6:
-            return 1
-        elif suma <= 10:
-            return 2
-        elif suma <= 14:
-            return 3
-        elif suma <= 18:
-            return 4
-        elif suma > 18:
-            return 5
-        else:
-            return None
  
-    def _get_controles_adicionales(self):
-        controles = []  
+    def _get_controles_adicionales(self, controles_previos):
+        new_list = []
+        new_list.extend(controles_previos)
+
         while True:
-            print('El riesgo se considera:', self.aceptabilidad)
             respuesta = questionary.select(
                 "¿Deseas agregar alguna nueva medida de control para disminuir el riesgo?",
                 choices=["Si", "No"]
@@ -488,8 +522,8 @@ class IPER_Row:
             if respuesta == "No":
                 break
             control = input('Agrega una nueva medida de control: ')
-            controles.append(control)
-        return controles
+            new_list.append(control)
+        return " ".join(new_list)
 
     def _fill_data(self):
         '''
@@ -502,7 +536,7 @@ class IPER_Row:
             self.peligro,
             self.problem_description,
             self.origen_peligro, #TODO
-            self.controles_implementados,
+            self.controles_implementados[0],
             self.string_severidad_daño,
             self.severidad_daño,
             self.INPE,
@@ -521,6 +555,7 @@ class IPER_Row:
             self.nueva_IFDE, 
             self.nueva_ICO, 
             self.nueva_INPE+self.nueva_IFDE+self.nueva_ICO,
+            self.nueva_string_probabilidad,
             self.nueva_probabilidad, 
             self.nuevo_nivel_de_riesgo,
             self.nueva_aceptabilidad 
