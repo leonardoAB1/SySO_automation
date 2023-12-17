@@ -4,4 +4,4 @@ prototypes/danger_detection/dataset/valid
 prototypes/danger_detection/dataset/workersafety.zip
 
 prototypes/danger_detection/src/__pycache__
-prototypes/danger_detection/outputs/model1.pth
+prototypes/danger_detection/outputs/model[0-100].pth
