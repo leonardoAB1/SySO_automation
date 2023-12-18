@@ -8,7 +8,7 @@ from model import create_model
 # set the computation device
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 # load the model and the trained weights
-model = create_model(num_classes=5).to(device)
+model = create_model(num_classes=6).to(device)
 model.load_state_dict(torch.load(
     '../outputs/model10.pth', map_location=device
 ))
@@ -28,7 +28,7 @@ CLASSES = [
 detection_threshold = 0.8
 for i in range(len(test_images)):
     # get the image file name for saving output later on
-    image_name = test_images[i].split('/')[-1].split('.')[0]
+    image_name = test_images[i].split('/')[-1].split('.')[0].replace('test_data\\',"")
     image = cv2.imread(test_images[i])
     orig_image = image.copy()
     # BGR to RGB
@@ -36,7 +36,7 @@ for i in range(len(test_images)):
     # make the pixel range between 0 and 1
     image /= 255.0
     # bring color channels to front
-    image = np.transpose(image, (2, 0, 1)).astype(np.float)
+    image = np.transpose(image, (2, 0, 1)).astype(float)
     # convert to tensor
     image = torch.tensor(image, dtype=torch.float).cuda()
     # add batch dimension
@@ -69,9 +69,10 @@ for i in range(len(test_images)):
                         
         cv2.imshow('Prediction', orig_image)
         cv2.waitKey(1)
-        cv2.imwrite(f"../test_predictions/{image_name}.jpg", orig_image,)
+        if not cv2.imwrite(f'../test_predictions/{image_name}.jpg', orig_image):
+            raise Exception(f"Could not write image: ../test_predictions/{image_name}.jpg")
     print(f"Image {i+1} done...")
     print('-'*50)
 
 print('TEST PREDICTIONS COMPLETE')
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
