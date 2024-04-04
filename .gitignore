@@ -7,3 +7,4 @@ prototypes/danger_detection/src/__pycache__
 prototypes/danger_detection/outputs/model[0-9]*.pth
 .vscode
 docs/proto_thesis
+docs/psst_references
