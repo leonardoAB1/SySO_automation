@@ -247,6 +247,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Section Format
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
 \newcommand{\standardSectionStyle}{%
 	\titleformat{\section}
 	{\normalfont\bfseries}
@@ -277,6 +280,15 @@
 \titleformat{\subsection}
 {\normalfont\fontsize{12}{15}\bfseries\itshape}
 {\thesubsection}
+{1em}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsubsection Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\subsubsection}[runin]
+{\normalfont\fontsize{12}{15}\bfseries\itshape}
+{\thesubsubsection}
 {1em}
 {}
 
