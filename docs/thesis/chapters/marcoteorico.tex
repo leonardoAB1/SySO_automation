@@ -121,10 +121,10 @@ Un peligro es una fuente o situación que tiene el potencial de causar daño en 
 
 %--------------------------------------------------------------------------
 \subsection{Riesgo}
-El riesgo se define como la combinación de la probabilidad \( P \) de que ocurra un evento o exposición peligrosa y la severidad \( S \) de las lesiones, daños o deterioro de la salud que pueden resultar de dicho evento o exposición (\cite{NTS-009/18}). Esta combinación se expresa matemáticamente como:
-\begin{equation}
-    R = P \cdot S
-\end{equation}
+El riesgo se define como la combinación de la probabilidad \( P \) de que ocurra un evento o exposición peligrosa y la severidad \( S \) de las lesiones, daños o deterioro de la salud que pueden resultar de dicho evento o exposición (\cite{NTS-009/18}). %Esta combinación se expresa matemáticamente como:
+%\begin{equation}
+%    R = P \cdot S
+%\end{equation}
 Por lo tanto, es crucial para la ingeniería de seguridad establecer métodos y criterios claros para que los profesionales en SySO determinen el valor de estas variables. Es importante tener en cuenta que esta evaluación implica un componente \textbf{subjetivo} del potencial de riesgo.\\
 En el contexto de la evaluación de riesgos laborales, se identifican diversas categorías que representan los tipos principales de riesgos a los que pueden estar expuestos los trabajadores. A continuación se detallan estas categorías y los tipos de riesgos asociados a cada una (\cite{cahuasiquitadiseno}).
 
@@ -243,7 +243,7 @@ La Resolución Ministerial 527/09, determina que los empleadores tienen la oblig
 \end{samepage}
 
 \begin{samepage}
-\begin{itemize} [wide=0pt, topsep=0pt] \item \textbf{Resolución Ministerial N° 849/2014} \end{itemize} 
+\begin{itemize} [wide=0pt, topsep=0pt] \item \textbf{Resolución Ministerial N° 849/14} \end{itemize} 
 
 \indent
 Esta resolución aprueba la ``Norma de Señalización de Seguridad, Salud en el Trabajo y Emergencias de
@@ -277,7 +277,7 @@ El PGSST es un documento, vigente por tres años tras ser firmado su Certificado
 	\begin{center}
 		\caption{Descripción de actividades para la elaboración de PSST.}
 		\label{tab:tabla_requisitos_nts_009}
-		\begin{tabular}{|m{2cm}| m{14cm}|}
+		\begin{tabular}{|m{1cm}| m{14cm}|}
 			\hline
 			\textbf{N°} & \multicolumn{1}{>{\centering\arraybackslash}m{14cm}|}{\textbf{Actividad}}\\ \hline
 			1 & Identificación de riesgos y evaluación de riesgos mediante
@@ -358,65 +358,64 @@ Esta regulación proporciona directrices ergonómicas para distintas actividades
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
 \section{Metodologías de Desarrollo de Software}
-El desarrollo de software es el proceso de crear, probar y mantener productos y servicios de software que satisfagan las expectativas de usuarios, clientes o partes interesadas. Las metodologías de desarrollo de software son marcos o modelos que guían el proceso de desarrollo de software y definen los roles, responsabilidades, actividades y entregables del equipo de desarrollo de software.
-%--------------------------------------------------------------------------
-\subsection{Cascada}
-El modelo de cascada, un enfoque tradicional del desarrollo de software, sigue una secuencia lineal y predefinida de actividades que incluyen la definición de requisitos, el diseño, la implementación, las pruebas y el mantenimiento (\cite{auer1990solution}). Como se muestra en la Figura \ref{figs:modelo_desarrollo_cascada}, este enfoque se asemeja a una cascada en el sentido de que cada fase debe completarse antes de pasar a la siguiente.\\
-En este modelo, se espera que los requisitos estén completos y sean precisos al principio del proceso de desarrollo. Esto significa que el software funcional no está disponible durante mucho tiempo durante el ciclo de vida del desarrollo, y es difícil retroceder a una fase anterior, lo que dificulta los cambios en los requisitos.  Más aun, las pruebas se realizan muy tarde en el proceso de desarrollo, lo que aumenta el riesgo de errores no detectados hasta etapas avanzadas. En consecuencia, el modelo de cascada no sea adecuado para proyectos grandes y complejos.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{images/marcoteorico/modelo_cascada.png}
-	\caption{Proceso de desarrollo en Cascada.}
-    \vspace{-0.2cm}
-	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{auer1990solution}{title}}'' (\citeyear{auer1990solution}).}}
-	\label{figs:modelo_desarrollo_cascada} 
-\end{figure}
-%--------------------------------------------------------------------------
-\subsection{Agile}
-Agile integra una filosofía y un conjunto de pautas para el desarrollo. Esta filosofía fomenta la satisfacción del cliente y la entrega incremental temprana del software mediante equipos de proyecto pequeños y altamente motivados, métodos informales y una simplificación general del proceso de desarrollo (\cite{pressman2005software}). Las pautas de desarrollo priorizan la entrega sobre el análisis y el diseño, manteniendo una comunicación activa y continua entre desarrolladores y clientes. En otras palabras, se centra en la entrega iterativa e incremental de software en lugar de seguir un enfoque lineal y secuencial. Entre algunas de los modelos de desarrollo bajo los principios de Programación ágil se distinguen: Scrum, Crystal, programación extrema, etc.\\ \indent
-Más aun, entre las diversas metodologías ágiles existen herramientas de uso compartido. Por ejemplo, la revisión sistemática de literatura de \textcite{schon2017agile} identificó que los artefactos mas utilizados en la industria del software para obtener y entender los requerimientos del cliente son: Las \textbf{historias de usuario}, los \textbf{prototipos}, los diagramas de \textbf{casos de uso}, el análisis de \textbf{escenarios} y las \textbf{tarjetas de historia}.
+El desarrollo de software es el proceso de crear, probar y mantener productos y servicios de software que satisfagan las expectativas de usuarios, clientes o partes interesadas. Las metodologías de desarrollo de software son marcos o modelos que guían el proceso de desarrollo de software y definen los roles, responsabilidades, actividades y entregables del equipo de desarrollo de software. En los últimos años, las metodologías ágiles han ganado popularidad por su enfoque flexible y adaptable.\\ 
+Agile integra una filosofía y un conjunto de pautas que fomentan la satisfacción del cliente y la entrega temprana e incremental del software. Esto se logra mediante equipos pequeños y altamente motivados, métodos informales y una simplificación del proceso de desarrollo (\cite{pressman2005software}). Las pautas ágiles priorizan la entrega sobre el análisis y el diseño, manteniendo una comunicación activa y continua entre desarrolladores y clientes. Así, Agile se centra en la entrega iterativa e incremental de software en lugar de seguir un enfoque lineal y secuencial.
 
-\subsubsection{Programación Extrema}\hfill\\ 
-\indent
-Se trata de una metodología de desarrollo orientada a objetos cuyo objetivo es promover la aplicación de prácticas de ingeniería apropiadas para la creación de software. Como se puede notar en la Figura \ref{figs:modelo_desarrollo_xp}, bajo esta metodología, el proyecto se plantea en cuatro etapas: Planificación, diseño, programación y pruebas (\cite{pressman2005software}). 
-\begin{figure}[H]
+%--------------------------------------------------------------------------
+\subsection{Programación Extrema}
+La metodología ágil de desarrollo orientada a objetos, conocida como Programación Extrema (XP), busca promover prácticas de ingeniería adecuadas para la creación de software. Esta metodología se divide en cuatro etapas: planificación, diseño, programación y pruebas (\cite{pressman2005software}). Bajo esta metodología, la planificación implica la escucha activa de los clientes para comprender el contexto del negocio y definir las funcionalidades requeridas mediante historias o historias de usuario. Cada historia recibe una valoración por parte del cliente según su importancia, y el equipo de desarrollo estima el tiempo necesario para su implementación.
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=1.0\textwidth]{images/marcoteorico/modelo_xp.png}
+    \input{images/marcoteorico/modelo_xp.tex}
+    \vspace{-0.5cm}
 	\caption{Proceso de desarrollo bajo la metodología de Programación Extrema.}
     \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{pressman2005software}{title}}'' (\citeyear{pressman2005software}).}}
-	\label{figs:modelo_desarrollo_xp} 
+	\label{fig:modelo_desarrollo_xp} 
 \end{figure}
-La planificación consta de escuchar a los clientes para comprender el contexto del negocio y definir las funcionalidades requeridas en forma de \textbf{historias} o \textbf{historias de usuario}. Cada historia es asignada un valor por el cliente basado en su importancia para el negocio, y el equipo de desarrollo estima el coste en semanas de desarrollo. Si una historia requiere más de tres semanas, se divide en historias más pequeñas. Luego, el equipo y el cliente deciden qué historias incluir en la próxima versión del software. Después de entregar la primera versión, se calcula la velocidad del proyecto, es decir, el número de historias implementadas. Este valor ayuda a estimar fechas de entrega y determinar si se ha comprometido demasiado en el proyecto. Durante el desarrollo, el cliente puede agregar, cambiar o eliminar historias, y el equipo ajusta sus planes en consecuencia.\\ \indent
-El diseño sigue el principio de mantenerlo simple y se centra en proporcionar orientación de implementación para cada historia. Se utilizan tarjetas CRC (Clase Responsabilidad Colaborador) para identificar y organizar las clases relevantes en un contexto orientado a objetos. Se recomienda la creación de soluciones de prototipo operativas, llamadas soluciones de pico, para resolver problemas de diseño difíciles y validar estimaciones originales.\\ \indent
-La programación se inicia después de desarrollar pruebas unitarias para cada historia. Se emplea la programación en pareja para mejorar la resolución de problemas en tiempo real y la calidad del código. Una vez completado el código, se integra continuamente con el trabajo de otros para evitar problemas de compatibilidad y se realiza pruebas de integración y validación a diario.
-Finalmente, se desarrollan las pruebas de aceptación. Estas constan de la validación de las características y funcionalidades visibles y revisables por el cliente. 
+Posteriormente, el equipo y el cliente eligen qué historias incluir en la próxima versión del software. Tras la entrega inicial, se calcula la velocidad del proyecto para estimar fechas de entrega y evaluar el compromiso del proyecto. Durante el desarrollo, el cliente puede modificar las historias, y el equipo ajusta los planes en consecuencia. La programación se inicia después de desarrollar pruebas unitarias para cada historia, empleando la programación en pareja para mejorar la calidad del código. Tras completar el código, se realiza integración continua con pruebas de integración y validación diarias. Finalmente, se llevan a cabo pruebas de aceptación, que validan las características visibles y revisables por el cliente.
 
-\subsubsection{Scrum}\hfill\\ 
+La metodología XP es relevante para este proyecto debido a su enfoque en la colaboración continua con el cliente y la mejora constante a través de iteraciones rápidas, lo que garantiza que el software final cumpla con las expectativas y necesidades del usuario.
+
+%--------------------------------------------------------------------------
+\subsection{Programación Extrema Personal}
+
+La Programación Extrema Personal (PXP) es un proceso de desarrollo de software diseñado para ser utilizado individualmente por ingenieros de software. Su objetivo es simplificar el Proceso de Software Personal (PSP) reduciendo la cantidad de scripts y datos necesarios, manteniendo los principios básicos de PSP y disminuyendo la documentación y esfuerzos de mantenimiento. PXP incorpora prácticas de desarrollo de XP adecuadas para desarrolladores autónomos (\cite{dzhurov2009personal}). 
+
 \indent
-Scrum (nombre proveniente de una acción que tiene lugar durante un juego de rugby)  enfatiza el uso de un conjunto de patrones de proceso de software cuya efectividad ha sido probada. Cada uno de estos patrones a su vez define un conjunto de acciones a desarrollar. Estos patrones son:
-\begin{itemize}[topsep=0pt]  
-    \addtolength\itemsep{-4mm}
-    \item \textbf{Backlog}: Una lista priorizada de requisitos o características del proyecto que proporcionan valor comercial para el cliente. Los elementos pueden agregarse al backlog en cualquier momento, lo que permite la introducción de cambios. El gerente de producto evalúa el backlog y actualiza las prioridades según sea necesario.
-    \item \textbf{Sprints}: Consisten en unidades de trabajo necesarias para lograr un requisito definido en el backlog, que deben ajustarse a un plazo predefinido (generalmente 30 días o menos). Durante el sprint, no se introducen cambios (por ejemplo, elementos de trabajo del backlog), lo que permite que los miembros del equipo trabajen en un entorno a corto plazo pero estable.
-    \item \textbf{Reuniones Scrum}: Reuniones cortas (generalmente de 15 minutos) celebradas diariamente por el equipo Scrum. Todos los miembros del equipo comparten información sobre lo que han hecho desde la última reunión, los obstáculos que están enfrentando y sus planes para la próxima reunión del equipo. Un líder de equipo, llamado Scrum master, lidera la reunión y evalúa las respuestas de cada persona. 
-    \item \textbf{Demostraciones}: Entregan el incremento de software al cliente para que la funcionalidad implementada pueda ser demostrada y evaluada. Es importante tener en cuenta que la demostración puede no contener toda la funcionalidad planificada, sino solo aquellas funciones que pueden entregarse dentro del plazo establecido.
-\end{itemize}
-En síntesis, por medio de scrum, un equipo auto-organizado trabaja en entregas incrementales de funcionalidad (sprints), revisando y adaptando su trabajo en reuniones regulares (\cite{pressman2005software}). Esta dinámica queda ilustrada en la Figura \ref{figs:modelo_desarrollo_scrum}, la misma permite que un equipo de software trabaje con éxito en un mundo con requisitos cambiantes y críticos para el negocio.
-\begin{figure}[H]
+Como se ilustra en la Figura \ref{fig:modelo_desarrollo_pxp}, el proceso de PXP consta de tres etapas: identificación de requerimientos, planificación e iteraciones de desarrollo. La planificación de requisitos y tareas se realiza generalmente para todo el proyecto, con ajustes posibles si los requisitos cambian. Las iteraciones de desarrollo incluyen el inicio y la retrospectiva de la iteración. Durante todo el proceso, el desarrollador debe mantener registros de planificación, duración real, sugerencias de mejora y detalles de defectos.
+
+\begin{figure}[htb]
 	\centering
-	\includegraphics[width=1.0\textwidth]{images/marcoteorico/modelo_scrum.png}
-	\caption{Proceso de desarrollo bajo la metodología Scrum.}
+    \input{images/marcoteorico/modelo_desarrollo_pxp.tex}
+    \vspace{-0.5cm}
+    \caption{Proceso de desarrollo bajo la metodología PXP.}
     \vspace{-0.2cm}
-	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{pressman2005software}{title}}'' (\citeyear{pressman2005software}).}}
-	\label{figs:modelo_desarrollo_scrum} 
+    \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{dzhurov2009personal}{title}}'' (\citeyear{dzhurov2009personal}).}}
+	\label{fig:modelo_desarrollo_pxp} 
 \end{figure}
 
-\subsubsection{Kanban}\hfill\\ 
+\noindent
+A continuación, se describen las fases principales del proceso PXP:
+\begin{enumerate}[topsep=0pt, itemsep=0mm]
+    \item \textbf{Identificación de Requisitos}: Se elabora un documento con los requisitos funcionales y no funcionales del sistema. 
+    \item \textbf{Planificación}: El desarrollador elabora un conjunto de tareas a partir de los requisitos del documento, desglosándolas en subtareas y estimando su duración con base en experiencias previas o suposiciones fundamentadas. Además, se toman decisiones cruciales de diseño, como seleccionar el lenguaje de programación y el marco de desarrollo.
+    \item \textbf{Inicio de la Iteración}: Marca el inicio de cada iteración, donde se seleccionan las tareas que se abordarán. Las iteraciones duran entre 1 y 3 semanas y pueden resultar en un candidato a lanzamiento o en una versión liberada del producto.
+    \item \textbf{Diseño}: Modelado de los módulos y clases necesarios para la iteración, centrándose en cumplir con los requisitos actuales sin intentar prever futuros requerimientos. 
+    \item \textbf{Implementación}: Se genera el código y se realizan pruebas utilizando TDD, abarcando tres subfases: pruebas unitarias, generación de código y refactorización. El código debe compilarse sin errores y superar todas las pruebas unitarias.
+    \item \textbf{Pruebas del Sistema}: Se verifica que la solución cumpla con los requisitos iniciales y se registran y corrigen todos los defectos encontrados.
+    \item \textbf{Retrospectiva}: Al final de cada iteración, se analizan los datos recopilados, revisando la precisión de las estimaciones y las causas de posibles retrasos. Se proponen y implementan mejoras en el proceso para evitar problemas futuros. La retrospectiva puede iniciar una nueva iteración o marcar el final del proyecto si se han cumplido todos los requisitos y no quedan defectos.
+\end{enumerate}
+
+La metodología PXP es ideal para este proyecto, ya que permite a los desarrolladores trabajar de forma autónoma y eficiente, manteniendo un enfoque estructurado que garantiza la calidad del software desarrollado individualmente. Mas aun, para evaluar el proyecto de grado, se añade una fase de cierre y evaluación enfocada en analizar el desempeño del producto en su etapa de mínimo viable, asegurando una revisión detallada de su rendimiento real.
+
+\subsubsection{Técnica MoSCoW}\hfill\\ 
 \indent
-Kanban, con "K" mayúscula, es un método de cambio evolutivo que utiliza un sistema de extracción kanban, visualización y otras herramientas para catalizar la introducción de ideas \textit{Lean} en el desarrollo tecnológico y las operaciones de tecnologías de la información (\cite{anderson2010kanban}). Kanban te permite lograr una optimización del proceso específica del contexto con una resistencia mínima al cambio, al mismo tiempo que mantiene un ritmo sostenible para los trabajadores involucrados.\\ \indent
-El método Kanban se constituye de seis practicas que aportan un enfoque integral para la gestión de procesos en el desarrollo tecnológico y las operaciones.  La \textbf{visualización}, la \textbf{limitación del trabajo en proceso} y la \textbf{gestión del flujo} son pilares esenciales para comprender y controlar el trabajo en curso. Además, hacer explícitas las \textbf{políticas del proceso} y \textbf{implementar bucles de retroalimentación} permiten tomar decisiones basadas en datos objetivos y mejorar continuamente. Por último, el enfoque en \textbf{mejorar colaborativamente y evolucionar experimentalmente} impulsa al equipo hacia mejoras significativas y sostenibles en el tiempo (\cite{anderson2010kanban}).\\ \indent
-Esto se logra mediante el uso de una pizarra o un tablero dividido en columnas y filas. Las columnas contienen las distintas tareas a realizar, mientras que las filas representan las prioridades de cada tarea. Las tareas se representan con tarjetas visuales que se mueven a lo largo de las columnas hasta completarse. Las columnas suelen tener los nombres \textbf{Tareas a iniciar o por hacer}, \textbf{Tareas en progreso} y \textbf{Tareas completadas}. Las filas se organizan en \textbf{Prioridad urgente}, \textbf{Prioridad importante} y \textbf{Prioridad no importante}(\cite{amaru2022sistema}).
+En la gestión de proyectos, especialmente aquellos de desarrollo de software, es crucial establecer prioridades claras para asegurar que los recursos se utilicen de manera eficiente y que los objetivos del proyecto se cumplan en tiempo y forma. \textcite{marthasari2018personal} recomienda el uso en conjunto de la metodología PXP con la técnica de MoSCoW para jerarquizar la elicitación de requisitos. El acrónimo MoSCoW representa cuatro categorías de iniciativas: \textit{Must-have}(imprescindibles), \textit{Should-have}(deseables), \textit{Could-have}(Posibles) y  \textit{Won’t-have this time}(no necesarias por ahora). \\  \indent
+De acuerdo a esta técnica, los requisitos \textbf{imprescindibles} son aquellos sin los cuales el proyecto no sería legal, seguro o viable. Para determinar si un requisito pertenece a esta categoría, se formula la pregunta: ¿Qué pasa si este requisito no se cumple?. Si la respuesta es cancelar el proyecto, entonces es un requisito imprescindible. Si hay alguna alternativa, aunque sea un proceso manual y doloroso, el requisito se clasifica como \textbf{deseable} o \textbf{posible}.
+\\ \noindent
+Los requisitos deseables son importantes pero no vitales. Aunque su ausencia podría ser incómoda, la solución sigue siendo viable pudiendo necesitar algún tipo de solución temporal. La diferencia entre un deseable y un posible radica en el grado de inconveniencia que causa no cumplir con el requisito, medido en términos de valor comercial o la cantidad de personas afectadas. Los requisitos posibles son deseables pero menos importantes y son los primeros en ser eliminados si el proyecto enfrenta problemas y se debe ajustar el plazo de entrega. Finalmente, los \textbf{no necesarias por ahora} son requisitos que se acuerda no entregar en esta etapa o iteración del proyecto, ayudando a aclarar el alcance y a gestionar las expectativas.\\
+Se puede asi entender que la importancia de la técnica MoSCoW radica en la la priorización y gestión de requisitos, asegurando que se enfoquen los recursos en las funcionalidades más críticas y se mantenga el control del alcance del proyecto.
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
@@ -438,71 +437,122 @@ La regulación consiste en cinco áreas principales, que abarcan desde la gesti�
 \end{itemize}
 
 En consecuencia, con el propósito de asegurar que los atributos funcionales (como la adecuación, precisión, conformidad, interoperatividad y seguridad) y los no funcionales (como la fiabilidad, usabilidad, eficiencia, mantenibilidad y portabilidad) sean cumplidos al máximo, se llevan a cabo diversas pruebas, tales como pruebas unitarias, de integración, de regresión, de sistemas, de desempeño, de carga, de estrés, entre otras.
+
 %--------------------------------------------------------------------------
-\subsection{Estándar ISO 12207:2017}
-La norma ISO 12207:2017 establece un marco común para los procesos del ciclo de vida del software, proporcionando una terminología precisa que la industria del software puede emplear de manera consistente. Este estándar es aplicable tanto a programas nuevos como a los ya existentes, abarcando firmware, software independiente y software embebido. Define procesos, actividades y tareas aplicables a lo largo de la adquisición, suministro, desarrollo, operación, mantenimiento y desecho de sistemas, productos y servicios informáticos, con el propósito de satisfacer las necesidades del cliente (\cite{amaru2022sistema}).\\
-La norma clasifica los procesos en tres categorías principales: primarios, de soporte y organizacionales. Los procesos primarios abarcan la adquisición, suministro, desarrollo, operación y mantenimiento del software. Los procesos de soporte incluyen la documentación, gestión de configuración, aseguramiento de calidad, verificación, validación, revisión conjunta, auditoría y resolución de problemas. Por último, los procesos organizacionales comprenden la gestión, mejora, infraestructura y gestión de recursos humanos.\\
-Dentro de un proyecto, es crucial identificar uno o más modelos de desarrollo, como cascada, incremental, evolutivo, reingenieria o espiral, entre otros. Las características del proyecto deben definir los requisitos y especificaciones del producto o servicio, los cuales guían la determinación y selección de procesos, actividades y tareas a emplear.
+\subsection{Método Objetivo-Pregunta-Métrica}
+El método Objetivo-Pregunta-Métrica (GQM, por sus siglas en inglés) es una técnica estructurada que se utiliza para evaluar la calidad del software y la eficacia de los procesos de desarrollo. Esta metodología es importante en el marco teórico del trabajo de tesis porque proporciona una manera sistemática de conectar los objetivos estratégicos y operacionales con las métricas que realmente importan para el proyecto.\\ \indent
+El método GQM se basa en definir objetivos específicos, formular preguntas que reflejen estos objetivos y desarrollar métricas que proporcionen datos cuantitativos para responder a las preguntas planteadas (\cite{van1999goal}). En el contexto de la evaluación de calidad de software, el método GQM permite a los equipos de desarrollo alinearse con los objetivos estratégicos y operacionales, asegurando que las métricas utilizadas sean relevantes y útiles para la toma de decisiones tal y como lo demuestra \textcite{lavadenzplataforma} al usar este método para seguir los lineamientos del estándar ISO 25000:2014.\\ \indent
+El método GQM segura una evaluación precisa y orientada a objetivos específicos de la calidad del software, permitiendo una mejora continua y alineada con los estándares internacionales. Esto es esencial para garantizar que el software desarrollado cumpla con los requisitos de calidad y satisfacción del cliente.
+
+\begin{comment}
 %--------------------------------------------------------------------------
-\subsection{Estándar ISO 420001:2023}
+\subsection{Estándar ISO 42001:2023}
 La norma ISO 42001 es un estándar internacional que detalla los requisitos para establecer, implementar, mantener y mejorar de manera continua un Sistema de Gestión de Inteligencia Artificial (SGIA) en las organizaciones. Su propósito es asegurar un desarrollo y uso responsables de los sistemas de IA, tanto para entidades que proveen como para aquellas que utilizan productos o servicios basados en esta tecnología. Esta norma aborda los desafíos únicos que presenta la IA, incluyendo consideraciones éticas, transparencia y aprendizaje continuo. Proporciona a las organizaciones una estructura sólida para gestionar los riesgos y las oportunidades asociadas con la IA, al mismo tiempo que equilibra la innovación con la gobernanza (ISO \citeyear{iso42001}).\\
 Esta normativa está basada en la ISO 22989; Esta normativa describe los conceptos, definiciones, ciclo de vida y aplicaciones de la inteligencia artificial. Este documento define un sistema de inteligencia artificial como un sistema diseñado que genera salidas tales como contenido, pronósticos, recomendaciones o decisiones para un conjunto dado de objetivos definidos por humanos. Los sistemas de IA no entienden; necesitan elecciones de diseño humano, ingeniería y supervisión. El grado de supervisión depende del caso de uso, pero como mínimo, la supervisión está presente durante el entrenamiento y la validación (ISO \citeyear{iso22989}).
 Las directrices establecidas en estas norma son de naturaleza genérica y pueden aplicarse a cualquier tipo de organización, independientemente de su forma jurídica, tamaño o ámbito de actividad. Esto implica que es igualmente aplicable tanto a entidades públicas como privadas.
+\end{comment}
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
 % 10 paginas
 \section{Inteligencia Artificial}
-La IA es una rama de la ciencia de la computación que se dedica a abordar desafíos cognitivos, principalmente asociados a la inteligencia humana, tales como el proceso de aprendizaje, la resolución de problemas y la identificación de patrones (\cite{kim2019implementation}). Por tanto, el desarrollo de sistemas de inteligencia artificial tienen como finalidad la construcción de sistemas informáticos que puedan ejecutar actividades que comúnmente implican inteligencia humana. Mientras que la programación tradicional depende de los programadores para definir lógica e instrucciones explícitas específicas de escenarios, ML permite a las máquinas aprender de manera autónoma y tomar decisiones sin instrucciones detalladas para cada tarea. Naturalmente estos sistemas, dotados de inteligencia artificial, se diseñan para reconocer ciertos contextos y tomar decisiones para satisfacer ciertas necesidades (\cite{iso22989}).  Más aun, es importante considerar que los sistemas de IA no se basan en una única tecnología, sino en una combinación de varias como se ilustra en la Figura \ref{figs:ai_ecosystem}.
+La IA es una rama de la ciencia de la computación que se dedica a abordar desafíos cognitivos, principalmente asociados a la inteligencia humana, tales como el proceso de aprendizaje, la resolución de problemas y la identificación de patrones (\cite{kim2019implementation}). Por tanto, el desarrollo de sistemas de inteligencia artificial tienen como finalidad la construcción de sistemas informáticos que puedan ejecutar actividades que comúnmente implican inteligencia humana. Mientras que la programación tradicional depende de los programadores para definir lógica e instrucciones explícitas específicas de escenarios, ML permite a las máquinas aprender de manera autónoma y tomar decisiones sin instrucciones detalladas para cada tarea. Naturalmente estos sistemas, dotados de inteligencia artificial, se diseñan para reconocer ciertos contextos y tomar decisiones para satisfacer ciertas necesidades (\cite{iso22989}).  Más aun, es importante considerar que los sistemas de IA no se basan en una única tecnología, sino en una combinación de varias como se ilustra en la Figura \ref{fig:ai_ecosystem}.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/marcoteorico/ai_ecosystem.png}
 	\caption{Ecosistema de un sistema de inteligencia artificial.}
     \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{iso22989}{title}}'' (\citeyear{iso22989}).}}
-	\label{figs:ai_ecosystem} 
+	\label{fig:ai_ecosystem} 
 \end{figure}
 
 %---------------------------------------------------------------------------------------------
 \subsection{Aprendizaje}
-En función de si requieren o no de grandes cantidades de datos para aprender, los sistemas de IA se puede categorizar en dos grandes categorías: Basados en heurística y basados en aprendizaje automático. 
+El aprendizaje en IA se divide principalmente en dos categorías: sistemas basados en heurística y sistemas basados en aprendizaje automático.
 
-\subsubsection{Sistemas basados en heuristica}\hfill\\ 
-\indent
-Los sistemas de IA que no implican aprendizaje se llaman heurísticos. Los sistemas expertos clásicos o sistemas de razonamiento equipados con una base de conocimientos fija son algunos ejemplos de este tipo de sistemas. En estos casos, los desarrolladores del sistema aprovechan el conocimiento humano para proporcionar reglas razonables para el comportamiento del sistema de IA.\\ 
-\indent
-Es importante diferenciar una heurística de un algoritmo, la heurística es una suposición que sirve como guía inicial para exploraciones posteriores. A diferencia de un algoritmo, los resultados de una heurística no son predecibles ni reproducibles. Más aun, cuando un algoritmo utiliza una heurística, ya no necesita analizar exhaustivamente todas las posibles soluciones, por lo que puede encontrar soluciones aproximadas más rápidamente a costa de precisión y exhaustividad.
+Los sistemas basados en heurística no requieren grandes cantidades de datos para funcionar. Estos sistemas utilizan reglas predefinidas para tomar decisiones, lo que los hace rápidos y eficientes en escenarios específicos. Por otro lado, los sistemas basados en aprendizaje automático (ML) analizan grandes volúmenes de datos para identificar patrones y construir modelos predictivos. Estos modelos se entrenan utilizando algoritmos complejos que mejoran su precisión con el tiempo.
 
-\subsubsection{Sistemas basados en aprendizaje automatico}\hfill\\ 
-\indent
-Los sistemas de IA que implican aprendizaje se denominan sistemas basados en aprendizaje automático. El aprendizaje implica análisis computacionales de un conjunto de datos de entrenamiento para detectar patrones, construir un modelo y comparar la salida del modelo resultante con los comportamientos esperados;Este proceso se conoce como entrenamiento. La base de conocimientos resultante es un modelo entrenado basado en una función matemática y un conjunto de entrenamiento que representa la mejor aproximación del comportamiento basada en un entorno dado.
-
-\begin{comment}
+El aprendizaje automático permite a los sistemas adaptarse y mejorar continuamente, haciendo que las aplicaciones de IA sean más precisas y efectivas en tareas como la clasificación de datos y la predicción de resultados.
 
 %---------------------------------------------------------------------------------------------
 \subsection{Redes Neuronales}
-\subsubsection{Estructura de una Red Neuronal}
-\subsubsection{Tipos de Redes Neuronales Artificiales}
+Las redes neuronales artificiales (ANNs, por sus siglas en inglés) son modelos computacionales inspirados en el cerebro humano. Estas redes están diseñadas para reconocer patrones complejos y aprender de los datos.\\   
+Una red neuronal consta de varias capas de neuronas artificiales, que procesan la información de manera similar a las neuronas biológicas (\cite{goodfellow2016deep}). Estas capas incluyen:
+
+\begin{enumerate}[topsep=0pt, itemsep=0mm]  
+    \item \textbf{Capas de entrada}: Las neuronas de esta capa reciben los datos iniciales. Cada neurona de entrada corresponde a una característica de los datos, por lo que el número de neuronas en la capa de entrada es igual al número de características de los datos de entrada.
+    \item \textbf{Capas Ocultas}: Situadas entre la capa de entrada y la capa de salida, las capas ocultas realizan la mayor parte del procesamiento de datos. Estas capas pueden ser una o múltiples y consisten en neuronas que reciben entradas de la capa anterior, aplican una transformación mediante una función de activación, y pasan la salida a la siguiente capa. Las funciones de activación son componentes esenciales de las redes neuronales, ya que introducen no linealidad en el modelo, permitiendo a la red aprender y representar funciones complejas (\cite{nielsen2015neural}).
+    \item \textbf{Capas de salida}: La capa final de la red produce las predicciones o clasificaciones. El número de neuronas en la capa de salida depende de la tarea específica. Por ejemplo, para una tarea de clasificación binaria, solo se necesita una neurona de salida; para la clasificación de múltiples clases, se necesita una neurona por cada clase posible.
+\end{enumerate} 
+
+Las redes neuronales son fundamentales en el desarrollo de sistemas de IA avanzados, ya que permiten el análisis y la interpretación de datos complejos de manera eficiente y precisa.
 
 %---------------------------------------------------------------------------------------------
 \subsection{Visión Computacional}
-\subsubsection{Reconocimiento Óptico de Caracteres (OCR)}\hfill\\ 
-\indent
-(\cite{huggingface2022documentai}).
+La visión computacional es una rama de la inteligencia artificial que se enfoca en capacitar a las máquinas para interpretar y comprender el contenido visual del mundo. Esta disciplina implica el desarrollo de algoritmos y modelos para procesar y analizar imágenes y videos (\cite{szeliski2022computer}).
+
+Tal y como se ilustra en la Figura \ref{fig:computer_vision}.  El proceso de desarrollo de modelos de visión computacional incluye la adquisición y preprocesamiento de datos, seguido de la extracción de características y la aplicación de algoritmos para realizar tareas específicas como clasificación y segmentación de imágenes. Dependiendo del enfoque utilizado, las características pueden ser determinadas manualmente o aprendidas automáticamente mediante redes neuronales (\cite{goodfellow2016deep}). Estas últimas son las más populares actualmente y se utilizan en tareas como clasificación, segmentación semántica, mejoramiento de imágenes, estimación de movimiento y recuperación de profundidad.(\cite{szeliski2022computer}).
+
+En conclusión, la visión computacional es una herramienta de gran utilidad para aplicaciones que requieren la interpretación de datos visuales como la clasificación de imágenes o detección de cosas en un entorno. Por ejemplo, un sistema de visión computacional podría alertar automáticamente a los trabajadores y supervisores sobre la presencia de objetos peligrosos en un área de construcción, minimizando así el riesgo de accidentes laborales.
+
+\begin{figure}[htb]
+	\centering
+    \input{images/marcoteorico/computer_vision.tex}
+    \vspace{-0.5cm}
+	\caption{Proceso de Desarrollo de Modelos de Visión Computacional.}
+    \vspace{-0.2cm}
+	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{szeliski2022computer}{title}}'' (\citeyear{szeliski2022computer}).}}
+	\label{fig:computer_vision} 
+\end{figure}
 
 %---------------------------------------------------------------------------------------------
 \subsection{Procesamiento de Lenguaje Natural(PLN)}
+El procesamiento de lenguaje natural (PLN) es un campo de la inteligencia artificial que se centra en la interacción entre las computadoras y los humanos utilizando el lenguaje natural. El objetivo del PLN es permitir a las máquinas comprender, interpretar y generar texto de una manera que sea significativa y útil (\cite{jurafsky2000speech}).
 
-\subsubsection{Arquitectura de un Sistema PLN}
-\subsubsection{Minería de Texto}
-\subsubsection{Analisis de Texto y Categorización}
-\subsubsection{Procesamiento Lingüistico}
-\subsubsection{Analisis de Subjetividad}
+El desarrollo de modelos de PLN comienza con la recopilación de datos textuales que servirán de base para el entrenamiento. Luego, estos datos se preprocesan mediante técnicas como la tokenización, lematización y eliminación de \textit{stop words} (palabras de parada) para preparar el texto para su análisis. Una vez preprocesados, los datos se utilizan para entrenar el modelo, aplicando algoritmos de aprendizaje automático y redes neuronales para aprender patrones y relaciones dentro del texto. Finalmente, el modelo se evalúa y ajusta iterativamente para mejorar su precisión y efectividad (\cite{schutze2008introduction}).
+
+El PLN es vital para aplicaciones que involucran el análisis y la generación de texto, como chatbots y sistemas de traducción automática.
+
+\begin{comment}
+
+\subsubsection{Minería de Texto}\hfill\\ 
+\indent
+La minería de texto es el proceso de extraer información útil y patrones del texto. Esto se realiza mediante técnicas de análisis semántico, extracción de entidades y descubrimiento de relaciones entre conceptos en grandes volúmenes de texto. La minería de texto es ampliamente utilizada en aplicaciones como el análisis de sentimientos, la clasificación de documentos y la extracción de información (\cite{feldman2007text}).
+
+\subsubsection{Analisis de Texto y Categorización}\hfill\\ 
+\indent
+El análisis de texto y la categorización implican clasificar documentos en categorías predefinidas basándose en su contenido textual. Los modelos de clasificación de texto, como Naive Bayes, SVMs y redes neuronales, son comúnmente utilizados para esta tarea. Estas técnicas son esenciales en aplicaciones como el filtrado de spam, la clasificación de noticias y la organización de archivos (\cite{sebastiani2002machine}).
+
+\end{comment}
 
 %---------------------------------------------------------------------------------------------
-\subsection{Generación de Lenguaje Natural(GLN)}
-\subsubsection{GLN basado en plantillas}
-\subsubsection{GLN a partir de imagenes}
+\subsection{Modelos de Lenguaje Multimodales}
+Los modelos de lenguaje multimodales son sistemas que combinan información de múltiples fuentes, como texto, imágenes, audio y video, para mejorar la comprensión y generación del lenguaje. Estos modelos pueden aprender representaciones conjuntas de datos multimodales, lo que les permite realizar tareas complejas que requieren la integración de diferentes tipos de información, como la descripción de imágenes, la traducción de video a texto y la generación de subtítulos para videos (\cite{baltruvsaitis2018multimodal}). La capacidad de los modelos multimodales para integrar diversas fuentes de información los hace extremadamente útiles en aplicaciones donde se requiere una comprensión completa del contexto.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Generación de Lenguaje Natural}
+La generación de lenguaje natural (GLN) es una subdisciplina del PLN que se enfoca en la creación de texto coherente y comprensible a partir de datos. Los modelos de GLN pueden generar descripciones, resúmenes, diálogos y otros tipos de texto, imitando el estilo y la estructura del lenguaje humano.\\
+En términos generales, se puede distinguir distinguir entre tres enfoques dominantes en las arquitecturas de generación de lenguaje natural: Modular, planificada e integral (\cite{gatt2018survey}).
+Más aun, existe un consenso en la arquitectura por defecto en este campo, misma que se aprecia en la Figura \ref{fig:nlg_architecture}. Se compone de tres etapas: El planificador de texto, que determina el contenido y la estructura general del texto. el planificador de oraciones, que desglosa este contenido en oraciones individuales, manteniendo la coherencia y cohesión. Por ultimo, el realizador convierte los planes de oración en texto natural fluido y gramaticalmente correcto. Estas etapas trabajan en secuencia para transformar datos estructurados en un texto coherente y bien formado.\\
+La GLN permite la automatización de la generación de textos en diversos contextos, mejorando la eficiencia en tareas como la redacción de informes y la creación de contenido.
+
+\begin{figure}[htb]
+	\centering
+    \input{images/marcoteorico/nlg_architecture.tex}
+    \vspace{-0.5cm}
+	\caption{Arquitectura GLN clásica.}
+    \vspace{-0.2cm}
+	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{gatt2018survey}{title}}'' (\citeyear{gatt2018survey}). Los segmentos oscuros ilustran los tres módulos principales; los segmentos claros muestran las salidas.}}
+	\label{fig:nlg_architecture} 
+\end{figure}
+
+\subsection{Generación de Descripciones de Imágenes}
+La generación de lenguaje natural a partir de imágenes implica la creación de descripciones textuales basadas en el contenido visual de una imagen. Los modelos utilizados para esta tarea combinan redes neuronales convolucionales (CNNs) para el análisis de imágenes con modelos de lenguaje como RNNs o Transformers para generar texto. Esta técnica se aplica en la creación de descripciones automáticas para fotografías, la generación de subtítulos para videos y otras aplicaciones multimodales (\cite{vinyals2015show}).
+
+\begin{comment}
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{DevOps}
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------

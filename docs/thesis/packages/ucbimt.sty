@@ -307,6 +307,16 @@
 	\renewcommand{\listfigurename}{\MakeUppercase{ Índice de figuras }}
 }
 
+% Define the \annexname
+\newcommand{\annexname}{ANEXO}
 
+% Define the \annex command
+\newcommand{\annex}{%
+	\par
+	\c@section\z@ 
+	\c@subsection\z@
+	\let\sectionname\annexname
+	\def\thesection{\@Alph\c@section}
+}
 
 

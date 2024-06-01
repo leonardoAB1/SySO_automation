@@ -1,0 +1,33 @@
+\resizebox{\textwidth}{!}{
+    {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+    \fbox{
+        \begin{tikzpicture}[
+            node distance= 5mm, 
+            start chain = A going right, 
+            block/.style = {rectangle, draw, minimum height=4em, text width=7em, align=center, on chain},
+            arrow/.style = {-{Latex[width=8, length=6]},thick}]
+
+            % Nodes
+            \begin{scope}[every node/.style={block}]
+                %Pipeline de visión tradicional
+                \node [fill=blue!10] (text_planner) {Planificador de texto};
+                \node (text_plan) {Plan de texto};
+                \node [fill=blue!10] (sentence_planner) {Planificador de Oraciones};
+                \node (sentence_plan) {Plan de oración};
+                \node [fill=blue!10] (realizer) {Realizador};
+                \node (text) {Texto};
+            \end{scope}
+            
+            % Conexiones
+            \draw [arrow] (text_planner) -- (text_plan);
+            \draw [arrow] (text_plan) -- (sentence_planner);
+            \draw [arrow] (sentence_planner) -- (sentence_plan);
+            \draw [arrow] (sentence_plan) -- (realizer);
+            \draw [arrow] (realizer) -- (text);
+            
+            % Labels
+            
+        \end{tikzpicture}
+        }
+    }
+}

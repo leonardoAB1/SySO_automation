@@ -1,0 +1,46 @@
+\resizebox{\textwidth}{!}{
+    {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+    \fbox{
+        \begin{tikzpicture}[
+            node distance= 5mm, 
+            start chain = A going right, 
+            block/.style = {rectangle, fill=blue!10, draw, minimum height=4em, text width=7em, align=center, on chain},
+            arrow/.style = {-{Latex[width=8, length=6]},thick}]
+
+            % Nodes
+            \begin{scope}[every node/.style={block}]
+                %Pipeline de visión tradicional
+                \node (input) {Entrada};
+                \node (pre_process) {Preprocesamiento};
+                \node (handcrafted_features) {Características hechas a mano};
+                \node (handcrafted_algorithm) {Algoritmo hecho a mano};
+                \node (output) {Salida};
+                % Classic machine learning pipeline
+                \node [below=of handcrafted_features.south, yshift=-15](handcrafted_features2) {Características hechas a mano};
+                \node (machine_learning) {Aprendizaje automático};
+                % Deep learning pipeline
+                \node [below=of handcrafted_features2.south, yshift=-15](learned_features) {Características aprendidas};
+                \node (deep_learning) {Aprendizaje profundo};
+            \end{scope}
+            
+            % Conexiones
+            \draw[arrow] (input) -- (pre_process);
+            \draw[arrow] (pre_process) -- (handcrafted_features);
+            \draw[arrow, dashed] (pre_process) |- (handcrafted_features2);
+            \draw[arrow, dashed] (pre_process) |- (learned_features);
+            \draw[arrow] (handcrafted_features) -- (handcrafted_algorithm);
+            \draw[arrow] (handcrafted_algorithm) -- (output);
+            \draw[arrow] (handcrafted_features2) -- (machine_learning);
+            \draw[arrow, dashed] (machine_learning) -| (output);
+            \draw[arrow] (learned_features) -- (deep_learning);
+            \draw[arrow, dashed] (deep_learning) -| (output);
+            
+            % Labels
+            \node[below=of handcrafted_features, yshift=10, xshift=60] (label1) {(a) Pipeline de visión tradicional};
+            \node[below=of handcrafted_features2, yshift=10, xshift=60] (label2) {(b) Pipeline clásico de aprendizaje automático};
+            \node[below=of learned_features, yshift=10, xshift=60] (label3) {(c) Pipeline de aprendizaje profundo};
+            
+        \end{tikzpicture}
+        }
+    }
+}

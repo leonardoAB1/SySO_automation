@@ -1,0 +1,37 @@
+\resizebox{\textwidth}{!}{
+    {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+    \fbox{
+        \begin{tikzpicture}[
+            node distance= 5mm, 
+            start chain = A going right, 
+            block/.style = {rectangle, fill=blue!10, draw, minimum height=2em, text width=9em, align=center, on chain},
+            arrow/.style = {-{Latex[width=8, length=6]},thick}]
+            % nodes
+            \begin{scope}[every node/.style={block}]
+            \node {Requisitos};                  % A-1
+            \node {Planificación};
+            \node [xshift=15,yshift=77]{Inicio de la Iteración};
+            \node [below=of A-3.south] {Diseño};
+            \node [below=of A-4.south]{Implementación:TDD};
+            \node [below=of A-5.south]{Pruebas del Sistema};
+            \node [below=of A-6.south]{Retrospectiva};
+            \end{scope}
+            \node (iteration) [draw, very thin, inner ysep=10, inner xsep=10,  fit=(A-3) (A-7)] {};
+            % Connections
+            \draw [arrow] (A-1.east) -- (A-2.west);
+            \draw [arrow] (A-2.east) -- (iteration.west);
+            \draw [arrow] (A-3.south) -- (A-4.north);
+            \draw [arrow] (A-4.south) -- (A-5.north);
+            \draw [arrow] (A-5.south) -- (A-6.north);
+            \draw [arrow] (A-6.south) -- (A-7.north);
+            \draw [arrow, dashed] (A-7.east) -- ++(1,0) |- (A-3.east);
+            \draw [arrow, dashed] (A-7.west) -| (A-2.south);
+            \draw [arrow, dashed] (A-2.north) |- (A-3.west);
+            % Text
+            \node [below=of iteration.south] {Iteración de Desarrollo};
+            \node (txt_func)[above=of A-1.north] {Funcionales};
+            \node (txt_nfunc)[above=of txt_func.north, ,yshift=-8] {No funcionales};
+        \end{tikzpicture}
+        }
+    }
+}

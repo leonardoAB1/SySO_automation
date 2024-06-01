@@ -1,0 +1,314 @@
+\chapter{Propuesta de Proyecto}
+\label{sec:propuesta}
+
+Para el éxito de todo proyecto, es necesario desarrollar un estudio de factibilidad, que evalúe la viabilidad técnica, económica y operativa de la iniciativa propuesta.  Este análisis exhaustivo proporciona una base sólida para la toma de decisiones informadas y la asignación adecuada de recursos, minimizando los riesgos y maximizando las oportunidades de éxito.
+
+\begin{comment}
+En esta sección se describe la propuesta del perfil de tesis/proyecto de grado. Dicha propuesta debe estar basada en el marco teórico, a fin de facilitar la comprensión del lector acerca de la innovación tecnológica que el candidato pretende llevar a cabo durante el desarrollo de su tesis/proyecto de grado.
+La propuesta de tesis/proyecto de grado debe hacer uso de diversos recursos, tales como: ecuaciones, diseños CAD, circuitos de diferente índole, tablas, figuras, entre otras que permitan describir con efectividad los objetivos que desea alcanzar en caso de ser aprobado su perfil.
+Este apartado o sección, por tanto, es de gran importancia y debe ser detallado con la objetividad y el profesionalismo que se espera de un candidato al grado de ingeniero.
+\end{comment}
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{Análisis de Costos}
+
+El análisis de costo-beneficio es una herramienta crucial para evaluar la viabilidad de un proyecto, al comparar los costos totales del desarrollo con los beneficios proyectados. En este caso, el proyecto se ha analizado desde dos perspectivas: El costo de desarrollo para el proyecto de grado y la proyección de los ingresos y beneficios esperados bajo la implementación del modelo de Software como Servicio (SaaS por sus siglas en inglés).
+
+\subsection{Calculo de Costos}
+La estimación del costo de desarrollo para el proyecto se basó en el modelo COCOMO intermedio (\cite{basavaraj2008empirical}). Este modelo calcula el esfuerzo necesario para desarrollar software considerando el tamaño del programa y varios factores que influyen en los costos, como atributos del producto, hardware, personal y del proyecto. Para una evaluación más detallada de estos factores, se puede consultar la tabla de ponderación de impulsores en el anexo \ref{sec:cocomo}. \\
+Para la estimación del numero de lineas de código se utilizó el prototipo de uno de los módulos del programa. El prototipo consta de aproximadamente 600  efectivas de código. Asumiendo que el desarrollo es orgánico y que todos los módulos tendrán una longitud similar y el alcance del proyecto de grado se limita a por lo menos tres módulos: Se espera con 1800 lineas de código. Por otro lado, de acuerdo a \textcite{glassdoor2024} el salario promedio de desarrolladores junior en Bolivia es de Bs. 6000.\\ 
+El modelo aplicado al proyecto estima inicialmente un esfuerzo de $5.93$ persona-mes, que representa el trabajo requerido sin ajustar los factores específicos del proyecto. Tras aplicar estos factores de ajuste, el esfuerzo aumenta a $8.76$ persona-mes, reflejando un incremento significativo debido a las particularidades del proyecto. El tiempo total estimado para el desarrollo es de $5.70$ meses, sugiriendo que el proyecto se completará en menos de medio año. Para cumplir con este plazo, se necesita un equipo promedio de aproximadamente $1.54$ personas. \\
+\begin{equation}\label{eq:costo_total}
+    Costo\ Total = Esfuerzo(PM) \times Salario\ mensual \times Numero\ de\ desarrolladores
+\end{equation}
+Finalmente, con la ecuación \ref{eq:costo_total} se calcula el costo de desarrollo como el producto del esfuerzo en persona-mes, el salario mensual y el numero de desarrolladores idealmente requeridos. Adicionalmente se agrega un factor de seguridad del 10\% para tomar en cuenta imprevistos, material de escritorio y consumibles. Resultando en un costo estimado de desarrollo de Bs.$89,036.64$. Adicionalmente, caso se evalué el proyecto completo con los 13 módulos planteados, por medio de la misma metodología se concluye que el proyecto completo tendría un costo de Bs.$1,220,924.10$.
+
+
+\subsection{Comparación Costo Beneficio}
+Análisis financiero del proyecto asumiendo el modelo de negocio SaaS con el proyecto completo. Se calculó la relación entre los ingresos anuales y la inversión inicial asumiendo que inicialmente que se capta al 10\% del mercado como usuario, mismos que incrementan según la tasa de incremento de profesionales SySO anual visible en la Figura \ref{fig:profesionales_syso_registrados}. Los resultados de la proyección se presentan en la Tabla \ref{tab:saas}. La relación costo-beneficio mejora significativamente a lo largo de los años, comenzando en 0.15 en el primer año y alcanzando 2.29 en el quinto año. Esto indica que, para el quinto año, por cada unidad monetaria invertida, se generan 2.29 unidades monetarias en ingresos.
+
+\begin{table}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Año} & \textbf{Usuarios Mensuales} & \textbf{Precio de Subscripción (Bs)} & \textbf{Ingresos Anuales (Bs)} & \textbf{Costo Beneficio}\\ \hline
+        1 & 300 & Bs50.00 & Bs180,000 & 0.15\\ \hline
+        2 & 476 & Bs50.00 & Bs286,200 & 0.38\\ \hline
+        3 & 758 & Bs50.00 & Bs454,800 & 0.75\\ \hline
+        4 & 1204 & Bs50.00 & Bs722,400 & 1.35\\ \hline
+        5 & 1912 & Bs50.00 & Bs1,147,200 & 2.29\\ \hline
+    \end{tabular}
+    }
+    \caption{Proyección Financiera del Modelo SaaS}
+    \label{tab:saas}
+\end{table}
+
+\subsubsection{Valor Actual Neto}\hfill\\ 
+\indent
+El Valor Actual Neto (VAN) es una medida financiera que calcula la diferencia entre el valor presente de los flujos de efectivo entrantes y salientes de un proyecto. Se calcula descontando los flujos de caja futuros a una tasa de descuento y restando la inversión inicial. Para el proyecto SaaS en cuestión, se ha utilizado una tasa de descuento del 10\%. El VAN se calcula sumando los flujos de caja descontados menos la inversión inicial tal y como expone la ecuación \ref{eq:VAN}.
+
+\begin{equation}
+    \label{eq:VAN}
+    VAN = \sum_{t=1}^{5} \frac{Ingresos\_Anuales_t}{(1+0.10)^{t-1}} - 1,220,924.10 = 722,713.14
+\end{equation}
+    
+El Valor Actual Neto (VAN) del proyecto SaaS se evalúa en 722,713.14 Bs a lo largo de un horizonte temporal de 5 años. Esta cifra positiva sugiere que el proyecto tiene un valor presente neto favorable, lo que potencialmente lo convierte en una inversión rentable. Desde esta perspectiva financiera, el proyecto parece prometedor, ofreciendo la posibilidad de generar retornos financieros positivos. No obstante, para tomar una decisión informada sobre su viabilidad a largo plazo, se deben considerar otros factores como el periodo de recuperación de la inversión, el riesgo asociado y las condiciones del mercado.
+
+\subsubsection{Tasa Interna de Retorno}\hfill\\ 
+\indent
+La Tasa Interna de Retorno (TIR) es la tasa de descuento que hace que el VAN sea igual a cero. Es una medida de la rentabilidad de una inversión y se utiliza para evaluar la eficiencia de un proyecto. Para el proyecto SaaS, la TIR se ha calculado aproximadamente en un 0.25 mediante la ecuación \ref{eq:TIR}.
+
+\begin{equation} \label{eq:TIR}
+    0 = \sum_{t=1}^{5} \frac{Ingresos\_Anuales_t}{(1+TIR)^{t-1}}- 1,220,924.10
+\end{equation}
+
+Un resultado superior a cero sugiere una perspectiva favorable en términos de retorno sobre la inversión. Este resultado confirma la viabilidad financiera del proyecto, respaldando la decisión de avanzar con su implementación.
+
+\subsubsection{Conclusión}\hfill\\ 
+\indent
+En base a los resultados obtenidos, se puede concluir que a grandes rasgos el proyecto SaaS presenta un buen rendimiento financiero. Tanto el Valor Actual Neto como la Tasa Interna de Retorno indican que el proyecto es viable desde el punto de vista económico. Además, el análisis de Costo Beneficio muestra una tendencia positiva a lo largo de los cinco años proyectados.
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{Análisis de Competidores}
+
+Se realizó un análisis de competidores para identificar oportunidades y amenazas en el mercado, así como para comprender la posición relativa del producto propuesto frente a sus rivales, lo cual permite formular estrategias efectivas y diferenciarse en el mercado del software de gestión de salud y seguridad. 
+
+A nivel mundial, el mercado del software de salud y seguridad ocupacional se compone de dos tipos predominantes: soluciones basadas en la nube y soluciones basadas en la web. El software basado en la nube se refiere a un sistema al que se accede a través de internet, donde los datos se almacenan y procesan en servidores remotos. Ofrece mayor flexibilidad, escalabilidad y accesibilidad. Por otro lado, el software basado en la web funciona a través de un navegador web, requiriendo conectividad a internet. Proporciona comodidad y facilidad de uso, ya que los usuarios pueden acceder al software desde cualquier dispositivo con un navegador. Subdividiéndose por aplicación en: `Grandes empresas' y `Pequeñas y Medianas Empresas' (PyME). Las grandes empresas necesitan software que gestione eficazmente la salud y seguridad ocupacional en diversos departamentos y ubicaciones, debido a su estructura compleja y mayor cantidad de empleados. Las PyMEs, en cambio, requieren soluciones rentables que cubran sus necesidades de gestión de salud y seguridad. Por lo tanto, el mercado ofrece aplicaciones de software adaptadas a ambos segmentos para cumplir con sus requisitos específicos y asegurar la conformidad con las normativas de salud y seguridad (\cite{KingpinMarketResearch}).
+
+Rápidamente la Figura~\ref{fig:visitas_por_dominio} permite observar que las tres compañías con mayor ocupación del mercado en lo que a tráfico de red se refiere son \textit{sitedocs}, \textit{donesafe} y \textit{everbridge}. Estas tres empresas juntas representan más del 50\% del tráfico total, destacando su fuerte presencia y dominio en el mercado (\cite{SEMrushMarketExplorer}).
+
+\begin{figure}[htb]
+    \centering
+    \fbox{
+        \includegraphics[width=0.95\linewidth]
+        {images/marcopractico/planificacion/visitas_por_dominio.png}
+    }
+    \caption{Participación de Mercado de los Principales Competidores}
+    \vspace{-0.2cm}
+    \footnotesize{{Elaboración propia a partir de datos obtenidos por medio de ``\textit{\citefield{SEMrushMarketExplorer}{title}}'' (\citeyear{SEMrushMarketExplorer}).}}
+    \label{fig:visitas_por_dominio}
+\end{figure}
+
+A su vez, la matriz ilustrada en la Figura~\ref{fig:MatrizCompetidores}, divide los dominios en cuatro categorías: Jugadores de nicho, agentes de cambio, líderes y jugadores establecidos. El eje X representa el volumen total de tráfico que reciben los dominios, mientras que el eje Y muestra el porcentaje de crecimiento del tráfico total. Cada punto en el gráfico representa un dominio y su trayectoria de crecimiento durante el período seleccionado. Las líneas que conectan los puntos iniciales y finales muestran el cambio en el tráfico y la tasa de crecimiento a lo largo del tiempo.
+
+\begin{figure}[htb]
+    \centering
+    \fbox{
+        \includegraphics[width=0.95\linewidth]
+        {images/marcopractico/planificacion/GrowthQuadrant.png}
+    }
+    \caption{Matriz de Competidores: \textit{OSH Software}}
+    \vspace{-0.2cm}
+	\footnotesize{Fuente: Elaborado por \cite{SEMrushMarketExplorer}.}
+    \label{fig:MatrizCompetidores}
+\end{figure}
+
+En esta matriz, \textit{sitedocs} se encuentra claramente en la categoría de líderes, no solo por su alto volumen de tráfico, sino también por un crecimiento positivo. Destacan los casos de \textit{intenseye} y \textit{smartosh} que también están en la categoría de líderes, mostrando un crecimiento significativo desde la categoría de jugadores de nicho. Por otro lado, dominios como \textit{softwareasalus} están catalogados como agentes de cambio debido a su impresionante crecimiento en el tráfico, aunque su volumen total de tráfico sea menor. Los jugadores establecidos, como \textit{donesafe} y \textit{workhub}, tienen un alto volumen de tráfico pero un crecimiento más estable y menos pronunciado.\\ \indent
+Se puede concluir, en primer lugar que los agentes de cambio, como \textit{softwareasalus}, aunque tienen menor volumen de tráfico, están creciendo rápidamente, lo que sugiere que nuevas empresas pueden irrumpir en el mercado con innovaciones significativas y atraer rápidamente a los usuarios. Además, los jugadores establecidos, con su tráfico consolidado pero crecimiento lento, representan una estabilidad en el mercado, ofreciendo una base de comparación para el rendimiento y las estrategias de retención de usuarios.
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{Cronograma de actividades}
+Como se puede apreciar en la Tabla \ref{tab:cronograma_proyecto}, asi como en el diagrama Gantt del apéndice \ref{sec:cronograma}, se presenta un cronograma que detalla las fases y actividades del proyecto, que se desarrolla desde el 1 de febrero del 2024 hasta el 29 de septiembre de 2024. El mismo, siguiendo la metodología PXP se divide en tres fases principales mas la adición de una cuarta a fines de evaluar el desempeño en actividad del producto. Estas etapas son: Definición de Requisitos, Planificación, Iteraciones de Desarrollo, y Cierre. Cada fase incluye entregables específicos y actividades que se ejecutarán en un periodo determinado para asegurar la implementación exitosa del sistema.
+
+\begin{table}[htb]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \textbf{Etapa} & \textbf{Tareas} & \textbf{Fecha de Inicio} & \textbf{Fecha de Fin} & \textbf{Dias} \\
+        \hline 
+        \rowcolor{lightgray} Def. Requisitos &  & 01/02/2024 & 10/05/2024 & 99 \\ \hline
+        ~ & Entrega Marco Referencial & \multicolumn{2}{|c|}{15/03/2024} & 1 \\ \hline
+        ~ & Entrega de avance & \multicolumn{2}{|c|}{03/05/2024} & 1 \\ \hline
+        ~ & Defensa & \multicolumn{2}{|c|}{10/05/2024} & 1 \\ \hline
+        \rowcolor{lightgray} Planificación &  & 15/03/2024 & 30/06/2024 & 107 \\ \hline
+        ~ & Entrega de avance & \multicolumn{2}{|c|}{24/05/2024} & 1 \\ \hline
+        ~ & Entrega de perfil & \multicolumn{2}{|c|}{07/06/2024} & 1 \\ \hline
+        ~ & Defensa & \multicolumn{2}{|c|}{14/06/2024} & 1 \\ \hline
+        ~ & Análisis de Procesos & 17/06/2024 & 23/06/2024 & 6 \\ \hline
+        ~ & Diseño de Arq. & 24/06/2024 & 30/06/2024 & 6 \\ \hline
+        \rowcolor{lightgray} Desarrollo &  & 01/07/2024 & 01/09/2024 & 62 \\ \hline
+        ~ & Iteración 1 & 01/07/2024 & 21/07/2024 & 20 \\ \hline
+        ~ & Iteración 2 & 22/07/2024 & 11/08/2024 & 20 \\ \hline
+        ~ & Iteración 3 & 12/08/2024 & 01/09/2024 & 20 \\ \hline
+        \rowcolor{lightgray} Cierre &  & 02/09/2024 & 29/09/2024 & 27 \\ \hline
+        ~ & Preparación de Documentación  & 02/09/2024 & 08/09/2024 & 6 \\ \hline
+        ~ & Capacitación de Usuarios & 09/09/2024 & 15/09/2024 & 6 \\ \hline
+        ~ & Monitoreo Inicial y Ajustes & 16/09/2024 & 22/09/2024 & 6 \\ \hline
+        ~ & Pruebas con Usuarios & 23/09/2024 & 29/09/2024 & 6 \\
+        \hline
+    \end{tabular}
+    }
+    \caption{Cronograma del proyecto.}
+    \label{tab:cronograma_proyecto}
+\end{table}
+
+La primera fase, Definición de Requisitos, abarca desde el 1 de febrero hasta el 10 de mayo de 2024, e incluye entregas clave como el marco referencial, avances y la defensa del perfil del proyecto. La segunda fase, Planificación, se extiende desde el 15 de marzo hasta el 30 de junio de 2024, y cubre actividades como la entrega de avances adicionales, la entrega completa del perfil, la defensa final del perfil, el análisis de procesos y el diseño de la arquitectura de alto nivel. La tercera fase, Iteraciones de Desarrollo, se lleva a cabo del 1 de julio al 1 de septiembre de 2024, con tres iteraciones de desarrollo, cada una de tres semanas. Finalmente, la fase de Cierre y Evaluación Final, del 2 de septiembre al 29 de septiembre de 2024, incluye la preparación de documentación, capacitación de usuarios, monitoreo inicial y ajustes, y pruebas con usuarios.
+
+En conclusión, el cronograma establece un plan detallado para la implementación del sistema automatizado de gestión de PGSST, asegurando que cada fase del proyecto se ejecute de manera organizada y meticulosa. Este enfoque estructurado permite abordar de manera efectiva los objetivos del proyecto, garantizando que todas las actividades necesarias se completen dentro de los plazos establecidos, lo que facilita un desarrollo coherente y exitoso del sistema que cumplirá con los estándares y requisitos normativos en Bolivia.
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{Indice tentativo}
+En esta sección se describen de forma detallada todos los capítulos a ser desarrollados en el proyecto de grado. En la introducción, se establecen los antecedentes de la problemática. Se plantea y define el problema a investigar, se delinean los objetivos generales y específicos, y se justifica la relevancia del mismo desde perspectivas legal, tecnológica y social. Además, se delimitan los límites y alcances de la investigación, proporcionando un marco contextual sólido para el desarrollo del proyecto.
+
+El desarrollo del trabajo se fundamenta en el marco teórico y legal, donde se exploran conceptos fundamentales de salud y seguridad ocupacional, así como la legislación aplicable a la materia. Se abordan también metodologías de desarrollo de software, análisis y evaluación de software, y se profundiza en el campo de la inteligencia artificial, proporcionando un contexto amplio y diverso que sustenta la investigación los objetivos del proyecto.
+
+Tras el marco practico en el que se resuelve el problema. Finalmente, se presentan las conclusiones derivadas del proyecto, se ofrecen recomendaciones pertinentes basadas en los hallazgos obtenidos, y se esbozan posibles líneas de trabajo. Este índice proporciona una guía clara y estructurada del contenido que se desarrollará a lo largo del trabajo, asegurando una presentación coherente y completa del proyecto.
+
+\begin{enumerate}[label*=\arabic*.]
+    \item \textbf{Introducción}
+    \begin{enumerate}[label*=\arabic*.]
+        \item \textbf{Antecedentes}
+        \item \textbf{Planteamiento del Problema}
+        \item \textbf{Definición del Problema}
+        \item \textbf{Objetivos}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Objetivo general
+            \item Objetivos específicos
+        \end{enumerate}
+        \item \textbf{Justificación}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Justificación legal
+            \item Justificación tecnológica
+            \item Justificación social
+        \end{enumerate}
+        \item \textbf{Delimitación}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Límites
+            \item Alcances
+        \end{enumerate}
+    \end{enumerate}
+    \item \textbf{Marco teórico y legal}
+    \begin{enumerate}[label*=\arabic*.]
+        \item \textbf{Salud y Seguridad Ocupacional}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Conceptos Fundamentales
+            \begin{enumerate}[label*=\arabic*.]
+                \item Seguridad Ocupacional
+                \item Salud Ocupacional
+                \item Higiene Ocupacional
+                \item Enfermedad Ocupacional
+                \item Sistema de Gestión de Riesgos Ocupacionales
+            \end{enumerate}
+            \item Accidentes e Incidentes Ocupacionales
+            \item Factores de accidentes
+            \begin{enumerate}[label*=\arabic*.]
+                \item Actos Inseguros
+                \item Condición Insegura
+            \end{enumerate}
+            \item Ingeniería de Seguridad
+            \item Práctica de Seguridad
+            \item Investigación de accidentes
+            \item Peligro
+            \item Riesgo
+            \begin{enumerate}[label*=\arabic*.]
+                \item Riesgo Físico
+                \item Riesgo Mecánico
+                \item Riesgo Químico
+                \item Riesgo Biológico
+                \item Riesgo Psicosocial
+                \item Riesgo Ergonómico
+                \item Riesgo Aceptable
+            \end{enumerate}
+            \item Condiciones de Trabajo
+            \begin{enumerate}[label*=\arabic*.]
+                \item Iluminación
+                \item Estrés Térmico
+                \item Sonometría
+                \item Ventilación
+                \item Señalización
+                \item Ergonomía
+                \item Equipo de Protección Personal (EPP)
+                \item Comité Mixto
+                \item Inspección de Salud y Seguridad en el trabajo
+            \end{enumerate}
+        \end{enumerate}
+        \item \textbf{Legislación Aplicable a la SySO}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Contexto Histórico
+            \item Normativa obligatoria
+            \begin{enumerate}[label*=\arabic*.]
+                \item Constitución Política del Estado
+                \item Ley General del Trabajo
+                \item Reglamento de la Ley General de Trabajo
+                \item Ley General de Higiene, Seguridad Ocupacional y Bienestar
+                \item Disposiciones Complementarias
+            \end{enumerate}
+            \item Normativa voluntaria
+            \begin{enumerate}[label*=\arabic*.]
+                \item NB/ISO 62005:2005
+                \item NB/ISO 55001:2005
+                \item NB/ISO 51002:2012
+                \item NB/ISO 7243:2018
+                \item NB/ISO 45001:2018
+                \item NB/ISO 51001:2022
+                \item NB/ISO 58005:2022
+                \item NB/ISO 11226:2022
+            \end{enumerate}
+        \end{enumerate}
+        \item \textbf{Metodologías de Desarrollo de Software}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Programación Extrema
+            \item Programación Extrema Personal
+            \begin{enumerate}[label*=\arabic*.]
+                \item Técnica MoSCoW
+            \end{enumerate}
+        \end{enumerate}
+        \item \textbf{Análisis y Evaluación de Software}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Estándar ISO 25000:2014
+            \item Método Objetivo-Pregunta-Métrica
+        \end{enumerate}
+        \item \textbf{Inteligencia Artificial}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Aprendizaje
+            \item Redes Neuronales
+            \item Visión Computacional
+            \item Procesamiento de Lenguaje Natural (PLN)
+            \item Modelos de Lenguaje Multimodales
+            \item Generación de Lenguaje Natural
+            \item Generación de Descripciones de Imágenes
+        \end{enumerate}
+    \end{enumerate}
+    \item \textbf{Marco Practico}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Revisión de Requisitos
+            \item Análisis de procesos actuales
+            \item Establecimiento de arquitectura del sistema
+            \begin{enumerate}[label*=\arabic*.]
+                \item Alto nivel
+                \item Detalle
+                \item Base de Datos
+            \end{enumerate}   
+            \item Implementación del sistema
+            \item Evaluación de la calidad del software
+        \end{enumerate}
+    \item \textbf{Marco Analítico}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Resultados y Discusión
+            \item Análisis de Costos
+                \begin{enumerate}[label*=\arabic*.]
+                    \item Cálculo de Costos
+                    \item Comparación Costo Beneficio
+                    \begin{enumerate}[label*=\arabic*.]
+                        \item Valor Actual Neto
+                        \item Tasa Interna de Retorno
+                        \item Conclusión
+                    \end{enumerate}
+                \end{enumerate}
+            \item Análisis de Competidores
+            \item Conclusión del capítulo
+        \end{enumerate}
+    \item \textbf{Marco Conclusivo}
+        \begin{enumerate}[label*=\arabic*.]
+            \item Conclusiones
+            \item Recomendaciones
+            \item Trabajos Futuros
+        \end{enumerate}
+    \item \textbf{Bibliografía, Apéndices y Anexos}
+\end{enumerate}

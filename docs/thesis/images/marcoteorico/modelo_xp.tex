@@ -1,0 +1,33 @@
+\resizebox{\textwidth}{!}{
+    {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+    \fbox{
+        \begin{tikzpicture}[node distance=2, auto,
+            block/.style = {draw, rectangle, fill=blue!10, minimum height=2em, text width=70, align=center},
+            arrow/.style = {-{Latex[width=8, length=6]},thick}]
+            % Nodes
+            \begin{scope}[every node/.style={block}]
+            \node (planificacion) {Planificación};
+            \node (diseno) [right=of planificacion, xshift=2cm] {Diseño};
+            \node (codificacion) [below=of diseno] {Codificación};
+            \node (pruebas) [left=of codificacion, xshift=-2cm] {Pruebas};
+            \node (lanzamiento) [left=of pruebas] {Lanzamiento};
+            \end{scope}
+
+            % Arrows
+            \draw[arrow] (planificacion) -- (diseno);
+            \draw[arrow] (diseno) -- (codificacion);
+            \draw[arrow] (codificacion) -- (pruebas);
+            \draw[arrow] (pruebas) -- (planificacion);
+            \draw[arrow, dashed] (pruebas) -- (lanzamiento);
+
+            % Annotations
+            \node[left=of planificacion, align=right, xshift=1.6cm] {Historias de usuario\\Plan de Iteración\\Criterios de prueba de aceptación};
+            \node[right=0.5cm of diseno, align=left] {Diseño Simple\\Tarjetas CRC\\Prototipos};
+            \node[right=0.5cm of codificacion, align=left] {Programación\\Rediseño};
+            \node[below=0.5cm of pruebas, align=left, xshift=4cm] {Pruebas Unitarias\\Integración Continua};
+            \node[below=0.5cm of pruebas, align=left] {Pruebas de\\adaptación};
+
+        \end{tikzpicture}
+        }
+    }
+}

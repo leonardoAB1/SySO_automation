@@ -109,7 +109,7 @@
 	\cleardoublepage 	
 	\input{chapters/marcoteorico}
 	\cleardoublepage
-	\input{chapters/marcopractico}
+	\input{chapters/marcopractico/propuesta}
 	\cleardoublepage
 	% \input{chapters/blabla}
 	% \cleardoublepage
@@ -126,15 +126,20 @@
 	\addcontentsline{toc}{chapter}{Bibliografia}
 	\cleardoublepage
 	
-	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Apéndice
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\appendix
+	\input{chapters/additional_material/apendice_A}
+	\cleardoublepage
+	\input{chapters/additional_material/apendice_B}
+	\cleardoublepage
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Anexos
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\renewcommand{\appendixname}{Anexo}
 	\appendix
-	\input{chapters/anexos_A}
-	%\cleardoublepage
-	%\input{chapters/anexos_B}
-	
-	
+	\input{chapters/additional_material/anexo_A}
 	
 \end{document}

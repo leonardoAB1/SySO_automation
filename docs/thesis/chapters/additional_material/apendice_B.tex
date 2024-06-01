@@ -1,0 +1,72 @@
+\chapter{Diagrama Gantt del Proyecto}
+\label{sec:cronograma}
+
+\def\mystartdate{2024-02-01}% Fecha de inicio del proyecto
+\def\myenddate{2024-09-29}% Fecha de finalización del proyecto
+
+\newganttchartelement*{equalateralmilestone}{
+equalateralmilestone/.style={
+    shape=diamond,
+    draw,
+    fill=black,
+    inner sep=2pt
+},
+equalateralmilestone label font=\slshape,
+equalateralmilestone left shift=1.0,
+equalateralmilestone right shift=-1.0,
+}
+
+\begin{ganttchart}[
+    hgrid,
+    %vgrid,
+    expand chart=\textwidth,
+    x unit=0.3cm,
+    y unit title=0.7cm,
+    y unit chart=0.7cm,
+    title height=1,
+    title label font=\bfseries\footnotesize,
+    bar/.append style={fill=green},
+    incomplete/.append style={fill=yellow},
+    progress label text={},
+    group label font=\bfseries,
+    milestone label font=\bfseries,
+    milestone left shift=.1,
+    milestone right shift=-.1,
+    milestone height=.1,
+    milestone/.append style={scale=3.0},
+    time slot format=isodate
+]{\mystartdate}{\myenddate}
+
+% Add titles for year and quarters
+%\gantttitle{2024}{242} \\
+\gantttitle{Mes}{242} \\
+\gantttitlecalendar{month=letter} \\
+
+% Fase de Definición de Requisitos
+\ganttgroup{Fase de Definición de Requisitos}{2024-02-01}{2024-05-10} \\
+\ganttequalateralmilestone{1a Entrega Marco Referencial}{2024-03-15} \\
+\ganttequalateralmilestone{2a Entrega de avance}{2024-05-03} \\
+\ganttequalateralmilestone{Defensa de Perfil}{2024-05-10} \\
+
+% Fase de Planificación
+\ganttgroup{Fase de Planificación}{2024-03-15}{2024-06-30} \\
+\ganttequalateralmilestone{3a Entrega de avance}{2024-05-24} \\
+\ganttequalateralmilestone{Entrega de Perfil completo}{2024-06-07} \\
+\ganttequalateralmilestone{Defensa final de perfil}{2024-06-14} \\
+\ganttbar{Análisis de Procesos}{2024-06-17}{2024-06-23} \\
+\ganttbar{Diseño de Arquitectura de Alto Nivel}{2024-06-24}{2024-06-30} \\
+
+% Fase de Iteraciones de Desarrollo
+\ganttgroup{Fase de Iteraciones de Desarrollo}{2024-07-1}{2024-09-01} \\
+\ganttbar{Iteración 1}{2024-07-1}{2024-07-21} \\
+\ganttbar{Iteración 2}{2024-07-22}{2024-08-11} \\
+\ganttbar{Iteración 3}{2024-08-12}{2024-09-01} \\
+
+% Fase de Cierre y Evaluación Final
+\ganttgroup{Fase de Cierre y Evaluación Final}{2024-09-02}{2024-09-29} \\
+\ganttbar{Preparación de Documentación}{2024-09-2}{2024-09-08} \\
+\ganttbar{Capacitación de los Usuarios}{2024-09-9}{2024-09-15} \\
+\ganttbar{Monitoreo Inicial y Ajustes}{2024-09-16}{2024-09-22} \\
+\ganttbar{Pruebas con usuarios}{2024-09-23}{2024-09-29} \\
+
+\end{ganttchart}
