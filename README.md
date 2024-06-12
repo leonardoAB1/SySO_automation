@@ -10,17 +10,18 @@ Este proyecto busca abordar la falta de identificación proactiva de riesgos lab
 El proyecto se fundamenta en la necesidad de superar las dificultades históricas y culturales que han afectado la implementación efectiva de medidas de seguridad y salud en el trabajo en Bolivia. La NTS-009/23 establece los requisitos para la presentación y aprobación de los PGSST, pero su cumplimiento enfrenta obstáculos como la falta de recursos y la complejidad del proceso.
 
 ## Definición del Problema
-¿Cómo desarrollar un software que identifique de manera efectiva los riesgos laborales, facilitando asi el desarrollo y la gestión eficiente de un PGSST?
+¿Cómo impacta la falta de recursos humanos especializados en el cumplimiento de la NTS 009/23 por parte de las empresas en Bolivia?
 
 ## Objetivos
 ### Objetivo general
-Implementar un sistema automatizado que permita la identificación de riesgos laborales y la gestión eficiente de PGSST en conformidad con la NTS-009/23.
+Implementar un sistema automatizado basado en la NTS 009/23 que facilite la identificación de riesgos laborales, el desarrollo y la gestión eficaz de los PGSST.
 
 ### Objetivos específicos
-- Analizar los procesos para el desarrollo de los documentos requeridos por la NTS-009/23.
-- Implementar un sistema automatizado de detección de riesgos basado en IA.
-- Desarrollar capacidades para generar automáticamente PGSST.
-- Diseñar una interfaz amigable para dispositivos móviles.
+- Contextualizar la situación actual de los procesos para desarrollar los documentos requeridos por la NTS-009/23 mediante diagramas de flujo que reflejen las operaciones actuales.
+- Determinar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar, para asegurar la escalabilidad, la modularidad y la eficiencia del sistema.
+- Desarrollar las iteraciones del proyecto, estableciendo los objetivos específicos a alcanzar durante la fase de diseño, implementación y pruebas del sistema en cada iteración.
+- Implementar el sistema utilizando la metodología de Desarrollo Guiado por Pruebas (TDD).
+- Verificar la calidad del software tras cada iteración como parte del proceso de pruebas del sistema haciendo uso de la metodología Objetivo-Pregunta-Métrica (GQM) para asegurar la calidad en base al estándar ISO 25000:2014.
 
 ## Justificación
 ### Justificación legal
