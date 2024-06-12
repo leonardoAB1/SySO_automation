@@ -13,62 +13,184 @@ Este apartado o sección, por tanto, es de gran importancia y debe ser detallado
 %---------------------------------------------------------------------------------------------
 \section{Análisis de Costos}
 
-El análisis de costo-beneficio es una herramienta crucial para evaluar la viabilidad de un proyecto, al comparar los costos totales del desarrollo con los beneficios proyectados. En este caso, el proyecto se ha analizado desde dos perspectivas: El costo de desarrollo para el proyecto de grado y la proyección de los ingresos y beneficios esperados bajo la implementación del modelo de Software como Servicio (SaaS por sus siglas en inglés).
+El análisis del proyecto se ha llevado a cabo desde dos perspectivas fundamentales: el costo de desarrollo del proyecto de grado y la proyección de los ingresos y beneficios esperados mediante la implementación del modelo de Software como Servicio (SaaS por sus siglas en inglés) en una estructura empresarial completamente virtual, donde cada programador involucrado utiliza su equipo personal para el desarrollo.
 
-\subsection{Calculo de Costos}
-La estimación del costo de desarrollo para el proyecto se basó en el modelo COCOMO intermedio (\cite{basavaraj2008empirical}). Este modelo calcula el esfuerzo necesario para desarrollar software considerando el tamaño del programa y varios factores que influyen en los costos, como atributos del producto, hardware, personal y del proyecto. Para una evaluación más detallada de estos factores, se puede consultar la tabla de ponderación de impulsores en el anexo \ref{sec:cocomo}. \\
-Para la estimación del numero de lineas de código se utilizó el prototipo de uno de los módulos del programa. El prototipo consta de aproximadamente 600  efectivas de código. Asumiendo que el desarrollo es orgánico y que todos los módulos tendrán una longitud similar y el alcance del proyecto de grado se limita a por lo menos tres módulos: Se espera con 1800 lineas de código. Por otro lado, de acuerdo a \textcite{glassdoor2024} el salario promedio de desarrolladores junior en Bolivia es de Bs. 6000.\\ 
+%---------------------------------------------------------------------------------------------
+\subsection{Costos de Desarrollo}
+La estimación del costo de desarrollo para el proyecto se basó en el modelo COCOMO intermedio (\cite{basavaraj2008empirical}). Este modelo calcula el esfuerzo necesario para desarrollar software considerando el tamaño del programa y varios factores que influyen en los costos, como atributos del producto, hardware y personal. Para una evaluación más detallada de estos factores, se puede consultar la tabla de ponderación de impulsores en el anexo \ref{sec:cocomo}. \\
+Para la estimación del numero de lineas de código se utilizó el prototipo de uno de los módulos del programa. El prototipo consta de aproximadamente 600  efectivas de código. Asumiendo que el desarrollo es orgánico y que todos los módulos tendrán una longitud similar y el alcance del proyecto de grado se limita a por lo menos tres módulos: Se espera con 1800 lineas de código. Por otro lado, de acuerdo a \textcite{glassdoor2024} el salario promedio de desarrolladores junior en Bolivia es de Bs. 6000.\\ \indent
 El modelo aplicado al proyecto estima inicialmente un esfuerzo de $5.93$ persona-mes, que representa el trabajo requerido sin ajustar los factores específicos del proyecto. Tras aplicar estos factores de ajuste, el esfuerzo aumenta a $8.76$ persona-mes, reflejando un incremento significativo debido a las particularidades del proyecto. El tiempo total estimado para el desarrollo es de $5.70$ meses, sugiriendo que el proyecto se completará en menos de medio año. Para cumplir con este plazo, se necesita un equipo promedio de aproximadamente $1.54$ personas. \\
-\begin{equation}\label{eq:costo_total}
-    Costo\ Total = Esfuerzo(PM) \times Salario\ mensual \times Numero\ de\ desarrolladores
+\begin{equation}\label{eq:costo_desarrollo}
+    Costo\ Desarrollo\ MVP = Esfuerzo(Persona-Mes) \times Salario(Bs/Persona-Mes)
 \end{equation}
-Finalmente, con la ecuación \ref{eq:costo_total} se calcula el costo de desarrollo como el producto del esfuerzo en persona-mes, el salario mensual y el numero de desarrolladores idealmente requeridos. Adicionalmente se agrega un factor de seguridad del 10\% para tomar en cuenta imprevistos, material de escritorio y consumibles. Resultando en un costo estimado de desarrollo de Bs.$89,036.64$. Adicionalmente, caso se evalué el proyecto completo con los 13 módulos planteados, por medio de la misma metodología se concluye que el proyecto completo tendría un costo de Bs.$1,220,924.10$.
 
+\begin{equation*}
+    Costo\ Desarrollo\ MVP = 8.76 \times Bs.6000 = Bs.52,560.00
+\end{equation*}
+Finalmente, con la ecuación \ref{eq:costo_desarrollo} se calcula el costo de desarrollo como el producto del esfuerzo en persona-mes, el salario mensual y el numero de desarrolladores idealmente requeridos. Resultando en un costo estimado de desarrollo de Bs.$52,560.00$. Adicionalmente, caso se evalué el proyecto completo automatizando las siete actividades de la Tabla \ref{tab:tabla_requisitos_nts_009}, por medio de la misma metodología se concluye que el proyecto completo tendría un costo de Bs.$245,069.81$.
 
-\subsection{Comparación Costo Beneficio}
-Análisis financiero del proyecto asumiendo el modelo de negocio SaaS con el proyecto completo. Se calculó la relación entre los ingresos anuales y la inversión inicial asumiendo que inicialmente que se capta al 10\% del mercado como usuario, mismos que incrementan según la tasa de incremento de profesionales SySO anual visible en la Figura \ref{fig:profesionales_syso_registrados}. Los resultados de la proyección se presentan en la Tabla \ref{tab:saas}. La relación costo-beneficio mejora significativamente a lo largo de los años, comenzando en 0.15 en el primer año y alcanzando 2.29 en el quinto año. Esto indica que, para el quinto año, por cada unidad monetaria invertida, se generan 2.29 unidades monetarias en ingresos.
+%---------------------------------------------------------------------------------------------
+\subsection{Costos de Infraestructura}
 
-\begin{table}[h]
+En el contexto del modelo SaaS, es crucial evaluar y seleccionar adecuadamente la infraestructura tecnológica sobre la cual se desplegará el software. Este modelo requiere una plataforma robusta y escalable que permita no solo un buen desempeño sino también una gestión eficiente de los costos a lo largo del tiempo. Para seleccionar la plataforma más adecuada para el proyecto se considerando diversos criterios técnicos y financieros. La Tabla \ref{tab:sel_servicios} presenta una matriz de evaluación que compara los tres principales proveedores de servicios en la nube: Amazon Web Services (AWS), Google Cloud y Microsoft Azure. En función de varios criterios ponderados. Asumiendo AWS como servicio a utilizar y se proyectan los costos de este servicio al cambio de Bs.6.96 por dolar.
+
+\input{chapters/marcopractico/tables/cloud_services.tex}
+
+\subsubsection{Servidores y Almacenamiento}\hfill\\ 
+\indent
+Los costos de servidores y almacenamiento en AWS pueden variar significativamente según las necesidades específicas del proyecto. Para este análisis, se asume un uso moderado de los servicios, considerando un entorno de desarrollo, pruebas y producción. 
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Elastic Compute Cloud (EC2): Utilizado para alojar los servidores de aplicaciones. Se estima que se utilizarán instancias t2.medium para el entorno de desarrollo y pruebas, y instancias m5.large para el entorno de producción. Asumiendo un uso continuo, los costos estimados son:
+    \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Desarrollo y Pruebas: 2 instancias t2.medium a $0.0464$ por hora cada una.
+    \item Producción: 1 instancia m5.large a $0.096$ por hora.
+    \end{itemize}
+    \begin{equation*}\label{eq_costo_ec2}
+    Costo\ EC2\ mensual = (720) ( 2 \times \$0.0464 + \$0.096) = \$135.94 = Bs.946.14
+    \end{equation*}
+    \item Simple Storage Service (S3): Utilizado para almacenamiento de objetos, como archivos estáticos y backups. Se estima un uso de 500 GB por mes a \$0.023 por GB.
+    \begin{equation*}\label{eq_costo_s3}
+    Costo\ S3\ mensual = 500 \times \$0.023 = \$11.50 = Bs.80.04
+    \end{equation*}
+    \item Relational Database Service (RDS): Utilizado para la base de datos relacional. Se asume el uso de una instancia db.t3.medium para el entorno de producción a \$0.0416\$ por hora.
+    \begin{equation*}\label{eq_costo_rds}
+    Costo\ RDS\ mensual = 0.0416 \times 720 = \$29.95 = Bs.208.45
+    \end{equation*}
+\end{itemize}
+
+\subsubsection{Red y Seguridad}\hfill\\ 
+\indent
+Además de los costos de servidores y almacenamiento, es importante considerar los costos asociados a la red y la seguridad.
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Transferencia de Datos: Se estima un tráfico mensual de 1 TB (entrada y salida), con un costo de \$0.09 por GB para los primeros 10 TB.
+\begin{equation*}\label{eq_transf_datos}
+Costo\ transferencia\ de\ datos\ mensual = 1024 \times 0.09 = \$92.16 = Bs.641.43
+\end{equation*}
+\item Servicios de Seguridad: Incluye AWS WAF (\textit{Web Application Firewall}) y Amazon GuardDuty. Se estima un costo mensual combinado de aproximadamente \$50 (Bs. 348).
+\end{itemize}
+
+\subsubsection{Costos Totales de Infraestructura}\hfill\\ 
+\indent
+Se concluye este análisis tras haber estimado los costos totales para la infraestructura propuesta. Estos costos incluyen los gastos mensuales asociados con los servidores, la red y la seguridad, esenciales para mantener las operaciones en la nube a través de AWS. A continuación, se detalla el cálculo de estos costos:
+
+\begin{table}[ht]
+    \caption{Detalle de Costos Mensuales de Infraestructura.}
+    \label{tab:costos_infraestructura}
     \centering
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabularx}{\textwidth}{|X|r|} 
         \hline
-        \textbf{Año} & \textbf{Usuarios Mensuales} & \textbf{Precio de Subscripción (Bs)} & \textbf{Ingresos Anuales (Bs)} & \textbf{Costo Beneficio}\\ \hline
-        1 & 300 & Bs50.00 & Bs180,000 & 0.15\\ \hline
-        2 & 476 & Bs50.00 & Bs286,200 & 0.38\\ \hline
-        3 & 758 & Bs50.00 & Bs454,800 & 0.75\\ \hline
-        4 & 1204 & Bs50.00 & Bs722,400 & 1.35\\ \hline
-        5 & 1912 & Bs50.00 & Bs1,147,200 & 2.29\\ \hline
-    \end{tabular}
-    }
-    \caption{Proyección Financiera del Modelo SaaS}
-    \label{tab:saas}
+        \textbf{Concepto} & \textbf{Monto (Bs)} \\ \hline
+        Servidores (EC2) & 946.14 \\ 
+        Almacenamiento (S3) & 80.04 \\ 
+        Base de Datos (RDS) & 208.45 \\ 
+        Transferencia de datos & 641.43 \\ 
+        Servicios de Seguridad & 348.00 \\ \hline
+        \textbf{Total Costo de Infraestructura} & \textbf{2,224.06} \\ \hline
+    \end{tabularx}
 \end{table}
 
-\subsubsection{Valor Actual Neto}\hfill\\ 
-\indent
-El Valor Actual Neto (VAN) es una medida financiera que calcula la diferencia entre el valor presente de los flujos de efectivo entrantes y salientes de un proyecto. Se calcula descontando los flujos de caja futuros a una tasa de descuento y restando la inversión inicial. Para el proyecto SaaS en cuestión, se ha utilizado una tasa de descuento del 10\%. El VAN se calcula sumando los flujos de caja descontados menos la inversión inicial tal y como expone la ecuación \ref{eq:VAN}.
+Así, el costo mensual de la infraestructura mediante AWS se calcula en $Bs.2,224.06$. Es decir, el costo anual estimado de infraestructura en AWS es de $Bs.26,668.72$. Es importante destacar que estos costos pueden variar según el uso real y la optimización de recursos a lo largo del tiempo.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Gastos Legales}
+
+La creación de una sociedad implica una serie de gastos legales necesarios para cumplir con las normativas vigentes y asegurar su correcta constitución. Estos gastos incluyen tarifas administrativas, honorarios profesionales y otros costos relacionados.En la Tabla \ref{tab:costos_legales} se detallan los costos legales asociados a la creación de la sociedad.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|r|} 
+        \hline
+        \textbf{Descripción} & \textbf{Costo (Bs)} \\ \hline
+        Arancel de Seprec & 455 \\ 
+        Publicación Gaceta & 192 \\ 
+        Balance de apertura del contador & 200 \\ 
+        Gobierno autónomo municipal Santa Cruz & 150 \\ 
+        Honorarios notario & 500 \\ 
+        Honorarios abogado & 3500 \\ \hline
+        \textbf{TOTAL} & \textbf{4997} \\ \hline
+    \end{tabularx}
+    \caption{Gastos legales de creación de la sociedad.}
+    \label{tab:costos_legales}
+\end{table}
+
+%---------------------------------------------------------------------------------------------
+\subsection{Inversión Total Inicial}
+
+En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial necesaria para el proyecto. Según los cálculos, la inversión total inicial estimada para iniciar el proyecto asciende a $Bs.59,781.06$. Este monto abarca todos los aspectos indispensables para el desarrollo, implementación y operación inicial del software bajo el modelo SaaS.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|r|}
+        \hline
+        \textbf{Concepto} & \textbf{Costo (Bs)} \\
+        \hline
+        Costo de Desarrollo & 52,560.00 \\
+        Costos de Infraestructura & 2,224.06 \\
+        Gastos Legales & 4,997.00 \\
+        \hline
+        \textbf{Total} & \textbf{59,781.06} \\
+        \hline
+    \end{tabularx}
+    \caption{Inversión Total Inicial}
+    \label{tab:inversion_total}
+\end{table}
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
+\section{Evaluación de Proyecto de Inversión}
+La evaluación de un proyecto de inversión es fundamental para determinar su viabilidad y potencial de rentabilidad. En esta sección, se abordan tres elementos clave: la comparación costo-beneficio, el Valor Actual Neto (VAN) y la Tasa Interna de Retorno (TIR). Estos indicadores financieros proporcionan una comprensión profunda de los ingresos proyectados frente a los costos, la rentabilidad esperada descontada a valor presente y la eficiencia general del proyecto. Este análisis integral permite tomar decisiones informadas y estratégicas sobre la inversión.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Comparación Costo Beneficio}
+
+El análisis financiero del proyecto asumiendo el modelo de negocio SaaS con la proyección del proyecto completo. Se calculó la relación entre los ingresos y costos anuales asumiendo un programador junior contratado para realizar el desarrollo y mantenimiento continuo del sistema; Ademas que inicialmente que se capta al 10\% del mercado potencial como usuario mismos que incrementan según la tasa de incremento de profesionales SySO anual del $58.8\%$ visible en la Figura \ref{fig:profesionales_syso_registrados}. Los resultados de la proyección se presentan en la Tabla \ref{tab:proyeccion_financiera} en la que se utilizó un un costo por membresía de Bs.70. La relación costo-beneficio mejora significativamente a lo largo de los años, comenzando en 1.00 en el primer año y alcanzando 18 en el quinto año. Esto indica que, para el quinto año, por cada boliviano invertida, se generan alrededor de 18 bolivianos en ingresos.
+
+\begin{table}[htb]
+    \caption{Proyección financiera del proyecto bajo el modelo SaaS.}
+    \label{tab:proyeccion_financiera}
+    \centering
+    \begin{tabularx}{\textwidth}{|X|r|r|r|r|r|}
+        \hline
+        \thead{Año} & \thead{Usuarios\\Mensuales} & \thead{Gastos\\Anuales (Bs)}  & \thead{Ingresos\\Anuales (Bs)}  & \thead{Balance\\Anual (Bs)} & \thead{C/B} \\ \hline
+        0     & 276,755.53 & ~ & -276,755.53 & 0.00  & ~ \\ \hline
+        330   & 98,688.72 & 277,200.00 & 178,511.28 & 2.81  & 252,000.00 \\ \hline
+        525   & 98,688.72 & 441,000.00 & 342,311.28 & 4.47  & 364,462.81 \\ \hline
+        834   & 98,688.72 & 700,560.00 & 601,871.28 & 7.10  & 526,341.10 \\ \hline
+        1325  & 98,688.72 & 1,113,000.00 & 1,014,311.28 & 11.28 & 760,193.98 \\ \hline
+        2104  & 98,688.72 & 1,767,360.00 & 1,668,671.28 & 17.91 & 1,097,391.51 \\ \hline
+    \end{tabularx}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------
+\subsection{Valor Actual Neto}
+El Valor Actual Neto (VAN) es una medida financiera que calcula la diferencia entre el valor presente de los flujos de efectivo entrantes y salientes de un proyecto. Se calcula descontando los flujos de caja futuros a una tasa de descuento y restando la inversión inicial. Para este proyecto, se utiliza una tasa de descuento del 10\%. 
 
 \begin{equation}
     \label{eq:VAN}
-    VAN = \sum_{t=1}^{5} \frac{Ingresos\_Anuales_t}{(1+0.10)^{t-1}} - 1,220,924.10 = 722,713.14
-\end{equation}
-    
-El Valor Actual Neto (VAN) del proyecto SaaS se evalúa en 722,713.14 Bs a lo largo de un horizonte temporal de 5 años. Esta cifra positiva sugiere que el proyecto tiene un valor presente neto favorable, lo que potencialmente lo convierte en una inversión rentable. Desde esta perspectiva financiera, el proyecto parece prometedor, ofreciendo la posibilidad de generar retornos financieros positivos. No obstante, para tomar una decisión informada sobre su viabilidad a largo plazo, se deben considerar otros factores como el periodo de recuperación de la inversión, el riesgo asociado y las condiciones del mercado.
-
-\subsubsection{Tasa Interna de Retorno}\hfill\\ 
-\indent
-La Tasa Interna de Retorno (TIR) es la tasa de descuento que hace que el VAN sea igual a cero. Es una medida de la rentabilidad de una inversión y se utiliza para evaluar la eficiencia de un proyecto. Para el proyecto SaaS, la TIR se ha calculado aproximadamente en un 0.25 mediante la ecuación \ref{eq:TIR}.
-
-\begin{equation} \label{eq:TIR}
-    0 = \sum_{t=1}^{5} \frac{Ingresos\_Anuales_t}{(1+TIR)^{t-1}}- 1,220,924.10
+    VAN = \sum \frac{ganancias}{(1+K)^{n}} - \sum \frac{costos}{(1+K)^{n}}
 \end{equation}
 
-Un resultado superior a cero sugiere una perspectiva favorable en términos de retorno sobre la inversión. Este resultado confirma la viabilidad financiera del proyecto, respaldando la decisión de avanzar con su implementación.
+\begin{equation*}
+    VAN =  2,135,932.70
+\end{equation*}
 
-\subsubsection{Conclusión}\hfill\\ 
+El VAN se calcula restando los flujos de efectivo descontados de los costos descontados, lo que da como resultado un VAN de 2,464,402.58. Esto indica que, después de descontar los flujos de efectivo futuros y la inversión inicial, el proyecto en cuestión generaría un valor adicional de 2,464,402.58 en términos de valor presente neto. Este resultado sugiere que el proyecto tiene un potencial de rentabilidad positivo y podría ser una inversión atractiva.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Tasa Interna de Retorno}
+La Tasa Interna de Retorno (TIR) es un indicador financiero utilizado para evaluar la rentabilidad de una inversión. Representa la tasa de descuento que iguala el VAN de una serie de flujos de caja a cero. En otras palabras, la TIR es la tasa de interés que hace que el valor presente de los ingresos futuros de una inversión sea igual al costo inicial de la misma.
+\begin{equation}
+    \label{eq:TIR}
+    VAN = \sum_{t=1}^{n} \frac{F_t}{(1+TIR)^{t-1}} - I = 0
+\end{equation}
 \indent
-En base a los resultados obtenidos, se puede concluir que a grandes rasgos el proyecto SaaS presenta un buen rendimiento financiero. Tanto el Valor Actual Neto como la Tasa Interna de Retorno indican que el proyecto es viable desde el punto de vista económico. Además, el análisis de Costo Beneficio muestra una tendencia positiva a lo largo de los cinco años proyectados.
+En la ecuación \ref{eq:TIR}, $F_t$ son los flujos de caja en el periodo $t$, $n$ es el número total de periodos, e $I$ es la inversión inicial. La misma se resuelve iterativamente, ya que no tiene una solución algebraica directa, especialmente cuando los flujos de caja no son constantes. El valor de la TIR es útil porque permite comparar la rentabilidad de diferentes proyectos de inversión. En general, un proyecto se considera aceptable si su TIR es mayor que la tasa mínima de rendimiento requerida o el costo de oportunidad del capital. En el contexto del proyecto evaluado, se ha determinado que la TIR es del 112\%. Este valor indica una alta rentabilidad del proyecto, ya que la tasa de retorno esperada es significativamente superior al costo de capital típico en muchos sectores.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Conclusión}
+La evaluación del proyecto de inversión mediante la comparación costo-beneficio, el VAN y el TIR revela una perspectiva prometedora. La proyección financiera muestra una mejora constante en la relación costo-beneficio, culminando en una relación de 18:1 para el quinto año. El VAN positivo de 2,135,932.70 sugiere que el proyecto no solo recuperará la inversión inicial sino que también generará un valor neto significativo. La TIR del 112\% indica una alta rentabilidad, superando ampliamente las tasas de retorno estándar en la industria. Estos resultados combinados apoyan la viabilidad y rentabilidad del proyecto, recomendando su implementación como una inversión estratégica y beneficiosa.
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
@@ -115,6 +237,8 @@ Se puede concluir, en primer lugar que los agentes de cambio, como \textit{softw
 Como se puede apreciar en la Tabla \ref{tab:cronograma_proyecto}, asi como en el diagrama Gantt del apéndice \ref{sec:cronograma}, se presenta un cronograma que detalla las fases y actividades del proyecto, que se desarrolla desde el 1 de febrero del 2024 hasta el 29 de septiembre de 2024. El mismo, siguiendo la metodología PXP se divide en tres fases principales mas la adición de una cuarta a fines de evaluar el desempeño en actividad del producto. Estas etapas son: Definición de Requisitos, Planificación, Iteraciones de Desarrollo, y Cierre. Cada fase incluye entregables específicos y actividades que se ejecutarán en un periodo determinado para asegurar la implementación exitosa del sistema.
 
 \begin{table}[htb]
+    \caption{Cronograma del proyecto.}
+    \label{tab:cronograma_proyecto}
     \centering
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{|c|c|c|c|c|}
@@ -143,8 +267,6 @@ Como se puede apreciar en la Tabla \ref{tab:cronograma_proyecto}, asi como en el
         \hline
     \end{tabular}
     }
-    \caption{Cronograma del proyecto.}
-    \label{tab:cronograma_proyecto}
 \end{table}
 
 La primera fase, Definición de Requisitos, abarca desde el 1 de febrero hasta el 10 de mayo de 2024, e incluye entregas clave como el marco referencial, avances y la defensa del perfil del proyecto. La segunda fase, Planificación, se extiende desde el 15 de marzo hasta el 30 de junio de 2024, y cubre actividades como la entrega de avances adicionales, la entrega completa del perfil, la defensa final del perfil, el análisis de procesos y el diseño de la arquitectura de alto nivel. La tercera fase, Iteraciones de Desarrollo, se lleva a cabo del 1 de julio al 1 de septiembre de 2024, con tres iteraciones de desarrollo, cada una de tres semanas. Finalmente, la fase de Cierre y Evaluación Final, del 2 de septiembre al 29 de septiembre de 2024, incluye la preparación de documentación, capacitación de usuarios, monitoreo inicial y ajustes, y pruebas con usuarios.
@@ -271,6 +393,7 @@ Tras el marco practico en el que se resuelve el problema. Finalmente, se present
             \item Visión Computacional
             \item Procesamiento de Lenguaje Natural (PLN)
             \item Modelos de Lenguaje Multimodales
+            \item Evaluación de Modelos
             \item Generación de Lenguaje Natural
             \item Generación de Descripciones de Imágenes
         \end{enumerate}
@@ -293,14 +416,23 @@ Tras el marco practico en el que se resuelve el problema. Finalmente, se present
             \item Resultados y Discusión
             \item Análisis de Costos
                 \begin{enumerate}[label*=\arabic*.]
-                    \item Cálculo de Costos
-                    \item Comparación Costo Beneficio
+                    \item Costos de Desarrollo
+                    \item Costos de Infraestructura
                     \begin{enumerate}[label*=\arabic*.]
-                        \item Valor Actual Neto
-                        \item Tasa Interna de Retorno
-                        \item Conclusión
+                        \item Servidores y Almacenamiento
+                        \item Red y Seguridad
+                        \item Costos Totales de Infraestructura
                     \end{enumerate}
+                    \item Gastos Legales
+                    \item Inversión Total Inicial
                 \end{enumerate}
+            \item Evaluación de Proyecto de Inversión
+            \begin{enumerate}[label*=\arabic*.]
+                \item Comparación Costo Beneficio
+                \item Valor Actual Neto
+                \item Tasa Interna de Retorno
+                \item Conclusión
+            \end{enumerate}
             \item Análisis de Competidores
             \item Conclusión del capítulo
         \end{enumerate}
