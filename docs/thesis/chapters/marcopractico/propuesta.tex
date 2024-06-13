@@ -100,6 +100,8 @@ La creación de una sociedad implica una serie de gastos legales necesarios para
 
 \begin{table}[ht]
     \centering
+    \caption{Gastos legales de creación de la sociedad.}
+    \label{tab:costos_legales}
     \begin{tabularx}{\textwidth}{|X|r|} 
         \hline
         \textbf{Descripción} & \textbf{Costo (Bs)} \\ \hline
@@ -111,8 +113,6 @@ La creación de una sociedad implica una serie de gastos legales necesarios para
         Honorarios abogado & 3500 \\ \hline
         \textbf{TOTAL} & \textbf{4997} \\ \hline
     \end{tabularx}
-    \caption{Gastos legales de creación de la sociedad.}
-    \label{tab:costos_legales}
 \end{table}
 
 %---------------------------------------------------------------------------------------------
@@ -122,6 +122,8 @@ En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial n
 
 \begin{table}[ht]
     \centering
+    \caption{Inversión Total Inicial}
+    \label{tab:inversion_total}
     \begin{tabularx}{\textwidth}{|X|r|}
         \hline
         \textbf{Concepto} & \textbf{Costo (Bs)} \\
@@ -133,8 +135,6 @@ En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial n
         \textbf{Total} & \textbf{59,781.06} \\
         \hline
     \end{tabularx}
-    \caption{Inversión Total Inicial}
-    \label{tab:inversion_total}
 \end{table}
 
 %---------------------------------------------------------------------------------------------
@@ -236,38 +236,7 @@ Se puede concluir, en primer lugar que los agentes de cambio, como \textit{softw
 \section{Cronograma de actividades}
 Como se puede apreciar en la Tabla \ref{tab:cronograma_proyecto}, asi como en el diagrama Gantt del apéndice \ref{sec:cronograma}, se presenta un cronograma que detalla las fases y actividades del proyecto, que se desarrolla desde el 1 de febrero del 2024 hasta el 29 de septiembre de 2024. El mismo, siguiendo la metodología PXP se divide en tres fases principales mas la adición de una cuarta a fines de evaluar el desempeño en actividad del producto. Estas etapas son: Definición de Requisitos, Planificación, Iteraciones de Desarrollo, y Cierre. Cada fase incluye entregables específicos y actividades que se ejecutarán en un periodo determinado para asegurar la implementación exitosa del sistema.
 
-\begin{table}[htb]
-    \caption{Cronograma del proyecto.}
-    \label{tab:cronograma_proyecto}
-    \centering
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \rowcolor{lightgray} \textbf{Etapa} & \textbf{Tareas} & \textbf{Fecha de Inicio} & \textbf{Fecha de Fin} & \textbf{Dias} \\
-        \hline 
-        \rowcolor{lightgray} Def. Requisitos &  & 01/02/2024 & 10/05/2024 & 99 \\ \hline
-        ~ & Entrega Marco Referencial & \multicolumn{2}{|c|}{15/03/2024} & 1 \\ \hline
-        ~ & Entrega de avance & \multicolumn{2}{|c|}{03/05/2024} & 1 \\ \hline
-        ~ & Defensa & \multicolumn{2}{|c|}{10/05/2024} & 1 \\ \hline
-        \rowcolor{lightgray} Planificación &  & 15/03/2024 & 30/06/2024 & 107 \\ \hline
-        ~ & Entrega de avance & \multicolumn{2}{|c|}{24/05/2024} & 1 \\ \hline
-        ~ & Entrega de perfil & \multicolumn{2}{|c|}{07/06/2024} & 1 \\ \hline
-        ~ & Defensa & \multicolumn{2}{|c|}{14/06/2024} & 1 \\ \hline
-        ~ & Análisis de Procesos & 17/06/2024 & 23/06/2024 & 6 \\ \hline
-        ~ & Diseño de Arq. & 24/06/2024 & 30/06/2024 & 6 \\ \hline
-        \rowcolor{lightgray} Desarrollo &  & 01/07/2024 & 01/09/2024 & 62 \\ \hline
-        ~ & Iteración 1 & 01/07/2024 & 21/07/2024 & 20 \\ \hline
-        ~ & Iteración 2 & 22/07/2024 & 11/08/2024 & 20 \\ \hline
-        ~ & Iteración 3 & 12/08/2024 & 01/09/2024 & 20 \\ \hline
-        \rowcolor{lightgray} Cierre &  & 02/09/2024 & 29/09/2024 & 27 \\ \hline
-        ~ & Preparación de Documentación  & 02/09/2024 & 08/09/2024 & 6 \\ \hline
-        ~ & Capacitación de Usuarios & 09/09/2024 & 15/09/2024 & 6 \\ \hline
-        ~ & Monitoreo Inicial y Ajustes & 16/09/2024 & 22/09/2024 & 6 \\ \hline
-        ~ & Pruebas con Usuarios & 23/09/2024 & 29/09/2024 & 6 \\
-        \hline
-    \end{tabular}
-    }
-\end{table}
+\input{chapters/marcopractico/tables/cronograma_proyecto.tex}
 
 La primera fase, Definición de Requisitos, abarca desde el 1 de febrero hasta el 10 de mayo de 2024, e incluye entregas clave como el marco referencial, avances y la defensa del perfil del proyecto. La segunda fase, Planificación, se extiende desde el 15 de marzo hasta el 30 de junio de 2024, y cubre actividades como la entrega de avances adicionales, la entrega completa del perfil, la defensa final del perfil, el análisis de procesos y el diseño de la arquitectura de alto nivel. La tercera fase, Iteraciones de Desarrollo, se lleva a cabo del 1 de julio al 1 de septiembre de 2024, con tres iteraciones de desarrollo, cada una de tres semanas. Finalmente, la fase de Cierre y Evaluación Final, del 2 de septiembre al 29 de septiembre de 2024, incluye la preparación de documentación, capacitación de usuarios, monitoreo inicial y ajustes, y pruebas con usuarios.
 
