@@ -539,7 +539,7 @@ class IPER_Row:
             self.condicion_evaluacion,
             self.opciones_peligro.get(self.peligro), 
             self.problem_description,
-            self.origen_peligro, #TODO
+            self.origen_peligro, 
             self.controles_implementados[0],
             self.string_severidad_daño,
             self.severidad_daño,
