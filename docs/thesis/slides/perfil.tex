@@ -1,9 +1,10 @@
-\documentclass[spanish, aspectratio=169]{beamer}
+\documentclass[spanish]{beamer} %, aspectratio=169
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, mexico]{babel}
 % Paquetes necesarios para incluir imágenes
 \usepackage{graphicx}
-\usepackage{caption}
+\usepackage[skip=0.25\baselineskip]{caption}
+\setlength{\belowcaptionskip}{0pt}
 \usepackage{subcaption}
 \captionsetup{justification=centering}
 % Bibliography
@@ -11,12 +12,22 @@
 \addbibresource{../bibliography/referencias.bib}
 \DeclareDelimFormat{nameyeardelim}{\addspace}
 \usepackage{csquotes}
+% Tables
+\usepackage{tabularx}
+\usepackage{makecell}
+% Graphs
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, chains, fit, backgrounds}
+
+\usepackage{colortbl} % For \rowcolor
+\usepackage{xcolor}   % For defining colors
 
 \usetheme{pittsburgh} 
 %\usecolortheme{owl}
 \setbeamertemplate{caption}[numbered]
-\setbeamertemplate{sidebar right}{}
-\setbeamertemplate{footline}{\hfill\usebeamertemplate***{navigation symbols}}
+%\setbeamertemplate{sidebar right}{}
+%\setbeamertemplate{footline}{\hfill\usebeamertemplate***{navigation symbols}}
 \setbeamercolor{footline}{fg=blue}
 
 \addtobeamertemplate{navigation symbols}{}{%
@@ -26,7 +37,14 @@
     \insertframenumber/\inserttotalframenumber
 }
 
-\title{Software para la Automatización de Programas de Gestión de Salud y Seguridad 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\title{Software para la Automatización de Procesos de Programas de Gestión de Salud y Seguridad 
 en el Trabajo conforme a la Norma Técnica de Seguridad 009}
 \date{\today}
 \author{Leonardo Achá Boiano}
@@ -55,48 +73,49 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
 
   \framebreak
 
-  \begin{columns}[T]
-    \column{0.5\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth, height=.5\textheight]{../images/marcoref/share_of_industry_exposed_to_automation_ai.png}
+        \includegraphics[width=\textwidth, height=.58\textheight]{../images/marcoref/share_of_industry_exposed_to_automation_ai.png}
         \caption{Porcentaje de la industria expuesta a la automatización por parte de la Inteligencia Artificial en Estados Unidos. Fuente: Goldman Sachs Global Investment Research (\citeyear{hatzius2023potentially}).}
         \label{fig:share_of_industry_exposed_to_automation_ai_gs}
     \end{figure}
     
-    \column{0.5\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth, height=.5\textheight]{../images/marcoref/tendencia_profesionales_syso_registrados.png}
-        \caption{Registro de profesionales SySO:\\(a) Mensual (b) Anual.}
+        \includegraphics[width=\textwidth, height=.7\textheight]{../images/marcoref/tendencia_profesionales_syso_registrados.png}
+        \caption{Registro de profesionales SySO:(a) Mensual (b) Anual.}
         \label{fig:profesionales_syso_registrados}
     \end{figure}
-    \end{columns} 
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.9\textwidth]{../images/marcoref/profesionales_syso_por_categoria.png}
+      \includegraphics[width=1\textwidth]{../images/marcoref/profesionales_syso_por_categoria.png}
       \caption{Profesionales SST activos:\\Distribución de categorías (a) porcentual (b) por departamento.}
       \label{fig:profesionales_syso_por_categoria} 
     \end{figure}
 \end{frame}
 
 \begin{frame}{Definición del Problema}
-  ¿Cómo desarrollar un software que identifique de manera efectiva los riesgos laborales, facilitando así el desarrollo y la gestión eficiente de un PGSST?
+  ¿Cómo impacta la falta de recursos humanos especializados en el cumplimiento de la NTS 009/23 por parte de las empresas en Bolivia?
 \end{frame}
 
-\begin{frame}{Objetivos}
+\begin{frame}[allowframebreaks]{Objetivos}
   \begin{block}{Objetivo general}
-  Implementar un sistema automatizado que permita la identificación de riesgos laborales, facilitando el desarrollo y la gestión eficiente de PGSST.
+    Implementar un sistema automatizado basado en la NTS 009/23 que facilite la identificación de riesgos laborales, el desarrollo y la gestión eficaz de los PGSST.
   \end{block}
   \begin{block}{Objetivos específicos}
   \begin{itemize}
-  \item Analizar los procesos para desarrollar los documentos solicitados por la NTS-009/23.
-  \item Implementar sistema automatizado de detección de riesgo basado en imágenes y descripciones de texto.
-  \item Ofrecer la capacidad de generar automáticamente los PGSST requeridos.
-  \item Diseñar una interfaz amigable para el uso del software.
+    \item Contextualizar la situación actual de los procesos para desarrollar los documentos requeridos por la NTS-009/23 mediante diagramas de flujo que reflejen las operaciones actuales.
+    \item Determinar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar, para asegurar la escalabilidad, la modularidad y la eficiencia del sistema.
   \end{itemize}
   \end{block}
+
+  \begin{itemize}
+    \item Desarrollar las iteraciones del proyecto, estableciendo los objetivos específicos a alcanzar durante la fase de diseño, implementación y pruebas del sistema en cada iteración.
+    \item Implementar el sistema utilizando la metodología de Desarrollo Guiado por Pruebas (TDD).
+    \item Verificar la calidad del software tras cada iteración como parte del proceso de pruebas del sistema haciendo uso de la metodología Objetivo-Pregunta-Métrica (GQM) para asegurar la calidad en base al estándar ISO 25000:2014.
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}{Justificación}
@@ -111,19 +130,24 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
   \end{block}
 \end{frame}
 
-\begin{frame}{Delimitación}
+\begin{frame}[allowframebreaks]{Delimitación}
   \begin{block}{Límites}
   \begin{itemize}
-  \item Contenido del software delimitado por requerimientos técnicos y entregables de la NTS-009/23.
-  \item El contenido generado debe estar en conformidad con la norma ISO 45001:2018.
-  \item El sistema se adherirá a estándares ISO 12207:2017, ISO 25000:2014 y ISO 420001:2023.
-  \item El software no automatizará los estudios de higiene, utilizando plantillas para completar y analizar datos recolectados.
+    \item Los documentos del software se ajustan a los requisitos técnicos de NTS-009/23.
+    \item Contenido del software conforme a ISO 45001:2018 para seguridad y salud laboral.
+    \item ISO 25000:2014 guía la evaluación del producto de software.
+    \item La aplicación requiere conexión a internet para su uso.
+    \item El software no contará con herramientas especializadas en la automatización de los estudios de higiene. Se limitará a plantillas para rellenar y automatizar el análisis de los datos recolectados por profesional habilitado.
   \end{itemize}
   \end{block}
+  \framebreak
   \begin{block}{Alcances}
   \begin{itemize}
-  \item Prototipo funcional de aplicación web y móvil.
-  \item Documentación del desarrollo del software.
+    \item Prototipo funcional de aplicación web que permita agilizar el proceso de desarrollo un de PGSST mediante generación automática de tres de los trece documentos solicitados por la NTS 009/23 de acuerdo a los requisitos recolectados de entrevistas a profesionales en el area.
+    \item Entrevistas realizadas a los usuarios objetivo del producto.
+    \item Documentación de la investigación de las tecnologías que se utilizarán para el
+    desarrollo del software final.
+    \item Documentación del desarrollo del software, en el cual se incluirá los detalles de la automatización del desarrollo de un PGSST y un manual de usuario.
   \end{itemize}
   \end{block}
 \end{frame}
@@ -131,7 +155,7 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
 %--------------------------------------------------------------------------------
 \section{Marco teórico y legal}
 
-\begin{frame}[allowframebreaks]{Salud y Seguridad Ocupacional}
+\begin{frame}{Conceptos Fundamentales}
 
   \begin{columns}[T] % alinear arriba
     \begin{column}{0.5\textwidth}
@@ -159,39 +183,66 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
       \end{itemize}
     \end{column}
   \end{columns}
+  
+\end{frame}
 
-  \framebreak
+\begin{frame}{PGSST:Actividades}
+  \begin{minipage}[t]{0.48\textwidth}
+    \scriptsize
+    \textbf{1.} Identificación de riesgos y evaluación de riesgos mediante la Matriz IPER.
+    
+    \textbf{2.} Estudios de Higiene.
+    
+    \textbf{3.} Descripción de la situación Actual e implementación de propuestas con respecto a:
+    \begin{itemize}
+      \item Orden y limpieza
+      \item Infraestructura
+      \item Instalaciones eléctricas
+      \item Servicios higiénicos
+      \item Vestuario y casilleros
+      \item Equipos eléctricos
+      \item Maquinaria, equipos y herramientas
+      \item Almacenamiento, manipulación y transporte de sustancias peligrosas
+      \item Gestión de residuos y señalización
+      \item Ergonomía
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \scriptsize
+    
+    \textbf{4.} Planificación de Capacitaciones Generales y Específicas con respecto a la Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER).
+    
+    \textbf{5.} Organización y Conformación del Comité Mixto de Higiene y Salud Ocupacional.
+    
+    \textbf{6.} Elaboración del Plan de Emergencia:
+    \begin{itemize}
+      \item Procedimiento de Evacuación
+      \item Procedimiento de Intervención
+      \item Manual de Primeros Auxilios
+    \end{itemize}
+    
+    \textbf{7.} Evaluación de Técnico Social.
+  \end{minipage}
+\end{frame}
 
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-        \item Accidentes e Incidentes Ocupacionales
-        \item Factores de accidentes
-        \begin{itemize}
-            \item Actos Inseguros
-            \item Condición Insegura
-        \end{itemize}
-        \item Ingeniería de Seguridad
-        \item Práctica de Seguridad
-        \item Investigación de accidentes
-        \item Peligro
-      \end{itemize}
-      \end{column}
-      \begin{column}{0.5\textwidth}
-        \begin{itemize}
-        \item Riesgo
-        \begin{itemize}
-            \item Riesgo Físico
-            \item Riesgo Mecánico
-            \item Riesgo Químico
-            \item Riesgo Biológico
-            \item Riesgo Psicosocial
-            \item Riesgo Ergonómico
-            \item Riesgo Aceptable
-        \end{itemize}
-      \end{itemize}
-    \end{column}
-  \end{columns}
+\begin{frame}{PGSST:Organización Documental}
+  \scriptsize
+  \begin{enumerate}
+    \item Política de seguridad
+    \item Descripción de los procesos
+    \item Matriz de Identificación de Peligros y Evaluación de Riesgos
+    \item Estudios Monitoreos de Higiene
+    \item Actividades de alto riesgo
+    \item Descripción de las condiciones actuales
+    \item Investigación de Accidentes
+    \item Dotación de Ropa de Trabajo
+    \item Inducción, Capacitación, concientización y comunicación
+    \item Comité Mixto
+    \item Inspección Internas en SST
+    \item Plan de emergencia
+    \item Medicina de Trabajo
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Legislación Aplicable a la SySO}
@@ -219,88 +270,129 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
   \end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Metodologías de Desarrollo de Software}
-  \begin{itemize}
-      \item Cascada
-  \end{itemize}
+\begin{frame}{Metodología de Desarrollo de Software}
 
   \begin{figure}
     \centering
-    \includegraphics[width=.8\textwidth]{../images/marcoteorico/modelo_cascada.png}
-    \caption{Proceso de desarrollo en Cascada.}
-      \vspace{-0.2cm}
-    \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{auer1990solution}{title}}'' (\citeyear{auer1990solution}).}}
-    \label{fig:modelo_desarrollo_cascada} 
+    \input{../images/marcoteorico/modelo_desarrollo_pxp.tex}
+      \caption{\footnotesize Proceso de desarrollo bajo la metodología PXP.}
+      \scriptsize{{Elaboración propia a partir de ``\textit{\citefield{dzhurov2009personal}{title}}'' (\citeyear{dzhurov2009personal}).}}
+    \label{fig:modelo_desarrollo_pxp} 
   \end{figure}
-
-  \begin{itemize}
-      \item Agile
-      \begin{itemize}
-          \item Programación Extrema
-      \end{itemize}
-    \end{itemize}
-    
-    \begin{figure}
-      \centering
-      \includegraphics[width=.8\textwidth]{../images/marcoteorico/modelo_xp.png}
-      \caption{Proceso de desarrollo bajo la metodología de Programación Extrema.}
-        \vspace{-0.2cm}
-      \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{pressman2005software}{title}}'' (\citeyear{pressman2005software}).}}
-      \label{fig:modelo_desarrollo_xp} 
-    \end{figure}
-
-    \begin{itemize}
-        \item Scrum
-    \end{itemize}
-
-    \begin{figure}
-      \centering
-      \includegraphics[width=.75\textwidth]{../images/marcoteorico/modelo_scrum.png}
-      \caption{Proceso de desarrollo bajo la metodología Scrum.}
-        \vspace{-0.2cm}
-      \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{pressman2005software}{title}}'' (\citeyear{pressman2005software}).}}
-      \label{fig:modelo_desarrollo_scrum} 
-    \end{figure}
 
 \end{frame}
 
 \begin{frame}{Análisis y Evaluación de Software}
-  \begin{itemize}
-      \item Estándar ISO 25000:2014 \\
-      \quad \textit{System and Software Quality Requirements and Evaluation}\\
-      \quad (Requisitos y Evaluación de la Calidad del Sistema y del Software)
-      \item Estándar ISO 12207:2017 \\ 
-      \quad \textit{Software life cycle processes} (Procesos del ciclo de vida del software)
-      \item Estándar ISO 420001:2023 \\  
-      \quad \textit{Artificial intelligence Management system}\\ 
-      \quad(Sistema de Gestión de Inteligencia Artificial)
-  \end{itemize}
+  \begin{table}[ht]
+  \caption{Métodos y fases de evaluación de planificadas.}
+  \label{tab:evaluacion_software}
+  \centering
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|X|}
+  \hline
+  \textbf{¿Qué?} & \textbf{¿Cómo?} & \textbf{¿Cuando?:Fase} \\
+  \hline
+  ISO 2500n & Define términos & Planificación y eval. \\
+  \hline
+  ISO 2501n & Define modelo de eval & Planificación \\
+  \hline
+  ISO 2502n & Métricas de calidad & Desarrollo y eval. final \\
+  \hline
+  ISO 2503n & Especifica req. de calidad & Planificación \\
+  \hline
+  ISO 2504n & Guías para evaluar la calidad & Eval. final \\
+  \hline
+  GQM & Define objetivos, preguntas y métricas & Planificación y eval. final \\
+  \hline
+  P. Unitarias & Pruebas modulares & Cada iteración de desarrollo \\
+  \hline
+  P. de Integración & Verificar integración & Al finalizar cada iteración \\
+  \hline
+  P. de Regresión & Evitar que nuevas modificaciones afecten el código & Después de cada iteración \\
+  \hline
+  P. de Sistema & Eval. completa del sistema & Al finalizar las iteraciones \\
+  \hline
+  P. de Desempeño & Med. eficiencia y rendimiento & Cierre y eval. final \\
+  \hline
+  P. de Carga & Eval. desempeño bajo cargas esperada & Cierre y eval. final \\
+  \hline
+  P.s de Estrés & Determinar lím. del sistema & Cierre y eval. final \\
+  \hline
+  P. con Usuarios & Pruebas en campo & Cierre y eval. final \\
+  \hline
+  \end{tabularx}
+\end{table} 
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Inteligencia Artificial}
+\begin{frame}[allowframebreaks]{Analisis de Competidores}
 
   \begin{figure}[htb]
     \centering
-    \includegraphics[height=.6\textheight]{../images/marcoteorico/ai_ecosystem.png}
-    \caption{Ecosistema de un sistema de inteligencia artificial.}
-      \vspace{-0.2cm}
-    \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{iso22989}{title}}'' (\citeyear{iso22989}).}}
-    \label{fig:ai_ecosystem} 
+    \fbox{
+        \includegraphics[width=0.95\linewidth]
+        {../images/marcopractico/planificacion/visitas_por_dominio.png}
+    }
+    \caption{\footnotesize Participación de Mercado de los Principales Competidores}
+    \footnotesize{{Elaboración propia a partir de datos obtenidos por medio de ``\textit{SEMrush ME}''.}}
+    \label{fig:visitas_por_dominio}
   \end{figure}
 
-  Aprendizaje \footnotemark
-  \begin{itemize}
-      \item Sistemas basados en heurística
-      \item Sistemas basados en aprendizaje automático
-  \end{itemize}
-
-  \footnotetext[1]{Entre algunas bases de datos útiles se identificaron BINVAC, BASEMAQ y BASEQUIM.} 
+  \begin{figure}[htb]
+    \centering
+    \fbox{
+        \includegraphics[width=0.95\linewidth]
+        {../images/marcopractico/planificacion/GrowthQuadrant.png}
+    }
+    \caption{Matriz de Competidores: \textit{OSH Software}}
+	  \footnotesize{Fuente: Elaborado por ``\textit{SEMrush ME}''.}
+    \label{fig:MatrizCompetidores}
+  \end{figure}
 
 \end{frame}
 
-\section{Referencias}
-\begin{frame}[allowframebreaks]{Referencias}
-  \printbibliography
+\begin{frame}{Analisis de Costos}
+
+  \begin{table}[ht]
+    \footnotesize
+    \centering
+    \caption{Inversión Total Inicial MVP}
+    \label{tab:inversion_total}
+    \begin{tabularx}{\textwidth}{|X|r|}
+        \hline
+        \textbf{Concepto} & \textbf{Costo (Bs)} \\
+        \hline
+        Costo de Desarrollo & 52,560.00 \\
+        Costos de Infraestructura & 2,224.06 \\
+        Gastos Legales & 4,997.00 \\
+        \hline
+        \textbf{Total} & \textbf{59,781.06} \\
+        \hline
+    \end{tabularx}
+  \end{table}
+
+  \begin{table}[htb]
+    \footnotesize
+    \centering
+    \caption{Proyección financiera del proyecto completo bajo el modelo SaaS}
+    \label{tab:proyeccion_financiera}
+    \begin{tabularx}{\textwidth}{|c|r|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|r|}
+        \hline
+        \thead{Año} & \thead{Usuarios\\Mensuales} & \thead{Gastos\\Anuales (Bs)}  & \thead{Ingresos\\Anuales (Bs)}  & \thead{Balance\\Anual (Bs)} & \thead{C/B} \\ \hline
+        0 & 0 & 276,755.53 & 00.00 & -276,755.53 & 0.00 \\ \hline
+        1 & 330 & 98,688.72 & 277,200.00 & 178,511.28 & 2.81 \\ \hline
+        2 & 525 & 98,688.72 & 441,000.00 & 342,311.28 & 4.47 \\ \hline
+        3 & 834 & 98,688.72 & 700,560.00 & 601,871.28 & 7.10 \\ \hline
+        4 & 1325 & 98,688.72 & 1,113,000.00 & 1,014,311.28 & 11.28 \\ \hline
+        5 & 2104 & 98,688.72 & 1,767,360.00 & 1,668,671.28 & 17.91 \\ \hline
+    \end{tabularx}
+  \end{table} 
+
+\end{frame}
+
+\begin{frame}{Cronograma del Proyecto}
+
+  {\small \input{../chapters/marcopractico/tables/cronograma_proyecto.tex}}
+
 \end{frame}
 
 \end{document}
