@@ -46,3 +46,5 @@ type(scope): short description
 - Keep commits atomic: one logical block of related files per commit.
 - Thesis content/writing changes use the `docs(thesis)` type+scope; prototype code uses
   `feat`/`fix` with a `prototypes` scope.
+- No AI attribution: never add `Co-Authored-By: Claude ...` trailers, "Generated with
+  Claude Code" lines, or any other AI attribution to commit messages or PR descriptions.
