@@ -1,51 +1,51 @@
-# Sistema Automatizado para la Gestión de Seguridad y Salud en el Trabajo
+# Automated System for Occupational Health and Safety Management
 
-El rendimiento de cualquier empresa está intrínsecamente ligado al factor humano que la conforma. Mantener la satisfacción y motivación de los empleados es crucial para su bienestar y desempeño laboral. La seguridad y salud en el trabajo son aspectos prioritarios que contribuyen significativamente a la productividad y eficiencia general de una organización. 
+The performance of any company is intrinsically linked to the human factor that composes it. Keeping employees satisfied and motivated is crucial for their well-being and job performance. Occupational health and safety are priority aspects that contribute significantly to the overall productivity and efficiency of an organization.
 
-La Norma Técnica de Seguridad (NTS) Nº 009/23, aprobada en Bolivia en 2023, establece directrices obligatorias para la implementación de Programas de Gestión de Seguridad y Salud en el Trabajo (PGSST). Sin embargo, la implementación efectiva de estos programas sigue siendo un desafío debido a diversos factores.
+The Technical Safety Standard (NTS) No. 009/23, approved in Bolivia in 2023, establishes mandatory guidelines for the implementation of Occupational Health and Safety Management Programs (PGSST). However, the effective implementation of these programs remains a challenge due to various factors.
 
-Este proyecto busca abordar la falta de identificación proactiva de riesgos laborales y la complejidad en la generación de PGSST, mediante el desarrollo de un sistema automatizado que facilite la gestión eficiente de la seguridad y salud ocupacional.
+This project aims to address the lack of proactive identification of occupational risks and the complexity of generating PGSST, through the development of an automated system that facilitates the efficient management of occupational health and safety.
 
-## Antecedentes
-El proyecto se fundamenta en la necesidad de superar las dificultades históricas y culturales que han afectado la implementación efectiva de medidas de seguridad y salud en el trabajo en Bolivia. La NTS-009/23 establece los requisitos para la presentación y aprobación de los PGSST, pero su cumplimiento enfrenta obstáculos como la falta de recursos y la complejidad del proceso.
+## Background
+The project is grounded in the need to overcome the historical and cultural difficulties that have hindered the effective implementation of occupational health and safety measures in Bolivia. NTS-009/23 establishes the requirements for the submission and approval of PGSST, but compliance faces obstacles such as lack of resources and the complexity of the process.
 
-## Definición del Problema
-¿Cómo impacta la falta de recursos humanos especializados en el cumplimiento de la NTS 009/23 por parte de las empresas en Bolivia?
+## Problem Statement
+How does the lack of specialized human resources impact compliance with NTS 009/23 by companies in Bolivia?
 
-## Objetivos
-### Objetivo general
-Implementar un sistema automatizado basado en la NTS 009/23 que facilite la identificación de riesgos laborales, el desarrollo y la gestión eficaz de los PGSST.
+## Objectives
+### General objective
+Implement an automated system based on NTS 009/23 that facilitates the identification of occupational risks and the effective development and management of PGSST.
 
-### Objetivos específicos
-- Contextualizar la situación actual de los procesos para desarrollar los documentos requeridos por la NTS-009/23 mediante diagramas de flujo que reflejen las operaciones actuales.
-- Determinar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar, para asegurar la escalabilidad, la modularidad y la eficiencia del sistema.
-- Desarrollar las iteraciones del proyecto, estableciendo los objetivos específicos a alcanzar durante la fase de diseño, implementación y pruebas del sistema en cada iteración.
-- Implementar el sistema utilizando la metodología de Desarrollo Guiado por Pruebas (TDD).
-- Verificar la calidad del software tras cada iteración como parte del proceso de pruebas del sistema haciendo uso de la metodología Objetivo-Pregunta-Métrica (GQM) para asegurar la calidad en base al estándar ISO 25000:2014.
+### Specific objectives
+- Contextualize the current state of the processes for developing the documents required by NTS-009/23 through flowcharts that reflect current operations.
+- Determine the system architecture, including the overall structure, main components, and technologies to be used, to ensure the scalability, modularity, and efficiency of the system.
+- Develop the project iterations, establishing the specific goals to be achieved during the design, implementation, and testing phases of the system in each iteration.
+- Implement the system using the Test-Driven Development (TDD) methodology.
+- Verify software quality after each iteration as part of the system testing process using the Goal-Question-Metric (GQM) methodology to ensure quality based on the ISO 25000:2014 standard.
 
-## Justificación
-### Justificación legal
-El proyecto se basa en la normativa vigente en Bolivia, incluyendo la NTS-009/23 y la Ley General de Higiene, Seguridad Ocupacional y Bienestar. La implementación del sistema automatizado contribuirá al cumplimiento de estas regulaciones y a la protección de los derechos de los trabajadores.
+## Justification
+### Legal justification
+The project is based on the regulations in force in Bolivia, including NTS-009/23 and the General Law on Hygiene, Occupational Safety and Welfare. The implementation of the automated system will contribute to compliance with these regulations and to the protection of workers' rights.
 
-### Justificación tecnológica
-El uso de IA y tecnologías móviles permitirá mejorar la eficiencia y efectividad en la gestión de seguridad y salud ocupacional. Esto garantizará un entorno laboral más seguro y saludable para los trabajadores bolivianos.
+### Technological justification
+The use of AI and mobile technologies will improve efficiency and effectiveness in occupational health and safety management. This will guarantee a safer and healthier work environment for Bolivian workers.
 
-### Justificación social
-El proyecto beneficiará a la sociedad boliviana al mejorar las condiciones de trabajo, reducir los riesgos laborales y promover una cultura de seguridad y salud ocupacional en las empresas del país.
+### Social justification
+The project will benefit Bolivian society by improving working conditions, reducing occupational risks, and promoting a culture of occupational health and safety in the country's companies.
 
-## Delimitación
-### Límites
-- Desarrollo basado en requisitos de la NTS-009/23 y normativas relacionadas.
-- Utilización de tecnologías disponibles y bibliotecas open-source.
-- Exclusión de sectores con normativas o procedimientos particulares.
+## Scope
+### Limitations
+- Development based on the requirements of NTS-009/23 and related regulations.
+- Use of available technologies and open-source libraries.
+- Exclusion of sectors with particular regulations or procedures.
 
-### Alcances
-- Prototipo funcional de aplicación web y móvil.
-- Entrevistas a usuarios objetivo.
-- Documentación de investigación y desarrollo del software.
+### Deliverables
+- Functional prototype of a web and mobile application.
+- Interviews with target users.
+- Research documentation and software development.
 
-## Licencia
+## License
 
-Este proyecto se encuentra bajo la [Licencia MIT](LICENSE).
+This project is under the [MIT License](LICENSE).
 
-Este README proporciona una visión general del proyecto y sus objetivos. Para más detalles, consulte la documentación completa.
+This README provides an overview of the project and its objectives. For more details, please refer to the full documentation.
