@@ -6,7 +6,7 @@ The core loop: field evidence (workplace photos + notes) goes in, a multimodal m
 
 ## Architecture
 
-The application is organized in four layers — management, input, processing, and output — where each processing module automates one technical content point of the NTS-009/23 standard. The full project aims to cover the entire module map; the MVP (colored modules) delivers the end-to-end slice that matters most: project management, photo/note capture, IPER matrix + action plan generation, and export of the official documents.
+The application is organized in four layers: Management, input, processing, and output. Where each processing module automates one technical content point of the NTS-009/23 standard. The full project aims to cover the entire module map; the MVP (colored modules) delivers the end-to-end slice that matters most: project management, photo/note capture, IPER matrix + action plan generation, and export of the official documents.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.png">
