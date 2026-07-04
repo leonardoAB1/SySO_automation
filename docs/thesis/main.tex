@@ -123,13 +123,22 @@
 	\addcontentsline{toc}{chapter}{Bibliografia}
 	\cleardoublepage
 	
+	\let\origappendix\appendix
+	\renewcommand{\appendix}{%
+	  \clearpage
+	  \origappendix
+	  \renewcommand{\thepage}{}% Remove page numbering
+	}
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Apéndice
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\appendix
-	\input{chapters/additional_material/apendice_A}
+	\input{chapters/additional_material/apendices/entrevista_ing_paola.tex}
 	\cleardoublepage
-	\input{chapters/additional_material/apendice_B}
+	\input{chapters/additional_material/apendices/prototipos.tex}
+	\cleardoublepage
+	\input{chapters/additional_material/apendices/cronograma.tex}
 	\cleardoublepage
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,6 +146,10 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\renewcommand{\appendixname}{Anexo}
 	\appendix
-	\input{chapters/additional_material/anexo_A}
+	\input{chapters/additional_material/anexos/informacion_mteps.tex}
+	\cleardoublepage
+	\input{chapters/additional_material/anexos/cocomo_intermedio.tex}
+	\cleardoublepage
+	\input{chapters/additional_material/anexos/nts_009.tex}
 	
 \end{document}
