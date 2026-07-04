@@ -1,0 +1,43 @@
+\begin{tikzpicture}[node distance=1cm, auto]
+
+    % Define styles
+    \tikzstyle{section} = [text width=3cm, text centered]
+    \tikzstyle{blockGestion} = [rectangle, draw, fill=blue!20, text centered,  minimum height=2em, text width=3cm]
+    \tikzstyle{blockEntrada} = [rectangle, draw, fill=green!20, text centered,  minimum height=2em, text width=3cm]
+    \tikzstyle{blockProceso} = [rectangle, draw, fill=yellow!20, text centered, minimum height=2em, text width=3cm]
+    \tikzstyle{blockSalida} = [rectangle, draw, fill=red!20, text centered, minimum height=2em, text width=3cm]
+    \tikzstyle{line} = [draw, -latex']
+    
+    % GESTION section
+    \node [section] (gestion) {GESTIÓN};
+    \node [blockGestion, right of=gestion, node distance=3cm] (users) {usuarios};
+    \node [blockGestion, right of=users, node distance=3.5cm] (projects) {proyectos};
+    
+    % ENTRADA section
+    \node [section, below of=gestion, node distance=1cm] (entrada) {ENTRADA};
+    \node [blockEntrada, right of=entrada, node distance=3cm] (media) {medios};
+    \node [blockEntrada, right of=media, node distance=3.5cm] (descriptions) {descripciones};
+    \node [blockEntrada, right of=descriptions, node distance=3.5cm] (diagrams) {diagramas};
+    
+    
+    % PROCESO section
+    \node [section, below of=entrada, node distance=3cm] (proceso) {PROCESO};
+    \node [blockProceso, below of=media, node distance=1cm, text width=4cm, xshift=0.5cm] (1) {compresion\_actividad};
+    \node [blockProceso, right of=1, node distance=4.5cm, text width=4.0cm] (2) {liderazgo\_compromiso};
+    \node [blockProceso, pattern=north east lines, below of=1, node distance=1cm, text width=3.0cm, xshift=-0.5cm] (3) {comite\_mixto};
+    \node [blockProceso, right of=3, node distance=3.5cm, text width=3cm, xshift=0cm] (4) {planificacion};
+    \node [blockProceso, pattern=north east lines, right of=4, node distance=4.0cm, text width=4.0cm] (5) {monitoreos\_higiene};
+    \node [blockProceso, below of=3, node distance=1.0cm, xshift=0.5cm, text width=4.0cm] (6) {actividades\_alto\_riesgo};
+    \node [blockProceso, right of=6, node distance=4.0cm, text width=3.0cm] (7) {capacitacion};
+    \node [blockProceso, right of=7, node distance=3.5cm, text width=3cm, xshift=0.00cm] (8) {dotacion\_epp};
+    \node [blockProceso, below of=6, node distance=1.0cm, xshift=-0.5cm] (9) {inspeccion\_epp};
+    \node [blockProceso, right of=9, pattern=north east lines, node distance=3.75cm, text width=3.5cm, xshift=0cm] (10) {plan\_emergencia};
+    \node [blockProceso, right of=10, node distance=3.75cm, text width=3cm, xshift=0.0cm] (11) {accidentes};
+    \node [blockProceso, below of=9, node distance=1cm, text width=3cm] (12) {inspeccion\_int};
+    \node [blockProceso, right of=12, node distance=3.5cm, text width=3cm] (13) {medicina};
+    
+    % SALIDA section
+    \node [blockSalida, below of=12, node distance=1cm, xshift=0.0cm] (download) {descargar};
+    \node [section,left of=download, node distance=3cm] (salida) {SALIDA};
+    
+\end{tikzpicture}

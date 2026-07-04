@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+
+    % Client-side box and text
+    \node[draw, rectangle, minimum width=3cm, minimum height=2cm, align=center] (frontend) {Flutter \\ Frontend};
+    
+    % Server-side boxes and text
+    \node[draw, rectangle, minimum width=3cm, minimum height=2cm, right=2cm of frontend, align=center] (view) {Vista};
+    \node[draw, rectangle, minimum width=3cm, minimum height=2cm, right=1cm of view, align=center] (model) {Modelo};
+    
+    % Database (cylinder shape)
+    \node[draw, cylinder, shape border rotate=90, minimum height=2cm, minimum width=1.5cm, right=2cm of model, align=center] (database) {};
+    
+    % Arrows
+    \draw[<->] (frontend) -- node[above] {http} (view);
+    \draw[<->] (view) -- (model);
+    \draw[<->] (model) -- (database);
+    
+    % Double-headed arrow for DRF Backend communication
+    \draw[<->] (view) -- (model);
+    
+    % Dotted box around Vista and Modelo with DRF Backend text inside
+    \node[draw, dash pattern=on 4pt off 4pt, fit=(view)(model), inner sep=0.60cm] (fitbox) {};
+    \node[yshift=-1.30cm] at (fitbox.center) {DRF Backend};
+
+    % Dotted line separation
+    \draw[dash pattern=on 4pt off 4pt] ($(frontend.south east)+(1cm,-1.0cm)$) -- ($(frontend.north east)+(1cm,-1.2cm)$);
+    \draw[dash pattern=on 4pt off 4pt] ($(frontend.north east)+(1cm,-0.3cm)$) -- ($(frontend.north east)+(1cm,0.7cm)$);
+    
+    % Labels
+    \node[below=0.70cm of frontend] {Lado del Cliente};
+    \node[below=0.20cm of fitbox, xshift=2.00cm] {Lado del Servidor};
+    
+\end{tikzpicture}

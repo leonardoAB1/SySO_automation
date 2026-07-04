@@ -1,0 +1,18 @@
+\begin{tikzpicture}[node distance=1cm, every node/.style={draw, minimum width=2cm, minimum height=1.5cm, align=center}]
+
+    % Nodes
+    \node (camara) {Cámara};
+    \node (dispositivo) [right=of camara] {Dispositivo\\móvil};
+    \node (cloud) [right=of dispositivo, cloud, draw, cloud puffs=10, cloud puff arc=120, aspect=2, inner ysep=1em] {Nube};
+    \node (ordenador) [right=of cloud] {Ordenador};
+    \node (equipos) [right=of ordenador] {Equipos de\\Medición de\\Higiene};
+    \node [below of=camara, yshift=-1cm] (microfono) {Micrófono};
+    
+    % Connections
+    \draw[->, line width=0.5mm] (camara) -- (dispositivo);
+    \draw[->, line width=0.5mm] (microfono) -| (dispositivo);
+    \draw[<->, line width=0.5mm, dash pattern=on 4pt off 4pt] (dispositivo) -- (cloud);
+    \draw[<->, line width=0.5mm, dash pattern=on 4pt off 4pt] (cloud) -- (ordenador);
+    \draw[<-, line width=0.5mm] (ordenador) -- (equipos);
+    
+\end{tikzpicture}

@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+
+  % Definición del actor
+  \umlactor[x=0,y=3, name=usuario_movil]{usuario-móvil}
+  \umlactor[x=3.5,y=-6]{usuario-escritorio}
+  \umlactor[x=6,y=4.5]{camara}
+  \umlactor[x=6,y=-3]{microfono}
+  
+  % Definición de casos de uso
+  \begin{umlsystem}[x=6] {}
+    \umlusecase[x=5, y=3, width=2cm]{Tomar Fotografia} %usecase-1
+    \umlusecase[x=12, y=3, width=2cm]{Preprocesar Imagen} %usecase-2
+    \umlusecase[x=12, y=6, width=2cm]{Guardar Imagen} %usecase-3
+    \umlusecase[x=5, y=-3, width=2cm]{Grabar Audio} %usecase-4
+    \umlusecase[x=12, y=-3, width=2cm]{Guardar Audio} %usecase-5
+    \umlusecase[x=12, y=0, width=2cm]{Preprocesar Audio} %usecase-6
+    \umlusecase[x=5, y=-6, width=2cm]{Introducir Diagrama} %usecase-7
+    \umlusecase[x=12, y=-6, width=2.2cm]{Descomponer Diagrama} %usecase-8
+    \umlusecase[x=5, y=-9, width=2cm]{Escribir nota} %usecase-9
+    \umlusecase[x=12, y=-9, width=2cm]{Guardar Diagrama} %usecase-10
+    \umlusecase[x=12, y=-12, width=2cm]{Guardar Nota} %usecase-11
+  \end{umlsystem}
+  
+  % Conexiones entre el actor y los casos de uso
+  \umlassoc{camara}{usecase-1}
+  \umlassoc{microfono}{usecase-4}
+  
+  \umlassoc{usuario-móvil}{usecase-1}
+  \umlassoc{usuario-móvil}{usecase-4}
+  \umlVHassoc{usuario-móvil}{usecase-9}
+
+  \umlassoc{usuario-escritorio}{usecase-7}
+  \umlassoc{usuario-escritorio}{usecase-9}
+  \umlassoc{usuario-escritorio}{usecase-5}
+  \umlVHassoc{usuario-escritorio}{usecase-3}
+
+  % extend
+  \umlinclude{usecase-1}{usecase-2} 
+  \umlextend{usecase-3}{usecase-1} 
+
+  \umlextend{usecase-5}{usecase-4} 
+  \umlinclude{usecase-4}{usecase-6}
+
+  \umlinclude{usecase-7}{usecase-8} 
+  \umlextend{usecase-10}{usecase-7}
+
+  \umlextend{usecase-11}{usecase-9}
+
+\end{tikzpicture}

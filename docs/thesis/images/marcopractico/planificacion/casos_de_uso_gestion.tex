@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+
+  % Definición del actor
+  \umlactor[x=0,y=0]{usuario-móvil}
+  \umlactor[x=0,y=-3]{usuario-escritorio}
+
+  % Definición de casos de uso
+  \begin{umlsystem}[x=6] {}
+    \umlusecase[x=0, y=0, width=2cm, name=usecase-1]{Gestionar de Proyectos} %usecase-1
+    \umlusecase[x=0, y=-3, width=2cm, name=usecase-2]{Iniciar Sesión} %usecase-2
+    
+    \umlusecase[x=0, y=3, width=2cm, name=usecase-3]{Crear Proyecto} %usecase-3
+    \umlusecase[x=7, y=3, width=2cm, name=usecase-4]{Borrar proyecto} %usecase-4
+    \umlusecase[x=7, y=0, width=2cm, name=usecase-5]{Iniciar Generación} %usecase-5
+
+    \umlusecase[x=7, y=-3, width=2cm, name=usecase-6]{Verificar Contraseña} %usecase-6
+    \umlusecase[x=7, y=-6, width=2cm, name=usecase-7]{Mostrar error} %usecase-7
+  \end{umlsystem}
+
+  % Conexiones entre el actor y los casos de uso
+  \umlassoc{usuario-escritorio}{usecase-1}
+  \umlassoc{usuario-escritorio}{usecase-2}
+  \umlassoc{usuario-móvil}{usecase-1}
+  \umlassoc{usuario-móvil}{usecase-2}
+
+  % extend
+  \umlextend{usecase-3}{usecase-1}
+  \umlextend{usecase-4}{usecase-1}
+  \umlextend{usecase-5}{usecase-1}
+  
+  \umlextend{usecase-7}{usecase-2}
+
+  \umlinclude{usecase-2}{usecase-6}
+
+\end{tikzpicture}

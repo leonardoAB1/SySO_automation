@@ -1,7 +1,6 @@
-\chapter{Propuesta de Proyecto}
+\chapter{Captura y Análisis de Requisitos}
 \label{sec:propuesta}
 
-Para el éxito de todo proyecto, es necesario desarrollar un estudio de factibilidad, que evalúe la viabilidad técnica, económica y operativa de la iniciativa propuesta.  Este análisis exhaustivo proporciona una base sólida para la toma de decisiones informadas y la asignación adecuada de recursos, minimizando los riesgos y maximizando las oportunidades de éxito.
 
 \begin{comment}
 En esta sección se describe la propuesta del perfil de tesis/proyecto de grado. Dicha propuesta debe estar basada en el marco teórico, a fin de facilitar la comprensión del lector acerca de la innovación tecnológica que el candidato pretende llevar a cabo durante el desarrollo de su tesis/proyecto de grado.
@@ -11,15 +10,142 @@ Este apartado o sección, por tanto, es de gran importancia y debe ser detallado
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
+\section{Propuesta de Proyecto de Grado}
+
+
+%---------------------------------------------------------------------------------------------
+\subsection{Análisis de Requisitos}
+
+El análisis de requisitos es una etapa fundamental en la planificación y desarrollo de cualquier proyecto. Su propósito es identificar y documentar las necesidades y expectativas de los usuarios y otras partes interesadas, proporcionando una base sólida para la implementación y éxito del proyecto. El análisis de requisitos se ha llevado a cabo a partir de las entrevistas del Apéndice \ref{sec:entrevista01}.
+
+Este análisis comprende dos categorías principales: requisitos funcionales y no funcionales. Los requisitos funcionales describen las capacidades y funciones específicas que el sistema debe realizar, mientras que los requisitos no funcionales se refieren a las cualidades y restricciones del sistema, tales como rendimiento, seguridad y usabilidad. La identificación precisa de estos requisitos garantiza que el sistema final cumpla con las expectativas y necesidades planteadas, y ayuda a mitigar riesgos durante el desarrollo.
+
+En las Tablas \ref{tab:requisitos_funcionales} y \ref{tab:req_no_func} se presentan de manera detallada los requisitos funcionales y no funcionales identificados en las entrevistas.
+
+\begin{table}[htb]
+    \centering
+    \caption{Tabla de Requerimientos Funcionales}
+    \input{chapters/marcopractico/tables/requisitos_funcionales.tex}
+    \label{tab:requisitos_funcionales}
+\end{table}
+
+En primer lugar, se requiere una alta prioridad para la entrada de imágenes, lo cual permitirá integrar el registro fotográfico en la identificación de peligros, ofreciendo una visión clara y visual de los riesgos presentes. Asimismo, la entrada de audio también tiene alta prioridad, facilitando la inclusión de entrevistas que enriquecen la identificación de peligros con información verbal obtenida directamente de los involucrados. De igual importancia es la entrada de texto, que permite incorporar observaciones detalladas de los profesionales al análisis, asegurando que no se pierdan detalles críticos en la evaluación de riesgos. La generación de la Matriz de Identificación de Peligros, Evaluación y Riesgos (IPER) es crucial y se considera de alta prioridad, se trata de uno de los primeros pasos para cumplir con las normativas vigentes en la evaluación de riesgos. Además, la capacidad de generar un Plan de Acción basado en los resultados de la matriz IPER también tiene una alta prioridad, posibilitando la creación de estrategias efectivas para mitigar los riesgos identificados.
+
+El sistema debe facilitar el llenado formularios, a fin de disminuir el tiempo invertido en tareas administrativas, aumentando así la eficiencia operativa. La interfaz debe de ser intuitiva. Aunque se asigna como de prioridad media, es fundamental para facilitar la adopción y uso del software por parte de los profesionales de Seguridad y Salud Ocupacional (SySO). También es importante la verificación del contenido generado, permitiendo a los usuarios eliminar o modificar el contenido según sea necesario.
+
+Finalmente, aunque con menor prioridad, la interoperabilidad a través de APIs es un requisito funcional que permitirá que sistemas externos interactúen con los datos y funciones del software, fomentando la integración y versatilidad del sistema en diferentes entornos tecnológicos.
+
+\begin{table}[htb]
+    \centering
+    \caption{Tabla de Requerimientos No Funcionales}
+    \input{chapters/marcopractico/tables/requisitos_no_funcionales.tex}
+    \label{tab:req_no_func}
+\end{table}
+
+Además de los requisitos funcionales, es crucial considerar los no funcionales para el éxito del proyecto. La escalabilidad es una alta prioridad para manejar un número creciente de usuarios y datos sin perder rendimiento. La usabilidad es esencial para asegurar que el software sea adoptado por usuarios con poca experiencia tecnológica, facilitando su implementación. La protección de datos es vital para la seguridad y cumplimiento de normativas.
+
+La documentación, de prioridad media, es fundamental para ayudar a los usuarios a entender y utilizar el software, proporcionando guías detalladas. La modularidad facilita actualizaciones y mantenimiento, adaptándose a nuevas necesidades y tecnologías. La interoperatividad asegura la integración con otros sistemas, permitiendo que el software funcione con otras soluciones existentes. La capacidad multiplataforma, también de prioridad media, permite que el software funcione en diversos sistemas operativos y dispositivos, aumentando su accesibilidad. Estos requisitos no funcionales garantizan un rendimiento óptimo, seguridad y facilidad de uso del sistema.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Casos de Uso}
+
+Se define asi que el proyecto tiene como objetivo desarrollar una aplicación que facilite a los profesionales SySO la realización de auditorías y la generación de documentos de seguridad de manera eficiente. Los usuarios podrán tomar fotos, grabar audios y escribir notas durante sus visitas, y toda esta información será procesada para generar matrices IPER y otros documentos necesarios. Además, podrán gestionar múltiples proyectos, crear diagramas de procesos y descargar los documentos generados para su revisión y modificación. Todo esto se realizará bajo un entorno seguro con acceso mediante credenciales personales.
+
+\begin{figure}[h]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} 
+        \fbox{\input{images/marcopractico/planificacion/casos_de_uso_entrada.tex}}}}
+	\caption{Caso de Uso: Entrada de Información.}
+	\label{fig:caso_de_uso_entrada} 
+\end{figure}
+
+Para aclarar la funcionalidad propuesta, se desarrollaron dos diagrams de caso de uso que ilustran la funcionalidad planteada a tras del análisis de requisitos. En la Figura \ref{fig:caso_de_uso_entrada}, se ilustra cómo los usuarios interactúan con la aplicación para ingresar diversos tipos de datos. Los actores principales en este diagrama son el `usuario-móvil' y el `usuario-escritorio', representando a los profesionales que utilizan dispositivos móviles o de escritorio para realizar sus tareas. Los casos de uso incluyen `Tomar Fotografía', `Grabar Audio', `Introducir Diagrama' y `Escribir nota', los cuales son actividades fundamentales para recopilar información durante las auditorías. Cada caso de uso está conectado a funciones adicionales como `Preprocesar Imagen'", `Guardar Imagen', `Preprocesar Audio' y `Guardar Audio', que son necesarios para procesar y almacenar la información capturada. Los actores `cámara' y `micrófono' están asociados directamente con los casos de uso de captura de foto y grabación de audio, respectivamente.
+
+\begin{figure}[h]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} 
+        \fbox{\input{images/marcopractico/planificacion/casos_de_uso_gestion.tex}}}}
+	\caption{Caso de Uso: Gestión de Proyectos.}
+	\label{fig:caso_de_uso_gestion} 
+\end{figure}
+
+Por otro lado, en la Figura \ref{fig:caso_de_uso_gestion} se muestra las interacciones necesarias para la gestión de proyectos dentro de la aplicación. Los usuarios pueden `Iniciar Sesión' y `Gestionar Proyectos'. Donde la gestión puede incluir la creación, modificación u eliminación de proyectos del usuario. Si hay errores en el inicio de sesión se proporciona la retroalimentación correspondiente al usuario. Estos diagramas proporcionan una visión clara de cómo los usuarios interactuarán con la aplicación para cumplir con sus tareas diarias, asegurando que todas las funcionalidades necesarias estén bien definidas y conectadas.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Selección de Tecnologías}
+
+La selección de tecnologías es un paso crucial para garantizar la eficacia y eficiencia del desarrollo del proyecto. Inicialmente, se decidió utilizar una estructura en la nube para simplificar el desarrollo del software, concentrando la lógica en el backend y empleando plataformas que faciliten el acceso eficiente a la información. Asimismo, se seleccionó el framework Flutter para el desarrollo del frontend debido a su capacidad para permitir un desarrollo rápido multiplataforma. Entre sus ventajas se encuentra la recarga en caliente, una característica que permite al desarrollador ver los cambios en tiempo real sin perder el estado de la aplicación, acelerando significativamente el proceso de desarrollo y depuración. Además, Flutter, respaldado por Google, cuenta con una comunidad en crecimiento que asegura actualizaciones constantes y abundantes recursos de aprendizaje. La amplia gama de widgets personalizables que ofrece facilita la creación de interfaces de usuario atractivas y consistentes, mejorando así la experiencia del usuario final (\cite{tyagi2021pragmatic}).
+
+Para el backend, se optó por el Framework Rest de Django (DRF), entorno basado en python, debido a su robustez y facilidad de uso. DRF permite el desarrollo rápido y eficiente de APIs. Ofrece características de seguridad integradas como protección contra CSRF, XSS y SQL injection. La escalabilidad de DRF permite manejar un gran volumen de solicitudes, ideal para aplicaciones en expansión. La compatibilidad de Django con modelos de inteligencia artificial y análisis de datos, gracias a la versatilidad de Python, es otra ventaja significativa. Además, Django cuenta con una excelente documentación y una comunidad activa que proporciona soporte y recursos abundantes (\cite{vincent2022django}).
+
+Para la base de datos, se eligió MySQL debido a su estabilidad, escalabilidad y amplia adopción en la industria. MySQL ofrece un rendimiento robusto y puede escalar tanto vertical como horizontalmente, lo cual es crucial para aplicaciones con un crecimiento de datos constante. Su alta compatibilidad con Django facilita la integración utilizando bibliotecas como `mysqlclient' y `django-mysql'. MySQL también cuenta con un soporte extenso tanto de la comunidad como de proveedores comerciales.
+
+En resumen, la combinación de Flutter para el frontend, Django Rest Framework para el backend y MySQL como base de datos, proporciona una solución tecnológica robusta, escalable y segura, adecuada para el desarrollo y crecimiento del proyecto propuesto.
+
+%---------------------------------------------------------------------------------------------
+\subsection{Arquitectura del Sistema}
+
+La Figura \ref{fig:arc_sys} presenta una visión integral de la arquitectura del sistema, que abarca la interacción entre diversos dispositivos y equipos de medición. En esta arquitectura, los dispositivos de entrada, como cámaras, micrófonos y dispositivos móviles, capturan imágenes, audio y datos de texto. Cada tipo de dato pasa por un proceso de preprocesamiento específico que los prepara para su análisis. Estos datos preprocesados se integran en un modelo multimodal, lo que permite combinar diferentes tipos de información para un análisis más completo y detallado. 
+
+\begin{figure}[H]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+        \fbox{\input{images/marcopractico/planificacion/arquitectura_sistema.tex}}}}
+	\caption{Propuesta de Arquitectura de Sistema.}
+	\label{fig:arc_sys} 
+\end{figure}
+
+La Figura \ref{fig:basic_data_pipeline} profundiza en la cadena de procesamiento de datos, detallando los pasos desde la captura inicial hasta el procesamiento final. Los datos se capturan desde dispositivos diversos como cámaras, micrófonos y equipos de medición. Posteriormente, cada tipo de dato es preprocesado para adecuarlo al formato requerido por el sistema. Luego, los datos preprocesado se integran en el modelo multimodal para su análisis por medio de los diversos módulos de la etapa de proceso descritos en la Figura \ref{fig:arc_modulos}, y finalmente, se estructuran y preparan para su inclusión en el PGSST.
+
+\begin{figure}[h]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+        \fbox{\input{images/marcopractico/planificacion/data_pipeline.tex}}}}
+	\caption{Cadena de Procesamiento de Datos.}
+	\label{fig:basic_data_pipeline} 
+\end{figure}
+
+La arquitectura cliente-servidor propuesta, ilustrada en la Figura \ref{fig:arc_client_server}, presenta una clara separación entre el frontend y el backend. El frontend, desarrollado con Flutter, es responsable de la interfaz de usuario y la interacción directa con el cliente, proporcionando una experiencia de usuario fluida y responsiva. El backend, basado en Django Rest Framework (DRF), maneja la lógica del servidor y las APIs, procesando las solicitudes del cliente y gestionando la base de datos. La comunicación entre el frontend y el backend se realiza a través del protocolo HTTP, utilizando REST para asegurar una transferencia eficiente de datos y comandos entre ambos componentes del sistema.
+
+El backend sigue el patrón de diseño Modelo-Vista-Plantilla (MVT) propio de Django. En este esquema, el Modelo representa la estructura de la base de datos y la lógica de acceso a los datos, asegurando que los datos sean almacenados y recuperados de manera eficiente \cite{vincent2022django}. La Vista se encarga de procesar las solicitudes HTTP provenientes del frontend, ejecutando la lógica de negocio necesaria y devolviendo las respuestas adecuadas en forma de datos JSON a través de las APIs proporcionadas por DRF. Aunque en este caso específico, las plantillas tradicionales de Django no son utilizadas debido a que el frontend está separado y gestionado por Flutter, la lógica de presentación se puede entender como la estructura de los datos enviados al frontend.
+
+\begin{figure}[h]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+        \fbox{\input{images/marcopractico/planificacion/arquitectura_cliente_servidor.tex}}}}
+	\caption{Propuesta de Arquitectura Cliente-Servidor.}
+	\label{fig:arc_client_server} 
+\end{figure}
+
+Finalmente, la Figura \ref{fig:arc_modulos} proporciona una visión detallada de la arquitectura a nivel de módulos de la aplicación categorizados según su utilidad. Esta organización modular incluye componentes funcionales como la gestión de usuarios y proyectos, la entrada de medios, descripciones, diagramas, y diversos procesos. Nótese que a cada uno de los módulos de la sección de procesos se corresponde uno de los puntos de contenido técnico de la NTS-009/23 siguiendo la secuencia descrita en la normativa. Tal que la gestión es independiente de las demás etapas, pero la entrada, procesado y posterior descarga siguen un orden secuencial. Para mayor claridad, se encuentran en gris los módulos que se encuentran fuera del alcance de este proyecto. Esta arquitectura modular asegura que cada componente pueda ser desarrollado y mantenido de manera independiente, mejorando la eficiencia y la escalabilidad del sistema.
+
+\begin{figure}[H]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+        \fbox{\input{images/marcopractico/planificacion/arquitectura_modulos.tex}}}}
+	\caption{Propuesta de Arquitectura a nivel de módulos de la aplicación.}
+	\label{fig:arc_modulos} 
+\end{figure}
+
+%---------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------
 \section{Análisis de Costos}
 
-El análisis del proyecto se ha llevado a cabo desde dos perspectivas fundamentales: el costo de desarrollo del proyecto de grado y la proyección de los ingresos y beneficios esperados mediante la implementación del modelo de Software como Servicio (SaaS por sus siglas en inglés) en una estructura empresarial completamente virtual, donde cada programador involucrado utiliza su equipo personal para el desarrollo.
+Para realizar un análisis de costos efectivo, resulta fundamental identificar y evaluar todos los elementos y recursos necesarios para el desarrollo y la operación del proyecto. En esta sección, se abordan tanto los costos de desarrollo como los costos de infraestructura, proporcionando una visión clara y detallada de la inversión requerida. A través de una estimación precisa de estos costos, se planifica de manera más efectiva el presupuesto del proyecto, asegurando la viabilidad financiera y la optimización de recursos. Este análisis no solo permite prever los gastos involucrados, sino también identificar posibles áreas de ahorro y eficiencia, contribuyendo al éxito global del proyecto.
 
 %---------------------------------------------------------------------------------------------
 \subsection{Costos de Desarrollo}
-La estimación del costo de desarrollo para el proyecto se basó en el modelo COCOMO intermedio (\cite{basavaraj2008empirical}). Este modelo calcula el esfuerzo necesario para desarrollar software considerando el tamaño del programa y varios factores que influyen en los costos, como atributos del producto, hardware y personal. Para una evaluación más detallada de estos factores, se puede consultar la tabla de ponderación de impulsores en el anexo \ref{sec:cocomo}. \\
-Para la estimación del numero de lineas de código se utilizó el prototipo de uno de los módulos del programa. El prototipo consta de aproximadamente 600  efectivas de código. Asumiendo que el desarrollo es orgánico y que todos los módulos tendrán una longitud similar y el alcance del proyecto de grado se limita a por lo menos tres módulos: Se espera con 1800 lineas de código. Por otro lado, de acuerdo a \textcite{glassdoor2024} el salario promedio de desarrolladores junior en Bolivia es de Bs. 6000.\\ \indent
-El modelo aplicado al proyecto estima inicialmente un esfuerzo de $5.93$ persona-mes, que representa el trabajo requerido sin ajustar los factores específicos del proyecto. Tras aplicar estos factores de ajuste, el esfuerzo aumenta a $8.76$ persona-mes, reflejando un incremento significativo debido a las particularidades del proyecto. El tiempo total estimado para el desarrollo es de $5.70$ meses, sugiriendo que el proyecto se completará en menos de medio año. Para cumplir con este plazo, se necesita un equipo promedio de aproximadamente $1.54$ personas. \\
+La estimación del costo de desarrollo se basa en el modelo intermedio de COCOMO, según lo descrito por \textcite{basavaraj2008empirical}. Este modelo evalúa el esfuerzo necesario para desarrollar software considerando el tamaño del programa y diversos factores que influyen en los costos. Entre estos factores se incluyen los atributos del producto, el hardware y el personal. Para una evaluación más detallada de estos factores, se puede consultar la tabla de ponderación de impulsores en el anexo \ref{sec:cocomo}.
+
+Para la estimación del número de líneas de código, se utilizó como referencia el prototipo del módulo de generación de matrices IPER, detallado en el apéndice \ref{sec:prototipos}. El prototipo consta de aproximadamente 600 líneas de código. Dado que el proceso de generación de la IPER es la piedra angular del programa, se espera que los módulos complementarios tengan una longitud similar. De manera similar, se proyecta que los módulos de gestión, entrada y salida tengan una longitud comparable, alcanzando en conjunto las 1800 líneas de código. Según \textcite{glassdoor2024}, el salario promedio de los desarrolladores junior en Bolivia es de Bs. $6000$.
+
+El modelo aplicado al proyecto estima inicialmente un esfuerzo de $5.93$ persona-mes, que representa el trabajo requerido sin ajustar los factores específicos del proyecto. Tras aplicar estos factores de ajuste, el esfuerzo aumenta a $8.76$ persona-mes, reflejando un incremento significativo debido a las particularidades del proyecto. Cabe aclarar que un esfuerzo de $8.76$ persona-mes no implica la necesidad de contar con ocho personas trabajando en el proyecto, sino que es un valor referencial que ayuda a determinar los costos para completar el desarrollo.
 \begin{equation}\label{eq:costo_desarrollo}
     Costo\ Desarrollo\ MVP = Esfuerzo(Persona-Mes) \times Salario(Bs/Persona-Mes)
 \end{equation}
@@ -94,31 +220,9 @@ Se concluye este análisis tras haber estimado los costos totales para la infrae
 Así, el costo mensual de la infraestructura mediante AWS se calcula en $Bs.2,224.06$. Es decir, el costo anual estimado de infraestructura en AWS es de $Bs.26,668.72$. Es importante destacar que estos costos pueden variar según el uso real y la optimización de recursos a lo largo del tiempo.
 
 %---------------------------------------------------------------------------------------------
-\subsection{Gastos Legales}
-
-La creación de una sociedad implica una serie de gastos legales necesarios para cumplir con las normativas vigentes y asegurar su correcta constitución. Estos gastos incluyen tarifas administrativas, honorarios profesionales y otros costos relacionados.En la Tabla \ref{tab:costos_legales} se detallan los costos legales asociados a la creación de la sociedad.
-
-\begin{table}[ht]
-    \centering
-    \caption{Gastos legales de creación de la sociedad.}
-    \label{tab:costos_legales}
-    \begin{tabularx}{\textwidth}{|X|r|} 
-        \hline
-        \textbf{Descripción} & \textbf{Costo (Bs)} \\ \hline
-        Arancel de Seprec & 455 \\ 
-        Publicación Gaceta & 192 \\ 
-        Balance de apertura del contador & 200 \\ 
-        Gobierno autónomo municipal Santa Cruz & 150 \\ 
-        Honorarios notario & 500 \\ 
-        Honorarios abogado & 3500 \\ \hline
-        \textbf{TOTAL} & \textbf{4997} \\ \hline
-    \end{tabularx}
-\end{table}
-
-%---------------------------------------------------------------------------------------------
 \subsection{Inversión Total Inicial}
 
-En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial necesaria para el proyecto. Según los cálculos, la inversión total inicial estimada para iniciar el proyecto asciende a $Bs.59,781.06$. Este monto abarca todos los aspectos indispensables para el desarrollo, implementación y operación inicial del software bajo el modelo SaaS.
+En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial necesaria para el proyecto. Según los cálculos, la inversión total inicial estimada para iniciar el proyecto asciende a $Bs.54,784.06$. Este monto abarca todos los aspectos indispensables para el desarrollo, implementación y operación inicial del software.
 
 \begin{table}[ht]
     \centering
@@ -130,106 +234,13 @@ En la Tabla \ref{tab:inversion_total}, se presenta la inversión total inicial n
         \hline
         Costo de Desarrollo & 52,560.00 \\
         Costos de Infraestructura & 2,224.06 \\
-        Gastos Legales & 4,997.00 \\
+        %Gastos Legales & 4,997.00 \\
+        Computadora para desarrollo & - \\
         \hline
-        \textbf{Total} & \textbf{59,781.06} \\
+        \textbf{Total} & \textbf{54,784.06} \\
         \hline
     \end{tabularx}
 \end{table}
-
-%---------------------------------------------------------------------------------------------
-%---------------------------------------------------------------------------------------------
-\section{Evaluación de Proyecto de Inversión}
-La evaluación de un proyecto de inversión es fundamental para determinar su viabilidad y potencial de rentabilidad. En esta sección, se abordan tres elementos clave: la comparación costo-beneficio, el Valor Actual Neto (VAN) y la Tasa Interna de Retorno (TIR). Estos indicadores financieros proporcionan una comprensión profunda de los ingresos proyectados frente a los costos, la rentabilidad esperada descontada a valor presente y la eficiencia general del proyecto. Este análisis integral permite tomar decisiones informadas y estratégicas sobre la inversión.
-
-%---------------------------------------------------------------------------------------------
-\subsection{Comparación Costo Beneficio}
-
-El análisis financiero del proyecto asumiendo el modelo de negocio SaaS con la proyección del proyecto completo. Se calculó la relación entre los ingresos y costos anuales asumiendo un programador junior contratado para realizar el desarrollo y mantenimiento continuo del sistema; Ademas que inicialmente que se capta al 10\% del mercado potencial como usuario mismos que incrementan según la tasa de incremento de profesionales SySO anual del $58.8\%$ visible en la Figura \ref{fig:profesionales_syso_registrados}. Los resultados de la proyección se presentan en la Tabla \ref{tab:proyeccion_financiera} en la que se utilizó un un costo por membresía de Bs.70. La relación costo-beneficio mejora significativamente a lo largo de los años, comenzando en 1.00 en el primer año y alcanzando 18 en el quinto año. Esto indica que, para el quinto año, por cada boliviano invertida, se generan alrededor de 18 bolivianos en ingresos.
-
-\begin{table}[htb]
-    \caption{Proyección financiera del proyecto bajo el modelo SaaS.}
-    \label{tab:proyeccion_financiera}
-    \centering
-    \begin{tabularx}{\textwidth}{|l|r|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|r|}
-        \hline
-        \thead{Año} & \thead{Usuarios\\Mensuales} & \thead{Gastos\\Anuales (Bs)}  & \thead{Ingresos\\Anuales (Bs)}  & \thead{Balance\\Anual (Bs)} & \thead{C/B} \\ \hline
-        0 & 0 & 276,755.53 & 00.00 & -276,755.53 & 0.00 \\ \hline
-        1 & 330 & 98,688.72 & 277,200.00 & 178,511.28 & 2.81 \\ \hline
-        2 & 525 & 98,688.72 & 441,000.00 & 342,311.28 & 4.47 \\ \hline
-        3 & 834 & 98,688.72 & 700,560.00 & 601,871.28 & 7.10 \\ \hline
-        4 & 1325 & 98,688.72 & 1,113,000.00 & 1,014,311.28 & 11.28 \\ \hline
-        5 & 2104 & 98,688.72 & 1,767,360.00 & 1,668,671.28 & 17.91 \\ \hline
-    \end{tabularx}
-\end{table} 
-
-%---------------------------------------------------------------------------------------------
-\subsection{Valor Actual Neto}
-El Valor Actual Neto (VAN) es una medida financiera que calcula la diferencia entre el valor presente de los flujos de efectivo entrantes y salientes de un proyecto. Se calcula descontando los flujos de caja futuros a una tasa de descuento y restando la inversión inicial. Para este proyecto, se utiliza una tasa de descuento del 10\%. 
-
-\begin{equation}
-    \label{eq:VAN}
-    VAN = \sum \frac{ganancias}{(1+K)^{n}} - \sum \frac{costos}{(1+K)^{n}}
-\end{equation}
-
-\begin{equation*}
-    VAN =  2,135,932.70
-\end{equation*}
-
-El VAN se calcula restando los flujos de efectivo descontados de los costos descontados, lo que da como resultado un VAN de 2,464,402.58. Esto indica que, después de descontar los flujos de efectivo futuros y la inversión inicial, el proyecto en cuestión generaría un valor adicional de 2,464,402.58 en términos de valor presente neto. Este resultado sugiere que el proyecto tiene un potencial de rentabilidad positivo y podría ser una inversión atractiva.
-
-%---------------------------------------------------------------------------------------------
-\subsection{Tasa Interna de Retorno}
-La Tasa Interna de Retorno (TIR) es un indicador financiero utilizado para evaluar la rentabilidad de una inversión. Representa la tasa de descuento que iguala el VAN de una serie de flujos de caja a cero. En otras palabras, la TIR es la tasa de interés que hace que el valor presente de los ingresos futuros de una inversión sea igual al costo inicial de la misma.
-\begin{equation}
-    \label{eq:TIR}
-    VAN = \sum_{t=1}^{n} \frac{F_t}{(1+TIR)^{t-1}} - I = 0
-\end{equation}
-\indent
-En la ecuación \ref{eq:TIR}, $F_t$ son los flujos de caja en el periodo $t$, $n$ es el número total de periodos, e $I$ es la inversión inicial. La misma se resuelve iterativamente, ya que no tiene una solución algebraica directa, especialmente cuando los flujos de caja no son constantes. El valor de la TIR es útil porque permite comparar la rentabilidad de diferentes proyectos de inversión. En general, un proyecto se considera aceptable si su TIR es mayor que la tasa mínima de rendimiento requerida o el costo de oportunidad del capital. En el contexto del proyecto evaluado, se ha determinado que la TIR es del 112\%. Este valor indica una alta rentabilidad del proyecto, ya que la tasa de retorno esperada es significativamente superior al costo de capital típico en muchos sectores.
-
-%---------------------------------------------------------------------------------------------
-\subsection{Conclusión}
-La evaluación del proyecto de inversión mediante la comparación costo-beneficio, el VAN y el TIR revela una perspectiva prometedora. La proyección financiera muestra una mejora constante en la relación costo-beneficio, culminando en una relación de 18:1 para el quinto año. El VAN positivo de 2,135,932.70 sugiere que el proyecto no solo recuperará la inversión inicial sino que también generará un valor neto significativo. La TIR del 112\% indica una alta rentabilidad, superando ampliamente las tasas de retorno estándar en la industria. Estos resultados combinados apoyan la viabilidad y rentabilidad del proyecto, recomendando su implementación como una inversión estratégica y beneficiosa.
-
-%---------------------------------------------------------------------------------------------
-%---------------------------------------------------------------------------------------------
-\section{Análisis de Competidores}
-
-Se realizó un análisis de competidores para identificar oportunidades y amenazas en el mercado, así como para comprender la posición relativa del producto propuesto frente a sus rivales, lo cual permite formular estrategias efectivas y diferenciarse en el mercado del software de gestión de salud y seguridad. 
-
-A nivel mundial, el mercado del software de salud y seguridad ocupacional se compone de dos tipos predominantes: soluciones basadas en la nube y soluciones basadas en la web. El software basado en la nube se refiere a un sistema al que se accede a través de internet, donde los datos se almacenan y procesan en servidores remotos. Ofrece mayor flexibilidad, escalabilidad y accesibilidad. Por otro lado, el software basado en la web funciona a través de un navegador web, requiriendo conectividad a internet. Proporciona comodidad y facilidad de uso, ya que los usuarios pueden acceder al software desde cualquier dispositivo con un navegador. Subdividiéndose por aplicación en: `Grandes empresas' y `Pequeñas y Medianas Empresas' (PyME). Las grandes empresas necesitan software que gestione eficazmente la salud y seguridad ocupacional en diversos departamentos y ubicaciones, debido a su estructura compleja y mayor cantidad de empleados. Las PyMEs, en cambio, requieren soluciones rentables que cubran sus necesidades de gestión de salud y seguridad. Por lo tanto, el mercado ofrece aplicaciones de software adaptadas a ambos segmentos para cumplir con sus requisitos específicos y asegurar la conformidad con las normativas de salud y seguridad (\cite{KingpinMarketResearch}).
-
-Rápidamente la Figura~\ref{fig:visitas_por_dominio} permite observar que las tres compañías con mayor ocupación del mercado en lo que a tráfico de red se refiere son \textit{sitedocs}, \textit{donesafe} y \textit{everbridge}. Estas tres empresas juntas representan más del 50\% del tráfico total, destacando su fuerte presencia y dominio en el mercado (\cite{SEMrushMarketExplorer}).
-
-\begin{figure}[htb]
-    \centering
-    \fbox{
-        \includegraphics[width=0.95\linewidth]
-        {images/marcopractico/planificacion/visitas_por_dominio.png}
-    }
-    \caption{Participación de Mercado de los Principales Competidores}
-    \vspace{-0.2cm}
-    \footnotesize{{Elaboración propia a partir de datos obtenidos por medio de ``\textit{\citefield{SEMrushMarketExplorer}{title}}'' (\citeyear{SEMrushMarketExplorer}).}}
-    \label{fig:visitas_por_dominio}
-\end{figure}
-
-A su vez, la matriz ilustrada en la Figura~\ref{fig:MatrizCompetidores}, divide los dominios en cuatro categorías: Jugadores de nicho, agentes de cambio, líderes y jugadores establecidos. El eje X representa el volumen total de tráfico que reciben los dominios, mientras que el eje Y muestra el porcentaje de crecimiento del tráfico total. Cada punto en el gráfico representa un dominio y su trayectoria de crecimiento durante el período seleccionado. Las líneas que conectan los puntos iniciales y finales muestran el cambio en el tráfico y la tasa de crecimiento a lo largo del tiempo.
-
-\begin{figure}[htb]
-    \centering
-    \fbox{
-        \includegraphics[width=0.95\linewidth]
-        {images/marcopractico/planificacion/GrowthQuadrant.png}
-    }
-    \caption{Matriz de Competidores: \textit{OSH Software}}
-    \vspace{-0.2cm}
-	\footnotesize{Fuente: Elaborado por \cite{SEMrushMarketExplorer}.}
-    \label{fig:MatrizCompetidores}
-\end{figure}
-
-En esta matriz, \textit{sitedocs} se encuentra claramente en la categoría de líderes, no solo por su alto volumen de tráfico, sino también por un crecimiento positivo. Destacan los casos de \textit{intenseye} y \textit{smartosh} que también están en la categoría de líderes, mostrando un crecimiento significativo desde la categoría de jugadores de nicho. Por otro lado, dominios como \textit{softwareasalus} están catalogados como agentes de cambio debido a su impresionante crecimiento en el tráfico, aunque su volumen total de tráfico sea menor. Los jugadores establecidos, como \textit{donesafe} y \textit{workhub}, tienen un alto volumen de tráfico pero un crecimiento más estable y menos pronunciado.\\ \indent
-Se puede concluir, en primer lugar que los agentes de cambio, como \textit{softwareasalus}, aunque tienen menor volumen de tráfico, están creciendo rápidamente, lo que sugiere que nuevas empresas pueden irrumpir en el mercado con innovaciones significativas y atraer rápidamente a los usuarios. Además, los jugadores establecidos, con su tráfico consolidado pero crecimiento lento, representan una estabilidad en el mercado, ofreciendo una base de comparación para el rendimiento y las estrategias de retención de usuarios.
 
 %---------------------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------------------
@@ -362,6 +373,9 @@ Tras el marco practico en el que se resuelve el problema. Finalmente, se present
             \item Visión Computacional
             \item Procesamiento de Lenguaje Natural (PLN)
             \item Modelos de Lenguaje Multimodales
+            \begin{enumerate}[label*=\arabic*.]
+                \item Transformadores
+            \end{enumerate}
             \item Evaluación de Modelos
             \item Generación de Lenguaje Natural
             \item Generación de Descripciones de Imágenes
@@ -370,13 +384,9 @@ Tras el marco practico en el que se resuelve el problema. Finalmente, se present
     \item \textbf{Marco Practico}
         \begin{enumerate}[label*=\arabic*.]
             \item Revisión de Requisitos
-            \item Análisis de procesos actuales
-            \item Establecimiento de arquitectura del sistema
-            \begin{enumerate}[label*=\arabic*.]
-                \item Alto nivel
-                \item Detalle
-                \item Base de Datos
-            \end{enumerate}   
+            \item Casos de Uso
+            \item Selección de Tecnologías
+            \item Arquitectura del Sistema  
             \item Implementación del sistema
             \item Evaluación de la calidad del software
         \end{enumerate}
