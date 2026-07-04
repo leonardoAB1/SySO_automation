@@ -18,7 +18,9 @@
 % Graphs
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, chains, fit, backgrounds}
+\usetikzlibrary{arrows.meta, chains, fit, backgrounds, patterns,
+				positioning, shapes.geometric, shapes.symbols, calc}
+\usepackage{../packages/tikz-uml}
 
 \usepackage{colortbl} % For \rowcolor
 \usepackage{xcolor}   % For defining colors
@@ -72,13 +74,6 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
   Mediante la Resolución Ministerial N° 1411/18, el 27 de diciembre de 2018, el Ministerio de Trabajo aprueba la Norma Técnica de Seguridad NTS-009/18.
 
   \framebreak
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth, height=.58\textheight]{../images/marcoref/share_of_industry_exposed_to_automation_ai.png}
-        \caption{Porcentaje de la industria expuesta a la automatización por parte de la Inteligencia Artificial en Estados Unidos. Fuente: Goldman Sachs Global Investment Research (\citeyear{hatzius2023potentially}).}
-        \label{fig:share_of_industry_exposed_to_automation_ai_gs}
-    \end{figure}
     
     \begin{figure}
         \centering
@@ -93,40 +88,64 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
       \caption{Profesionales SST activos:\\Distribución de categorías (a) porcentual (b) por departamento.}
       \label{fig:profesionales_syso_por_categoria} 
     \end{figure}
+
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[width=.8\textwidth]{../images/marcoref/grafico_distribucion.png}
+      \caption{Distribución porcentual de tiempo en la elaboración de las secciones del Contenido Técnico de un PGSST. Elaboración propia a partir de entrevista.}
+      \label{fig:distribucion_tiempo_pgsst} 
+    \end{figure}
+
+    \begin{figure}[b]
+      \centering
+        \resizebox{\textwidth}{!}{
+            {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+            \fbox{\input{../images/marcoref/analisis_iper.tex}}}}
+      \caption{Distribución de tiempo en el proceso de desarrollo del punto cuatro ``Planificación'' de acuerdo al contenido técnico de un PGSST solicitado por la NTS-009/23.}
+      \label{fig:analisis_iper} 
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Arbol de Problemas}
+  \begin{figure}[hb]
+    \centering
+    \resizebox{\textwidth}{!}{
+      \input{../images/marcoref/diagrama_arbol_problemas.tex}}
+    \caption{Árbol de problemas y objetivos. Fuente: Elaborado por el Autor.}
+    \label{fig:arbol_problemas} 
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Definición del Problema}
-  ¿Cómo impacta la falta de recursos humanos especializados en el cumplimiento de la NTS 009/23 por parte de las empresas en Bolivia?
+  Los profesionales SySO de categoría A dedican mediante el método manual un 60\% del tiempo total de desarrollo de un PGSST en llenado de formularios y planificación.
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Objetivos}
   \begin{block}{Objetivo general}
-    Implementar un sistema automatizado basado en la NTS 009/23 que facilite la identificación de riesgos laborales, el desarrollo y la gestión eficaz de los PGSST.
+    Desarrollar un prototipo de software basado en transformadores multimodales para disminución del tiempo que los profesionales SySO de categoría A invierten en la planificación y el llenado de formularios al elaborar un PGSST.
   \end{block}
   \begin{block}{Objetivos específicos}
   \begin{itemize}
-    \item Contextualizar la situación actual de los procesos para desarrollar los documentos requeridos por la NTS-009/23 mediante diagramas de flujo que reflejen las operaciones actuales.
-    \item Determinar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar, para asegurar la escalabilidad, la modularidad y la eficiencia del sistema.
+    \small
+    \item Identificar los requisitos funcionales y no funcionales del proceso de desarrollo de los documentos requeridos por la NTS-009/23.
+    \item Diseñar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar.
+    \item Implementar sistema de generación de procesamiento de entradas multimodales, matrices IPER, planes de acción y llenado de formularios siguiendo la metodología PXP.
+    \item Verificar la reducción del tiempo de trabajo mediante la implantación del software.
   \end{itemize}
   \end{block}
-
-  \begin{itemize}
-    \item Desarrollar las iteraciones del proyecto, estableciendo los objetivos específicos a alcanzar durante la fase de diseño, implementación y pruebas del sistema en cada iteración.
-    \item Implementar el sistema utilizando la metodología de Desarrollo Guiado por Pruebas (TDD).
-    \item Verificar la calidad del software tras cada iteración como parte del proceso de pruebas del sistema haciendo uso de la metodología Objetivo-Pregunta-Métrica (GQM) para asegurar la calidad en base al estándar ISO 25000:2014.
-  \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Justificación}
   \begin{block}{Justificación legal}
-  La implementación del sistema se fundamenta en la NTS-009/23 y la Ley General de Higiene, Seguridad Ocupacional y Bienestar.
+    Al disminuir el tiempo de desarrollo de los programas se facilita el cumplimiento de la normativa.
   \end{block}
   \begin{block}{Justificación tecnológica}
-  La automatización y la IA ofrecen una oportunidad para mejorar la gestión de la seguridad y salud ocupacional.
+    El proyecto propone un avance en la implementación de soluciones tecnológicas que optimicen el tiempo y la eficiencia en la elaboración de los PGSST. 
   \end{block}
   \begin{block}{Justificación social}
-  Mejorar las condiciones de trabajo beneficia a los trabajadores y a la sociedad en general.
+    Los profesionales SySO de categoría A son los beneficiados directamente por este sistema. Se espera la reducción del tiempo invertido en tareas administrativas les permitirá enfocar sus esfuerzos en actividades que aportan mayor valor a la seguridad y salud de los trabajadores.
   \end{block}
 \end{frame}
 
@@ -140,103 +159,25 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
     \item El software no contará con herramientas especializadas en la automatización de los estudios de higiene. Se limitará a plantillas para rellenar y automatizar el análisis de los datos recolectados por profesional habilitado.
   \end{itemize}
   \end{block}
+
+  \framebreak
+  Las exclusiones del proyecto son las siguientes:
+  \begin{itemize}
+	\item No se implementarán módulos de audio, inteligencia artificial, interfaz de usuario y entrada desde cero; se utilizarán bibliotecas open-source disponibles.
+	\item No se implementarán módulos dirigidos a capacitar trabajadores en el llenado de registros o plantillas generadas.
+	\item El proyecto no estará dirigido a empresas o sectores que requieran normativa o procedimientos particulares, como es el caso de la industria petrolera.
+  \end{itemize}
+  
   \framebreak
   \begin{block}{Alcances}
   \begin{itemize}
-    \item Prototipo funcional de aplicación web que permita agilizar el proceso de desarrollo un de PGSST mediante generación automática de tres de los trece documentos solicitados por la NTS 009/23 de acuerdo a los requisitos recolectados de entrevistas a profesionales en el area.
-    \item Entrevistas realizadas a los usuarios objetivo del producto.
-    \item Documentación de la investigación de las tecnologías que se utilizarán para el
-    desarrollo del software final.
-    \item Documentación del desarrollo del software, en el cual se incluirá los detalles de la automatización del desarrollo de un PGSST y un manual de usuario.
+    \item Desarrollo de un prototipo funcional del software propuesto.
+	  \item Documentación de la investigación de las tecnologías que se utilizarán para el desarrollo del software final.
+	  \item Presentación de los siguientes diagramas: diagrama UML estructural de clases del sistema, diagrama de cadena de procesamiento de datos y diagrama entidad-relación de la base de datos.
+	  \item Documentación del desarrollo del software, que incluirá los detalles del desarrollo de un PGSST y un manual de usuario.
+	  \item Realización de pruebas del prototipo del sistema en colaboración con 5 profesionales.
   \end{itemize}
   \end{block}
-\end{frame}
-
-%--------------------------------------------------------------------------------
-\section{Marco teórico y legal}
-
-\begin{frame}{PGSST:Actividades}
-  \begin{minipage}[t]{0.48\textwidth}
-    \scriptsize
-    \textbf{1.} Identificación de riesgos y evaluación de riesgos mediante la Matriz IPER.
-    
-    \textbf{2.} Estudios de Higiene.
-    
-    \textbf{3.} Descripción de la situación Actual e implementación de propuestas con respecto a:
-    \begin{itemize}
-      \item Orden y limpieza
-      \item Infraestructura
-      \item Instalaciones eléctricas
-      \item Servicios higiénicos
-      \item Vestuario y casilleros
-      \item Equipos eléctricos
-      \item Maquinaria, equipos y herramientas
-      \item Almacenamiento, manipulación y transporte de sustancias peligrosas
-      \item Gestión de residuos y señalización
-      \item Ergonomía
-    \end{itemize}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \scriptsize
-    
-    \textbf{4.} Planificación de Capacitaciones Generales y Específicas con respecto a la Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER).
-    
-    \textbf{5.} Organización y Conformación del Comité Mixto de Higiene y Salud Ocupacional.
-    
-    \textbf{6.} Elaboración del Plan de Emergencia:
-    \begin{itemize}
-      \item Procedimiento de Evacuación
-      \item Procedimiento de Intervención
-      \item Manual de Primeros Auxilios
-    \end{itemize}
-    
-    \textbf{7.} Evaluación de Técnico Social.
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{PGSST:Organización Documental}
-  \scriptsize
-  \begin{enumerate}
-    \item Política de seguridad
-    \item Descripción de los procesos
-    \item Matriz de Identificación de Peligros y Evaluación de Riesgos
-    \item Estudios Monitoreos de Higiene
-    \item Actividades de alto riesgo
-    \item Descripción de las condiciones actuales
-    \item Investigación de Accidentes
-    \item Dotación de Ropa de Trabajo
-    \item Inducción, Capacitación, concientización y comunicación
-    \item Comité Mixto
-    \item Inspección Internas en SST
-    \item Plan de emergencia
-    \item Medicina de Trabajo
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[allowframebreaks]{Legislación Aplicable a la SySO}
-  \begin{itemize}
-      \item Normativa obligatoria
-      \begin{itemize}
-          \item Constitución Política del Estado
-          \item Ley General del Trabajo
-          \item Reglamento de la Ley General de Trabajo
-          \item Ley General de Higiene, Seguridad Ocupacional y Bienestar
-          \item Disposiciones Complementarias\\ \quad Resolución Ministerial N° 992/23\\ \quad Resolución Ministerial N° 437/22\\ \quad Resolución Ministerial N° 849/14\\ \quad Resolución Ministerial N° 527/09
-      \end{itemize}
-      \framebreak
-      \item Normativa voluntaria
-      \begin{itemize}
-          \item NB/ISO 62005:2005 - Calidad de Aire
-          \item NB/ISO 55001:2005 - Señalización
-          \item NB/ISO 51002:2012 - Iluminación
-          \item NB/ISO 7243:2018 - Estrés térmico
-          \item NB/ISO 45001:2018 - Sistema de Gestión Seguridad y Salud en el Trabajo
-          \item NB/ISO 51001:2022 - Ventilación general de los lugares de trabajo
-          \item NB/ISO 58005:2022 - Prevención y protección contra incendios
-          \item NB/ISO 11226:2022 - Evaluación de posturas de trabajo estáticas
-      \end{itemize}
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Metodología de Desarrollo de Software}
@@ -251,108 +192,118 @@ en el Trabajo conforme a la Norma Técnica de Seguridad 009}
 
 \end{frame}
 
-\begin{frame}{Análisis y Evaluación de Software}
-  \begin{table}[ht]
-  \caption{Métodos y fases de evaluación de planificadas.}
-  \label{tab:evaluacion_software}
-  \centering
-  \scriptsize
-  \begin{tabularx}{\textwidth}{|l|X|X|}
-  \hline
-  \textbf{¿Qué?} & \textbf{¿Cómo?} & \textbf{¿Cuando?:Fase} \\
-  \hline
-  ISO 2500n & Define términos & Planificación y eval. \\
-  \hline
-  ISO 2501n & Define modelo de eval & Planificación \\
-  \hline
-  ISO 2502n & Métricas de calidad & Desarrollo y eval. final \\
-  \hline
-  ISO 2503n & Especifica req. de calidad & Planificación \\
-  \hline
-  ISO 2504n & Guías para evaluar la calidad & Eval. final \\
-  \hline
-  GQM & Define objetivos, preguntas y métricas & Planificación y eval. final \\
-  \hline
-  P. Unitarias & Pruebas modulares & Cada iteración de desarrollo \\
-  \hline
-  P. de Integración & Verificar integración & Al finalizar cada iteración \\
-  \hline
-  P. de Regresión & Evitar que nuevas modificaciones afecten el código & Después de cada iteración \\
-  \hline
-  P. de Sistema & Eval. completa del sistema & Al finalizar las iteraciones \\
-  \hline
-  P. de Desempeño & Med. eficiencia y rendimiento & Cierre y eval. final \\
-  \hline
-  P. de Carga & Eval. desempeño bajo cargas esperada & Cierre y eval. final \\
-  \hline
-  P.s de Estrés & Determinar lím. del sistema & Cierre y eval. final \\
-  \hline
-  P. con Usuarios & Pruebas en campo & Cierre y eval. final \\
-  \hline
-  \end{tabularx}
-\end{table} 
+\begin{frame}{Transformadores}
+
+  \begin{figure}[h]
+    \centering
+      \resizebox{\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} 
+          \fbox{\includegraphics{../images/marcoteorico/Transformer-apps.jpg}}}}
+    \caption{Transformadores como modelos de base.}
+    \label{fig:transformers} 
+  \end{figure}
+  
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Analisis de Competidores}
+\begin{frame}[allowframebreaks]{Analisis de Requisitos}
 
-  \begin{figure}[htb]
+  \begin{table}[htb]
     \centering
-    \fbox{
-        \includegraphics[width=0.95\linewidth]
-        {../images/marcopractico/planificacion/visitas_por_dominio.png}
-    }
-    \caption{\footnotesize Participación de Mercado de los Principales Competidores}
-    \footnotesize{{Elaboración propia a partir de datos obtenidos por medio de ``\textit{SEMrush ME}''.}}
-    \label{fig:visitas_por_dominio}
+    \caption{Tabla de Requerimientos Funcionales}
+    \tiny
+    \input{../chapters/marcopractico/tables/requisitos_funcionales.tex}
+    \label{tab:requisitos_funcionales}
+  \end{table}
+
+  \begin{table}[htb]
+    \centering
+    \caption{Tabla de Requerimientos No Funcionales}
+    \scriptsize
+    \input{../chapters/marcopractico/tables/requisitos_no_funcionales.tex}
+    \label{tab:req_no_func}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Casos de Uso}
+
+  \begin{figure}[h]
+    \centering
+      \resizebox{0.7\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} 
+          \fbox{\input{../images/marcopractico/planificacion/casos_de_uso_entrada.tex}}}}
+    \caption{Caso de Uso: Entrada de Información.}
+    \label{fig:caso_de_uso_entrada} 
+  \end{figure}
+  
+  \begin{figure}[h]
+    \centering
+      \resizebox{0.8\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} 
+          \fbox{\input{../images/marcopractico/planificacion/casos_de_uso_gestion.tex}}}}
+    \caption{Caso de Uso: Gestión de Proyectos.}
+    \label{fig:caso_de_uso_gestion} 
   \end{figure}
 
-  \begin{figure}[htb]
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Arquitectura Propuesta}
+
+  \begin{figure}[H]
     \centering
-    \fbox{
-        \includegraphics[width=0.95\linewidth]
-        {../images/marcopractico/planificacion/GrowthQuadrant.png}
-    }
-    \caption{Matriz de Competidores: \textit{OSH Software}}
-	  \footnotesize{Fuente: Elaborado por ``\textit{SEMrush ME}''.}
-    \label{fig:MatrizCompetidores}
+      \resizebox{\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+          \fbox{\input{../images/marcopractico/planificacion/arquitectura_sistema.tex}}}}
+    \caption{Propuesta de Arquitectura de Sistema.}
+    \label{fig:arc_sys} 
+  \end{figure}  
+
+  \begin{figure}[h]
+    \centering
+      \resizebox{\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+          \fbox{\input{../images/marcopractico/planificacion/data_pipeline.tex}}}}
+    \caption{Cadena de Procesamiento de Datos.}
+    \label{fig:basic_data_pipeline} 
   \end{figure}
 
+  \begin{figure}[h]
+    \centering
+      \resizebox{\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+          \fbox{\input{../images/marcopractico/planificacion/arquitectura_cliente_servidor.tex}}}}
+    \caption{Propuesta de Arquitectura Cliente-Servidor.}
+    \label{fig:arc_client_server} 
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+      \resizebox{\textwidth}{!}{
+          {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+          \fbox{\input{../images/marcopractico/planificacion/arquitectura_modulos.tex}}}}
+    \caption{Propuesta de Arquitectura a nivel de módulos de la aplicación.}
+    \label{fig:arc_modulos} 
+  \end{figure}
+  
 \end{frame}
 
 \begin{frame}{Analisis de Costos}
 
   \begin{table}[ht]
-    \footnotesize
     \centering
-    \caption{Inversión Total Inicial MVP}
-    \label{tab:inversion_total} 
+    \caption{Inversión Total Inicial}
+    \label{tab:inversion_total}
     \begin{tabularx}{\textwidth}{|X|r|}
         \hline
         \textbf{Concepto} & \textbf{Costo (Bs)} \\
         \hline
         Costo de Desarrollo & 52,560.00 \\
         Costos de Infraestructura & 2,224.06 \\
-        Gastos Legales & 4,997.00 \\
+        %Gastos Legales & 4,997.00 \\
+        Computadora para desarrollo & - \\
         \hline
-        \textbf{Total} & \textbf{59,781.06} \\
+        \textbf{Total} & \textbf{54,784.06} \\
         \hline
-    \end{tabularx}
-  \end{table}
-
-  \begin{table}[htb]
-    \footnotesize
-    \centering
-    \caption{Proyección financiera del proyecto completo bajo el modelo SaaS}
-    \label{tab:proyeccion_financiera}
-    \begin{tabularx}{\textwidth}{|c|r|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|r|}
-        \hline
-        \thead{Año} & \thead{Usuarios\\Mensuales} & \thead{Gastos\\Anuales (Bs)}  & \thead{Ingresos\\Anuales (Bs)}  & \thead{Balance\\Anual (Bs)} & \thead{C/B} \\ \hline
-        0 & 0 & 276,755.53 & 00.00 & -276,755.53 & 0.00 \\ \hline
-        1 & 330 & 98,688.72 & 277,200.00 & 178,511.28 & 2.81 \\ \hline
-        2 & 525 & 98,688.72 & 441,000.00 & 342,311.28 & 4.47 \\ \hline
-        3 & 834 & 98,688.72 & 700,560.00 & 601,871.28 & 7.10 \\ \hline
-        4 & 1325 & 98,688.72 & 1,113,000.00 & 1,014,311.28 & 11.28 \\ \hline
-        5 & 2104 & 98,688.72 & 1,767,360.00 & 1,668,671.28 & 17.91 \\ \hline
     \end{tabularx}
   \end{table} 
 
