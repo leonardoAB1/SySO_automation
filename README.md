@@ -13,8 +13,6 @@ The application is organized in four layers: Management, input, processing, and 
   <img alt="Module architecture: full project scope with MVP modules highlighted" src="docs/images/architecture-light.png">
 </picture>
 
-The diagram source lives in [`docs/images/architecture.tex`](docs/images/architecture.tex) (build instructions in the file header).
-
 ## Status
 
 The project is transitioning from thesis proposal and exploratory prototypes to an MVP. Progress is tracked through the [GitHub issues](https://github.com/leonardoAB1/SySO_automation/issues) of this repository.
