@@ -22,7 +22,10 @@
 % Figures
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, chains, fit, backgrounds}
+\usetikzlibrary{arrows.meta, chains, fit, backgrounds, patterns,
+				positioning, shapes.geometric, shapes.symbols, calc}
+\usepackage{packages/tikz-uml}
+\usepackage{pgf}
 
 % Subfigures (obsolete)
 \usepackage{subfigure}
@@ -131,3 +134,7 @@
 
 % Specify figure behavior
 \usepackage{float}
+
+% Allows stacked objects manipulation
+\usepackage{stackengine}
+\usepackage{setspace}
