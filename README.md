@@ -4,6 +4,17 @@ Software to help Bolivian occupational health and safety (SySO) professionals pl
 
 The core loop: field evidence (workplace photos + notes) goes in, a multimodal model extracts the qualitative facts, a deterministic rubric engine computes every risk index, the professional reviews and edits the resulting IPER matrix, and the system derives the action plan and exports the official documents.
 
+## Architecture
+
+The application is organized in four layers — management, input, processing, and output — where each processing module automates one technical content point of the NTS-009/23 standard. The full project aims to cover the entire module map; the MVP (colored modules) delivers the end-to-end slice that matters most: project management, photo/note capture, IPER matrix + action plan generation, and export of the official documents.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.png">
+  <img alt="Module architecture: full project scope with MVP modules highlighted" src="docs/images/architecture-light.png">
+</picture>
+
+The diagram source lives in [`docs/images/architecture.tex`](docs/images/architecture.tex) (build instructions in the file header).
+
 ## Status
 
 The project is transitioning from thesis proposal and exploratory prototypes to an MVP. Progress is tracked through the [GitHub issues](https://github.com/leonardoAB1/SySO_automation/issues) of this repository.
