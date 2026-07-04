@@ -268,9 +268,24 @@ La Resolución Ministerial del MTEPS N°992/23, emitida el 9 de junio de 2023, a
 \begin{itemize} [wide=0pt, topsep=0pt] \item \textbf{NTS 009/23} \end{itemize}
 
 \indent
-Esta norma establece las directrices de obligatorio cumplimiento, para todas las empresas o establecimientos
-laborales nacionales y/o extranjeros en territorio nacional, para la presentación y aprobación de los PGSST. En la Tabla \ref{tab:tabla_requisitos_nts_009} se distinguen los requerimientos esenciales de la norma. 
-El PGSST es un documento, vigente por tres años tras ser firmado su Certificado de Aprobación Digital,  que contiene el conjunto de actividades y mecanismos en materia de higiene, seguridad ocupacional y bienestar implementados en la empresa o establecimiento laboral.
+Esta norma establece las directrices de obligatorio cumplimiento para todas las empresas o establecimientos laborales, tanto nacionales como extranjeros en territorio nacional, respecto a la presentación y aprobación de los PGSST. En la Tabla \ref{tab:tabla_requisitos_nts_009} se especifican las actividades esenciales que realiza un especialista SySO para su elaboración. Estas actividades culminan en los siguientes trece grupos de documentos que deben subirse a la plataforma web institucional del MTEPS:
+\begin{itemize}[topsep=0pt, itemsep=0mm]
+    \item Política de seguridad
+    \item Descripción de los procesos
+    \item Matriz de Identificación de Peligros y Evaluación de Riesgos
+    \item Estudios Monitoreos de Higiene
+    \item Actividades de alto riesgo
+    \item Descripción de las condiciones actuales
+    \item Investigación de Accidentes
+    \item Dotación de Ropa de Trabajo
+    \item Inducción, Capacitación, concientización y comunicación
+    \item Comité Mixto
+    \item Inspección Internas en SST
+    \item Plan de emergencia
+    \item Medicina de Trabajo
+\end{itemize}
+
+Este programa tiene una vigencia de tres años a partir de la firma del Certificado de Aprobación Digital, que incluye el conjunto de actividades y mecanismos implementados en la empresa o establecimiento laboral en materia de higiene, seguridad ocupacional y bienestar (\cite{NTS-009/23}).
 \end{samepage}
 
 \begin{table}[htpb]
@@ -367,9 +382,7 @@ La metodología ágil de desarrollo orientada a objetos, conocida como Programac
 \begin{figure}[htb]
 	\centering
     \input{images/marcoteorico/modelo_xp.tex}
-    \vspace{-0.5cm}
 	\caption{Proceso de desarrollo bajo la metodología de Programación Extrema.}
-    \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{pressman2005software}{title}}'' (\citeyear{pressman2005software}).}}
 	\label{fig:modelo_desarrollo_xp} 
 \end{figure}
@@ -388,9 +401,7 @@ Como se ilustra en la Figura \ref{fig:modelo_desarrollo_pxp}, el proceso de PXP 
 \begin{figure}[htb]
 	\centering
     \input{images/marcoteorico/modelo_desarrollo_pxp.tex}
-    \vspace{-0.5cm}
     \caption{Proceso de desarrollo bajo la metodología PXP.}
-    \vspace{-0.2cm}
     \footnotesize{{Elaboración propia a partir de ``\textit{\citefield{dzhurov2009personal}{title}}'' (\citeyear{dzhurov2009personal}).}}
 	\label{fig:modelo_desarrollo_pxp} 
 \end{figure}
@@ -407,7 +418,7 @@ A continuación, se describen las fases principales del proceso PXP:
     \item \textbf{Retrospectiva}: Al final de cada iteración, se analizan los datos recopilados, revisando la precisión de las estimaciones y las causas de posibles retrasos. Se proponen y implementan mejoras en el proceso para evitar problemas futuros. La retrospectiva puede iniciar una nueva iteración o marcar el final del proyecto si se han cumplido todos los requisitos y no quedan defectos.
 \end{enumerate}
 
-La metodología PXP es ideal para este proyecto, ya que permite a los desarrolladores trabajar de forma autónoma y eficiente, manteniendo un enfoque estructurado que garantiza la calidad del software desarrollado individualmente. Mas aun, para evaluar el proyecto de grado, se añade una fase de cierre y evaluación enfocada en analizar el desempeño del producto en su etapa de mínimo viable, asegurando una revisión detallada de su rendimiento real.
+La metodología PXP es ideal para este proyecto, ya que permite a los desarrolladores trabajar de forma autónoma y eficiente, manteniendo un enfoque estructurado que garantiza la calidad del software desarrollado individualmente. Más aún, para evaluar el proyecto de grado, se añade una fase de cierre y evaluación enfocada en analizar el desempeño del producto en su etapa de mínimo viable, asegurando una revisión detallada de su rendimiento real.
 
 \subsubsection{Técnica MoSCoW}\hfill\\ 
 \indent
@@ -464,7 +475,6 @@ La IA es una rama de la ciencia de la computación que se dedica a abordar desaf
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/marcoteorico/ai_ecosystem.png}
 	\caption{Ecosistema de un sistema de inteligencia artificial.}
-    \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{iso22989}{title}}'' (\citeyear{iso22989}).}}
 	\label{fig:ai_ecosystem} 
 \end{figure}
@@ -501,9 +511,7 @@ En conclusión, la visión computacional es una herramienta de gran utilidad par
 \begin{figure}[htb]
 	\centering
     \input{images/marcoteorico/computer_vision.tex}
-    \vspace{-0.5cm}
 	\caption{Proceso de Desarrollo de Modelos de Visión Computacional.}
-    \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{szeliski2022computer}{title}}'' (\citeyear{szeliski2022computer}).}}
 	\label{fig:computer_vision} 
 \end{figure}
@@ -532,6 +540,16 @@ El análisis de texto y la categorización implican clasificar documentos en cat
 \subsection{Modelos de Lenguaje Multimodales}
 Los modelos de lenguaje multimodales son sistemas que combinan información de múltiples fuentes, como texto, imágenes, audio y video, para mejorar la comprensión y generación del lenguaje. Estos modelos pueden aprender representaciones conjuntas de datos multimodales, lo que les permite realizar tareas complejas que requieren la integración de diferentes tipos de información, como la descripción de imágenes, la traducción de video a texto y la generación de subtítulos para videos (\cite{baltruvsaitis2018multimodal}). La capacidad de los modelos multimodales para integrar diversas fuentes de información los hace extremadamente útiles en aplicaciones donde se requiere una comprensión completa del contexto.
 
+Los modelos multimodales con transformadores han demostrado ser especialmente eficaces en tareas como la descripción de imágenes, la traducción de video a texto y la generación de subtítulos para videos. Esta capacidad de integrar eficazmente múltiples fuentes de información no solo mejora la precisión de las predicciones, sino que también permite abordar problemas complejos que van más allá de los límites de los modelos unimodales tradicionales (\cite{xu2023multimodal}).
+
+\subsubsection{Transformadores}\hfill\\
+\indent
+El Transformador es un modelo avanzado de inteligencia artificial que ha sido ampliamente utilizado en diversas áreas como el procesamiento de lenguaje natural (NLP), visión por computadora (CV) y procesamiento de voz (\cite{lin2022survey}). Superando a las arquitecturas previas en NLP al introducir un mecanismo de atención que permite manejar eficazmente secuencias largas de datos. Este enfoque ha mejorado significativamente la capacidad de modelado de relaciones contextuales en el lenguaje, lo que se traduce en mejores resultados en tareas como la traducción automática, el resumen de texto y la generación de texto. Además, la capacidad de los transformadores para capturar dependencias a larga distancia dentro de las secuencias los hace particularmente eficaces para tareas que requieren una comprensión profunda del contexto.
+
+En el ámbito de la visión por computadora, los transformadores han demostrado ser prometedores en la tarea de procesamiento de imágenes y videos (\cite{xu2023multimodal}). A través de la adaptación de la atención y los mecanismos de transformación, estos modelos pueden analizar y generar descripciones detalladas de imágenes, así como realizar tareas como la clasificación y la detección de objetos. Además, en el procesamiento de voz, los transformadores se utilizan para la transcripción automática, donde la atención se aplica a las características acústicas a lo largo del tiempo para capturar la información relevante para la generación de texto (\cite{moritz2020streaming}).
+
+En resumen, los transformadores representan un avance significativo en la capacidad de los modelos de inteligencia artificial para manejar datos secuenciales y multimodales de manera efectiva, lo que los convierte en una herramienta crucial en aplicaciones que van desde el procesamiento de lenguaje natural hasta la visión por computadora y el procesamiento de voz.
+
 %---------------------------------------------------------------------------------------------
 \subsection{Evaluación de Modelos}
 
@@ -553,9 +571,7 @@ La GLN permite la automatización de la generación de textos en diversos contex
 \begin{figure}[htb]
 	\centering
     \input{images/marcoteorico/nlg_architecture.tex}
-    \vspace{-0.5cm}
 	\caption{Arquitectura GLN clásica.}
-    \vspace{-0.2cm}
 	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{gatt2018survey}{title}}'' (\citeyear{gatt2018survey}). Los segmentos oscuros ilustran los tres módulos principales; los segmentos claros muestran las salidas.}}
 	\label{fig:nlg_architecture} 
 \end{figure}
