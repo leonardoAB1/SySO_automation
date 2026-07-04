@@ -1,0 +1,189 @@
+%% Creator: Matplotlib, PGF backend
+%%
+%% To include the figure in your LaTeX document, write
+%%   \input{<filename>.pgf}
+%%
+%% Make sure the required packages are loaded in your preamble
+%%   \usepackage{pgf}
+%%
+%% Figures using additional raster images can only be included by \input if
+%% they are in the same directory as the main LaTeX file. For loading figures
+%% from other directories you can use the `import` package
+%%   \usepackage{import}
+%%
+%% and then include the figures with
+%%   \import{<path to file>}{<filename>.pgf}
+%%
+%% Matplotlib used the following preamble
+%%
+\begingroup%
+\makeatletter%
+\begin{pgfpicture}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.400000in}{4.800000in}}%
+\pgfusepath{use as bounding box, clip}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{0.000000pt}%
+\definecolor{currentstroke}{rgb}{1.000000,1.000000,1.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{0.000000in}{0.000000in}}%
+\pgfpathlineto{\pgfqpoint{6.400000in}{0.000000in}}%
+\pgfpathlineto{\pgfqpoint{6.400000in}{4.800000in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{4.800000in}}%
+\pgfpathclose%
+\pgfusepath{fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.121569,0.466667,0.705882}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{3.280000in}{4.056000in}}%
+\pgfpathcurveto{\pgfqpoint{2.925274in}{4.056000in}}{\pgfqpoint{2.579500in}{3.943651in}}{\pgfqpoint{2.292521in}{3.735149in}}%
+\pgfpathcurveto{\pgfqpoint{2.005541in}{3.526646in}}{\pgfqpoint{1.791841in}{3.232513in}}{\pgfqpoint{1.682225in}{2.895149in}}%
+\pgfpathcurveto{\pgfqpoint{1.572609in}{2.557784in}}{\pgfqpoint{1.572609in}{2.194216in}}{\pgfqpoint{1.682225in}{1.856851in}}%
+\pgfpathcurveto{\pgfqpoint{1.791841in}{1.519487in}}{\pgfqpoint{2.005541in}{1.225354in}}{\pgfqpoint{2.292521in}{1.016851in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{2.376000in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{4.056000in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{1.000000,0.498039,0.054902}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{2.292521in}{1.016851in}}%
+\pgfpathcurveto{\pgfqpoint{2.435143in}{0.913231in}}{\pgfqpoint{2.593190in}{0.832702in}}{\pgfqpoint{2.760852in}{0.778225in}}%
+\pgfpathcurveto{\pgfqpoint{2.928513in}{0.723748in}}{\pgfqpoint{3.103710in}{0.696000in}}{\pgfqpoint{3.280000in}{0.696000in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{2.376000in}}%
+\pgfpathlineto{\pgfqpoint{2.292521in}{1.016851in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.172549,0.627451,0.172549}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{3.280000in}{0.696000in}}%
+\pgfpathcurveto{\pgfqpoint{3.456290in}{0.696000in}}{\pgfqpoint{3.631487in}{0.723748in}}{\pgfqpoint{3.799149in}{0.778225in}}%
+\pgfpathcurveto{\pgfqpoint{3.966811in}{0.832702in}}{\pgfqpoint{4.124858in}{0.913231in}}{\pgfqpoint{4.267479in}{1.016852in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{2.376000in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{0.696000in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.839216,0.152941,0.156863}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.267479in}{1.016852in}}%
+\pgfpathcurveto{\pgfqpoint{4.554459in}{1.225354in}}{\pgfqpoint{4.768159in}{1.519487in}}{\pgfqpoint{4.877775in}{1.856852in}}%
+\pgfpathcurveto{\pgfqpoint{4.987391in}{2.194216in}}{\pgfqpoint{4.987391in}{2.557784in}}{\pgfqpoint{4.877775in}{2.895149in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{2.376000in}}%
+\pgfpathlineto{\pgfqpoint{4.267479in}{1.016852in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetmiterjoin%
+\definecolor{currentfill}{rgb}{0.580392,0.403922,0.741176}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetlinewidth{1.003750pt}%
+\definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetdash{}{0pt}%
+\pgfpathmoveto{\pgfqpoint{4.877775in}{2.895149in}}%
+\pgfpathcurveto{\pgfqpoint{4.768158in}{3.232513in}}{\pgfqpoint{4.554459in}{3.526646in}}{\pgfqpoint{4.267479in}{3.735149in}}%
+\pgfpathcurveto{\pgfqpoint{3.980500in}{3.943651in}}{\pgfqpoint{3.634726in}{4.056000in}}{\pgfqpoint{3.280000in}{4.056000in}}%
+\pgfpathlineto{\pgfqpoint{3.280000in}{2.376000in}}%
+\pgfpathlineto{\pgfqpoint{4.877775in}{2.895149in}}%
+\pgfpathclose%
+\pgfusepath{stroke,fill}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=1.522448in,y=2.947063in,right,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Planificación}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=2.321335in,y=2.687489in,,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 40\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=2.708937in,y=0.618448in,right,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Comité Mixto}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=2.968511in,y=1.417335in,,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 10\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.851063in,y=0.618448in,left,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Estudios de Higiene}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.591489in,y=1.417335in,,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 10\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=5.037552in,y=1.804937in,left,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Plan de Emergencia}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=4.238665in,y=2.064511in,,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 20\%}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=4.366227in,y=3.871063in,left,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Otras Actividades(9)}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.872487in,y=3.191489in,,]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 20\%}%
+\end{pgfscope}%
+\end{pgfpicture}%
+\makeatother%
+\endgroup%

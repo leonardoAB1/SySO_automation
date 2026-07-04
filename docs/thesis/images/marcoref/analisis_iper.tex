@@ -1,0 +1,42 @@
+\begin{tikzpicture}[
+    node distance= 5mm, 
+    start chain = A going right, 
+    block/.style = {rectangle, draw, minimum height=4em, text width=7em, align=center, on chain},
+    arrow/.style = {-{Latex[width=8, length=6]},thick}]
+
+    % Nodes
+    \begin{scope}[every node/.style={block}]
+        %Pipeline de visión tradicional
+        \node (input1) {Inspección};
+        \node (1) {Identificación de Riesgos};
+        \node (2) {Evaluación de Riesgos};
+        \node (3) {Determinación de Controles};
+        \node (output1) {Matriz IPER};
+        \node (4) {Elaborar Plan de Acción};
+        \node (output3) {Plan de\\Acción};
+        \node [below=of input1.south](input2) {Entrevistas};
+        \node [below=of output3.south] (output2) {Objetivos SST};
+        \node [below=of 4.south] (5) {Elaborar Objetivos SST};
+    \end{scope}
+    
+    % Conexiones
+    \draw[arrow] (input1) -- (1.west);
+    \draw[arrow] (input2) -| (1.south);
+    \draw[arrow] (1) -- (2);
+    \draw[arrow] (2) -- (3);
+    \draw[arrow] (3) -- (output1);
+    \draw[arrow] (output1) -- (4);
+    \draw[arrow] (4) -- (output3);
+    \draw[arrow] (output1) |- (5);
+    \draw[arrow] (5) -- (output2);
+    
+    % Labels
+    \node[above=of input1] (label0) {5\%};
+    \node[above=of 1] (label1) {15\%};
+    \node[above=of 2] (label2) {30\%};
+    \node[above=of 3] (label3) {20\%};
+    \node[above=of 4] (label4) {30\%};
+    \node[above=of output1] (label5) {Entregable};
+    \node[above=of output3] (label6) {Entregable};
+    
+\end{tikzpicture}

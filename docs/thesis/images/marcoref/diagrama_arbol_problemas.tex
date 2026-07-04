@@ -1,0 +1,56 @@
+\begin{tikzpicture}[
+    node distance=1.5cm and 2cm,
+    every node/.style={rectangle, draw, align=center, minimum height=1.5cm, minimum width=2cm},
+    every path/.style={-Stealth},
+    dashed box/.style={draw, dashed, inner sep=0.5cm}
+]
+
+% Paso 1: Nodo central del "Problema"
+\node (problema) [minimum width=13cm] {Los profesionales SySO de categoría A dedican mediante el método manual un 60\%\\del tiempo de desarrollo de un PGSST en llenado de formularios y planificación.};
+
+% Paso 2: Añadir nodos y flechas de "Efectos"
+\node (efecto1) [above of= problema, node distance=2cm] {Mayor carga de trabajo para los profesionales SySO};
+\node (efecto12) [right of= efecto1, xshift=7cm] {Menor motivación y satisfacción laboral};
+\node (efecto2) [above of= efecto1, node distance=2cm] {Aumento en el tiempo de implementación};
+
+% Paso 3: Añadir nodos y flechas de "Causas"
+\node (causa1) [below=of problema, xshift=-5cm, node distance=2cm] {El llenado de formularios\\toma un 20\% del tiempo\\de desarrollo de un PGSST};
+\node (causa2) [below=of problema, xshift=5cm, node distance=2cm] {La etapa de planificación\\toma un 40\% del tiempo\\de desarrollo de un PGSST};
+\node (causa3) [below=of causa1, xshift=5.6cm, node distance=2cm] {Dificultad del profesional\\para interpretar\\y transcribir datos};
+
+\node (causa11) [below=of causa1] {Capacitación insuficiente\\del personal en el\\llenado de registros y plantillas};
+\node (causa12) [left=of causa11, xshift=1cm] {Instrumentos de medición que\\no permiten descargar sus datos\\en el formato requerido};
+
+\node (causa21) [below=of causa2] {Recopilación\\de información\\detallada};
+\node [xshift=1cm](causa22) [below=of causa21, xshift=2.5cm, yshift=-.15cm] {Exhaustividad\\requerida por\\la IPER};
+\node [xshift=-0.25cm](causa23) [right=of causa21, xshift=1cm] {Participación de\\las múltiples\\partes interesadas};
+\node (causa24) [below=of causa23, xshift=2.7cm, yshift=-.15cm] {Proceso de\\Revisión y\\Validación};
+\node (causa25) [right=of causa23, xshift=0cm] {Cumplimiento\\Regulatorio};
+
+\node (causa31) [below=of causa3] {Habilidad en\\mecanografía\\del personal};
+\node (causa32) [right=of causa31] {Familiaridad\\con la\\plantilla};
+\node (causa33) [left=of causa31] {Recopilación de\\datos manuscritos\\ilegibles};
+
+\draw (problema) -- (efecto1);
+\draw (efecto1) -- (efecto2);
+\draw (6,0.8) -- (6,1.25);
+%\draw (-6,0.8) -- (-6,1.25);
+
+% Raíces
+\draw (causa1) -- (-5,-0.75);
+\draw (causa2) -- (5,-0.75);
+\draw (causa11) -- (causa1);
+\draw (causa11) -- (causa3);
+\draw (causa12) |- (causa1);
+\draw (causa3) |- (causa1);
+\draw (causa3) |- (causa2);
+\draw (causa21) -- (causa2);
+\draw (causa22) |- (causa2);
+\draw (causa23) |- (causa2);
+\draw (causa24) |- (causa2);
+\draw (causa25) |- (causa2);
+\draw (causa31) -- (causa3);
+\draw (causa32) -- (5.1,-7.7) -| (causa3.south);
+\draw (causa33) -- (-4.4,-7.7) -| (causa3.south);
+
+\end{tikzpicture}

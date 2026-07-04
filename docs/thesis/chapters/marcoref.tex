@@ -1,116 +1,142 @@
 \chapter{Introducción}
 \label{sec:introduction}
+El rendimiento de una empresa está estrechamente relacionado con la satisfacción y motivación de sus empleados (\cite{krekel2019employee}). Garantizar un entorno laboral seguro y saludable promueve el bienestar físico y emocional de los trabajadores, incrementando la productividad y eficiencia organizacional (\cite{martinez2021oit}). Es responsabilidad de la empresa asegurar la seguridad y salud en el trabajo para sus empleados y cualquier persona afectada por sus operaciones (\cite{Bolivia1979}). La implementación de un Sistema de Gestión de la Salud y Seguridad en el Trabajo (SST) tiene como objetivo proporcionar un entorno seguro, prevenir lesiones y enfermedades laborales, y mejorar continuamente el desempeño en SST (\cite{iso45001}).
 
-Se sabe que el rendimiento de cualquier empresa está intrínsecamente ligado al factor humano que la conforma (\cite{krekel2019employee}). Por lo tanto, mantener la satisfacción y motivación de los empleados dentro de la organización es un desafío constante que requiere una atención continua. La satisfacción de los trabajadores abarca varios aspectos cruciales para su bienestar y desempeño en el entorno laboral, siendo la seguridad y salud laboral los más prioritarios. Garantizar un ambiente laboral seguro y saludable no solo promueve el bienestar físico y emocional de los empleados, sino que también contribuye significativamente a la productividad y eficiencia general de la empresa. \par
-Es responsabilidad de toda organización garantizar la seguridad y salud en el trabajo tanto para sus empleados como para cualquier otra persona que pueda verse afectada por sus operaciones (\cite{Bolivia1979}). La implementación de un Sistema de Gestión de la Salud y Seguridad en el Trabajo (SST) tiene como meta principal proporcionar un entorno laboral seguro y saludable, prevenir lesiones y problemas de salud relacionados con el trabajo, y mejorar continuamente el desempeño en SST.\par
-La Norma Técnica de Seguridad (NTS) Nº 009/23, aprobada en Bolivia en 2023, establece las directrices de obligatorio cumplimiento para la presentación y aprobación de los Programas de Gestión de Seguridad y Salud en el Trabajo(PGSST). El PGSST tiene la finalidad de prevenir los riesgos laborales, accidentes de trabajo y enfermedades ocupacionales, a través de la gestión e implementación de mecanismos y medidas en el marco de la normativa legal vigente a fin de reducir y contrarrestar los riesgos al darle prioridad al bienestar del Trabajador ya que es el recurso humano que forma parte de la organización (\cite{cahuasiquitadiseno}).\par
-La implementación efectiva del PGSST sigue siendo un desafío debido a varios factores, incluyendo la falta de conciencia sobre la importancia de la SST, la resistencia de algunos sectores empresariales y la falta de recursos para la implementación de las medidas requeridas. Aunque la normativa establece claramente la obligatoriedad de su cumplimiento, muchas empresas aún no se han adaptado al nuevo mecanismo, lo que las expone a multas y sanciones.\par
-Además de las estrategias tradicionales para mejorar la seguridad y salud en el trabajo, como la identificación y evaluación de riesgos, capacitaciones, equipos de protección personal (EPP), controles de ingeniería y la promoción de una cultura de seguridad; La implementación de sistemas de gestión de la SST no solo promueve un entorno laboral más seguro y saludable, sino que también impulsa la eficiencia y la efectividad organizacional. Sin embargo, en un mundo cada vez más impulsado por la tecnología, es crucial considerar cómo la Inteligencia Artificial está revolucionando diversas áreas como el desarrollo de software, la atención médica (\cite{Ellahham2020}) o el campo de la Salud y Seguridad Ocupacional (SySO) (\cite{Jarota2023}). La capacidad de la Inteligencia Artificial (IA) para analizar grandes cantidades de datos, identificar patrones y realizar predicciones precisas la convierte en una herramienta invaluable en estos y otros campos, transformando la forma en que se llevan a cabo tareas y se toman decisiones. 
+La Norma Técnica de Seguridad (NTS) Nº 009/23, aprobada en Bolivia en 2023, establece directrices obligatorias para la presentación y aprobación de los Programas de Gestión de Seguridad y Salud en el Trabajo (PGSST). Estos programas buscan prevenir riesgos laborales, accidentes y enfermedades ocupacionales, alineándose con la normativa legal vigente para priorizar el bienestar de los trabajadores (\cite{cahuasiquitadiseno}).
+
+A pesar de su importancia para la competitividad empresarial y la cultura organizacional (\cite{moran2022practicas}), la implementación de PGSST en Bolivia enfrenta desafíos como la falta de conciencia, resistencia empresarial y falta de recursos. Muchas empresas aún no se han adaptado completamente, exponiéndose a sanciones (\cite{cervantesdiagnostico}).
+
+En este contexto, surge la necesidad de herramientas innovadoras que faciliten la planificación y gestión eficiente de los PGSST. Este proyecto propone el desarrollo de un prototipo de software basado en transformadores multimodales, una tecnología avanzada de inteligencia artificial que integra diferentes tipos de datos para optimizar tareas complejas (\cite{xu2023multimodal}).
+
 %---------------------------------------------------------------------------------------------
-\section{Antecedentes}
-
-Existe un precedente de dificultades históricas y culturales que han afectado la implementación efectiva de medidas de seguridad y salud en el trabajo en Bolivia. \textcite{cervantesdiagnostico} concluye que la mayoría de las leyes y regulaciones existentes en materia de seguridad y salud en el trabajo no se aplican debido a dos razones principales: En primer lugar, debido a obstáculos externos (como condiciones materiales, culturales y de acceso) que dificultan que muchos trabajadores y empleadores cumplan con las normas. En segundo lugar, las entidades encargadas no disponen de las estructuras y recursos necesarios para supervisar su cumplimiento y sancionar las infracciones. Por ejemplo, se señala que si una empresa no cuenta con estímulos del mercado, como una certificación de calidad, es probable que su motivación para cumplir con los estándares de higiene y seguridad sea significativamente menor. Esto se debe a que la supervisión se lleva a cabo únicamente en aquellas empresas que informan accidentes laborales o por el contrario, son denunciadas por conflictos. Por lo cual es crucial abordar estos desafíos con una perspectiva renovada y proactiva.
-
-Para este fin, El Ministerio de Trabajo, a través de la Resolución Ministerial N° 1411/18 de 27 de diciembre de 2018, aprobó la Norma Técnica de Seguridad NTS-009/18 para la presentación y aprobación de los
-Programas de Seguridad y Salud en el Trabajo (PSST). Documento de presentación obligatoria, renovado mediante la Resolución Ministerial del MTEPS N°992/23 de 9 de junio de 2023. Desarrollado a fin de posicionar a Bolivia como un país competitivo en materia de salud y seguridad a nivel internacional pues se encuentra basado en la ISO 450001:2018. La primera norma internacional que aborda la seguridad y salud en el trabajo. Diseñada para ayudar a las organizaciones de todos los tamaños y sectores a crear un entorno de trabajo seguro para sus empleados.
-
-Por otra parte, es importante tener en cuenta como se muestra a claramente en la Figura \ref{fig:share_of_industry_exposed_to_automation_ai_gs} cómo la automatización y la inteligencia artificial están transformando rápidamente varios sectores de la industria a nivel mundial. Destacándose el potencial de ser automatizadas las tareas administrativas y legales. De acuerdo a \textcite{hatzius2023potentially}, en estas areas hasta un 46\% de las tareas pueden ser automatizadas. Este cambio tecnológico no solo redefine los roles laborales, sino que también plantea nuevas exigencias. En términos de seguridad y salud ocupacional, la aplicación de estas tecnologías a la realidad nacional tiene el potencial para superar obstáculos externos, así como carencia de recursos y el correspondiente seguimiento que se dificulta en esta región. 
+\section{Motivación}
+La adopción de mejoras tecnológicas en la seguridad y salud ocupacional (SySO) es crucial debido al crecimiento y la demanda en esta área. Desde la apertura del registro de profesionales SySO, tras la emisión de la NTS-009/18 en abril de 2019, el número de registrados ha aumentado rápidamente. Llegando a alcanzar máximos históricos en 2021, como se muestra en la Figura \ref{fig:profesionales_syso_registrados}. Actualmente, existen 3202 registros activos, con una tasa de crecimiento anual del 59\%.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=\textwidth]{images/marcoref/share_of_industry_exposed_to_automation_ai.png}
-	\caption{Porcentaje de la industria expuesta a la automatización por parte de la IA en Estados Unidos.} \vspace{-0.2cm}
-	\footnotesize{{Elaboración propia a partir de ``\textit{\citefield{hatzius2023potentially}{title}}'' (\citeyear{hatzius2023potentially}).}}
-	\label{fig:share_of_industry_exposed_to_automation_ai_gs} 
-\end{figure}
-
-%---------------------------------------------------------------------------------------------
-\section{Planteamiento del Problema}
-
-Como se puede apreciar en la Figura \ref{fig:profesionales_syso_registrados} (a), tras la emisión de la NTS 009/18, vigente a partir de abril del 2019, el numero de profesionales SySO en el Registro Nacional de Profesionales y Técnicos en Higiene, Seguridad Ocupacional y Medicina del Trabajo por mes incrementa rápidamente hasta el periodo de pandemia mundial (\cite{platto2021history}). Después de la cual, vuelve a incrementar el numero de registrados hasta sus máximos históricos en el 2021. A la fecha el numero de registros activos es de 3202 e incrementa a una tasa de crecimiento anual del 59\% tal y como se refleja en la Figura \ref{fig:profesionales_syso_registrados} (b). Por otro lado, según datos oficiales del estatal Servicio Plurinacional de Registro de Comercio, al mes de agosto del 2023, Bolivia registra una base empresarial de 372.969 empresas con una tasa de crecimiento anual de aproximadamente el 4\% (\cite{ministeriodesarrollo2024}). En otras palabras, en un primer momento, se cuenta con 116 empresas por cada profesional SySO registrado. Convirtiendo al PGSST en un negocio altamente atractivo para los profesionales del area, pero no asi en una herramienta que garantice la SySO en todas las empresas.
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=\textwidth]{images/marcoref/tendencia_profesionales_syso_registrados.png}
-	\caption{Registro de profesionales SySO: (a) Mensual (b) Anual.} \vspace{-0.2cm}
+	\includegraphics[width=0.9\textwidth]{images/marcoref/tendencia_profesionales_syso_registrados.png}
+	\caption{Registro de profesionales SySO: (a) Mensual (b) Anual.} 
 	\footnotesize{Elaboración propia a partir de datos del Registro Nacional de Profesionales Técnicos de Higiene, Seguridad Ocupacional y Medicina del Trabajo}
 	\label{fig:profesionales_syso_registrados} 
 \end{figure}
 
-Nótese que se debe realizar un PGSST no por empresa, sino por establecimiento laboral, independientemente de su tamaño o ubicación. Esto significa que si una empresa tiene varias sucursales o reparticiones, debe presentar un PGSST por cada una de ellas. Si una empresa tiene varias ubicaciones dentro de un mismo establecimiento, debe presentar un PGSST por cada ubicación. La razón de esto es que cada empresa o establecimiento laboral tiene sus propias características y riesgos, por lo que el PGSST debe ser específico para cada uno de ellos. 
-Más aun, se debe tomar en cuenta que todos ``los estudios y/o monitoreos deben ser realizados por un profesional inscrito y con credencial categoría `A' vigente en el Registro Nacional'' (\cite{NTS-009/23}). Monitoreos que son necesarios pues se encuentran entre los requisitos principales de un PGSST y deben realizarse de manera regular para garantizar la seguridad y salud de los trabajadores. Sin embargo, como se aprecia en la Figura \ref{fig:profesionales_syso_por_categoria} (a), del numero total de registros activos solo el 56\% es de categoría A; Distribución que como la Figura \ref{fig:profesionales_syso_por_categoria} (b) muestra, se mantiene similar en los diversos departamentos. En otras palabras, por cada 65 empresas hay un profesional activo capacitado para llevar a cabo los estudios de higiene. Por tanto, asumiendo que estos profesionales no trabajan en un mismo equipo, actualmente en el país pueden realizarse 1792 estudios de higiene al mismo tiempo; En caso el estudio de higiene de una empresa tome un solo dia y que la misma cuente con solo una ubicación, se necesitan 208 días para que los profesionales realicen o actualicen a todas las empresas. En efecto, algunos estudios, como los de ruido o iluminación, pueden realizarse en un solo día, pero hay otros, como los de calidad del aire o de agentes químicos, pueden requerir varios días o incluso semanas.  
+Paralelamente, la base empresarial en Bolivia ha crecido a un ritmo anual del 4\%, con un total de 372,969 empresas registradas hasta agosto de 2023 (\cite{ministeriodesarrollo2024}). Esto equivale a aproximadamente 116 empresas por cada profesional SySO registrado, lo que resalta la creciente demanda de profesionales capacitados. Este desbalance subraya la importancia de mejorar la eficiencia y efectividad de los servicios de SySO.
+
+Cada empresa debe elaborar un PGSST para cada establecimiento laboral, independientemente de su tamaño o ubicación, debido a los riesgos específicos de cada lugar. Además, todos los estudios y monitoreos deben ser realizados por profesionales con credencial categoría A, quienes representan un 56\% de los registros activos (Figura \ref{fig:profesionales_syso_por_categoria}). Esto plantea un reto considerable para cumplir con las normativas de seguridad y salud ocupacional.
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{images/marcoref/profesionales_syso_por_categoria.png}
-	\caption{Profesionales SST activos: Distribución de categorías (a) porcentual (b) por departamento.} \vspace{-0.2cm}
+	\caption{Profesionales SST activos: Distribución de categorías (a) porcentual (b) por departamento.}
 	\footnotesize{Elaboración propia a partir de datos del Ministerio Trabajo, Empleo y Previsión Social}
 	\label{fig:profesionales_syso_por_categoria} 
 \end{figure}
 
-En resumen, la actual normativa vigente, aunque ha generado un incremento significativo en el registro de profesionales SySO y en la atención a la seguridad laboral, enfrenta desafíos que limitan su efectividad. La complejidad en la generación de PGSST, las deficiencias en capacitación y los desafíos de cumplimiento normativo constituyen un problema multifacético que compromete tanto la seguridad de los empleados como el rendimiento operativo de las empresas. Es evidente que se requieren acciones urgentes para abordar estas dificultades y garantizar entornos laborales seguros y productivos para el creciente número de empresas en el país.
+La adopción de mejoras tecnológicas en esta área no solo facilitaría el cumplimiento de las normativas, sino que también optimizaría los recursos disponibles, asegurando una mejor protección para los trabajadores y una mayor eficiencia para las empresas.
+
+%---------------------------------------------------------------------------------------------
+\section{Planteamiento del Problema}
+Entrevistas con profesionales en SySO, adjuntas en el Apéndice \ref{sec:entrevista01}, revelaron que aproximadamente el 20\% del tiempo dedicado al desarrollo de un PGSST se invierte en el llenado de formularios y otras actividades administrativas. Además, como se muestra en la Figura \ref{fig:distribucion_tiempo_pgsst}, cuatro de las trece secciones de contenido técnico requeridas por la NTS-009/23 consumen el 80\% del tiempo destinado a la elaboración de los PGSST. Las etapas de planificación y la elaboración del plan de emergencia son las que más tiempo requieren.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=.8\textwidth]{images/marcoref/grafico_distribucion.png}
+	\caption{Distribución porcentual de tiempo en la elaboración de las secciones del Contenido Técnico de un PGSST. Elaboración propia a partir de entrevista (Apéndice \ref{sec:entrevista01}).}
+	\label{fig:distribucion_tiempo_pgsst} 
+\end{figure}
+
+En particular, el cuarto punto del contenido técnico de un PGSST ocupa el 40\% del tiempo total de desarrollo del programa, enfocado en la planificación de las actividades relacionadas con la seguridad y salud laboral. La Figura \ref{fig:analisis_iper} ilustra el desarrollo de estas actividades, que incluyen la identificación de peligros, evaluación de riesgos, determinación de controles y elaboración de un plan de acción (\cite{NTS-009/23}).
+
+El proceso comienza con una visita a la ubicación que requiere el servicio, observando el estado actual, tomando registros fotográficos y realizando entrevistas con los trabajadores. Con esta información, el profesional identifica los peligros potenciales, actividad que constituye el 20\% del tiempo total de planificación. La evaluación de riesgos, donde se determina la probabilidad y gravedad de los riesgos, representa el 30\% del tiempo de planificación.
+
+\begin{figure}[b]
+	\centering
+    \resizebox{\textwidth}{!}{
+        {\setlength{\fboxsep}{14pt} % Adjust the padding inside the \fbox
+        \fbox{\input{images/marcoref/analisis_iper.tex}}}}
+	\caption{Distribución de tiempo en el proceso de desarrollo del punto cuatro ``Planificación'' de acuerdo al contenido técnico de un PGSST solicitado por la NTS-009/23.}
+	\label{fig:analisis_iper} 
+\end{figure}
+
+Una vez evaluados los riesgos, se procede a determinar los controles necesarios para eliminarlos o minimizarlos, etapa que ocupa el 20\% del tiempo total. Esta metodología de la Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER) categoriza y evalúa cualitativa y cuantitativamente todos los peligros, además de ofrecer recomendaciones de solución (\cite{chopitea2014metodologia}).
+
+Finalmente, se elabora un plan de acción que incluye medidas de control, responsables, plazos y recursos necesarios, abarcando el 30\% del tiempo de planificación. Este plan de acción asegura que todas las acciones se ejecuten de manera ordenada y dentro de los plazos establecidos, siendo uno de los aspectos más satisfactorios profesionalmente para los especialistas en Seguridad y Salud Ocupacional (Apéndice \ref{sec:entrevista01}).
+
+% TODO: Explicar importancia indirecta de la IPER en términos de tiempo
 
 %---------------------------------------------------------------------------------------------
 \section{Definición del Problema} 
-¿Cómo impacta la falta de recursos humanos especializados en el cumplimiento de la NTS 009/23 por parte de las empresas en Bolivia?
+Los profesionales SySO de categoría A dedican mediante el método manual un 60\% del tiempo total de desarrollo de un PGSST en llenado de formularios y planificación.
+
+\subsection{Árbol de Problemas}
+
+Una vez definido el problema central que se plantea resolver, se realiza el árbol de problemas, como se puede observar en la Figura \ref{fig:arbol_problemas}, permitiendo un análisis a profundidad de las causas y efectos de la problemática estudiada.
+
+\begin{figure}[hb]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\input{images/marcoref/diagrama_arbol_problemas.tex}
+	}
+	\caption{Árbol de problemas y objetivos. Fuente: Elaborado por el Autor.}
+	\label{fig:arbol_problemas} 
+\end{figure}
+
+El problema identificado es que los profesionales de SySO de categoría A dedican un 60\% del tiempo de desarrollo de un PGSST al llenado de formularios y la planificación de manera manual. Las causas de este problema se dividen en varias áreas clave. En primer lugar, el llenado de formularios consume un 20\% del tiempo total de desarrollo del PGSST. Este consumo de tiempo se debe en gran medida a la capacitación insuficiente del personal en el llenado de registros y plantillas, y al uso de instrumentos de medición que no permiten descargar datos en el formato requerido, obligando a transcribir manualmente los datos.
+
+Por otro lado, la etapa de planificación toma un 40\% del tiempo total de desarrollo del PGSST. Esta fase se ve afectada por la habilidad del profesional para interpretar y transcribir datos, la necesidad de recopilar información detallada, y la participación de múltiples partes interesadas. Además, el cumplimiento de exhaustivas regulaciones incrementa el tiempo de planificación, al igual que el proceso de revisión y validación del plan, que también consume tiempo significativo. A estas dificultades se suma la recopilación de datos manuscritos, pudiendo resultar en documentos ilegibles, la habilidad en mecanografía del personal, que puede ser inadecuada para el ritmo necesario, y la falta de familiaridad con las plantillas y herramientas utilizadas.
+
+En consecuencia, los profesionales SySO enfrentan una mayor carga de trabajo debido al tiempo invertido en tareas manuales, lo que puede llevar a estrés y agotamiento. Esta carga excesiva de trabajo y las tareas repetitivas y tediosas pueden reducir la motivación y satisfacción laboral de los profesionales. Además, el tiempo adicional necesario para completar las tareas manuales retrasa la implementación del PGSST.
 
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Objetivos}
 \subsection{Objetivo general}
-Implementar un sistema automatizado basado en la NTS 009/23 que facilite la identificación de riesgos laborales, el desarrollo y la gestión eficaz de los PGSST.
+Desarrollar un prototipo de software basado en transformadores multimodales para disminución del tiempo que los profesionales SySO de categoría A invierten en la planificación y el llenado de formularios al elaborar un PGSST.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
-	%\item Entrevistar a las partes interesadas clave, incluyendo profesionales SySO y usuarios potenciales del sistema, para comprender completamente sus necesidades, requisitos y expectativas.
-	\item Contextualizar la situación actual de los procesos para desarrollar los documentos requeridos por la NTS-009/23 mediante diagramas de flujo que reflejen las operaciones actuales.
-	\item Determinar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar, para asegurar la escalabilidad, la modularidad y la eficiencia del sistema.
-	%\item Diseñar un cronograma del proyecto para noviembre de 2024, detallando cada iteración del proceso de desarrollo mediante la técnica de priorización MoSCoW, con hitos específicos y plazos claros.
-	\item Desarrollar las iteraciones del proyecto, estableciendo los objetivos específicos a alcanzar durante la fase de diseño, implementación y pruebas del sistema en cada iteración.
-	\item Implementar el sistema utilizando la metodología de Desarrollo Guiado por Pruebas (TDD).
-	\item Verificar la calidad del software tras cada iteración como parte del proceso de pruebas del sistema haciendo uso de la metodología Objetivo-Pregunta-Métrica (GQM) para asegurar la calidad en base al estándar ISO 25000:2014.
+	\item Identificar los requisitos funcionales y no funcionales del proceso de desarrollo de los documentos requeridos por la NTS-009/23.
+	\item Diseñar la arquitectura del sistema, incluyendo la estructura general, los componentes principales y las tecnologías a utilizar.
+	\item Implementar sistema de generación de procesamiento de entradas multimodales, matrices IPER, planes de acción y llenado de formularios siguiendo la metodología PXP.
+	\item Verificar la reducción del tiempo de trabajo mediante la implantación del software.
 \end{itemize}
 
 %-----------------------------------------------------------------------------------------------------------------------------
 \section{Justificación}
+
+A continuación, se presentan las diferentes justificaciones por las cuales se está desarrollando el presente proyecto.
+
 \subsection{Justificación legal}
-La justificación legal de este proyecto se fundamenta en el marco normativo vigente en Bolivia, específicamente en la NTS-009/23, la Ley General de Higiene, Seguridad Ocupacional y Bienestar (D.L. 16998 del 2 de agosto de 1979), Reglamento de la Ley general del trabajo (Decreto Supremo Nº 224 de 23 de agosto de 1943) y otras regulaciones relacionadas.
-
-En primer lugar, la NTS-009/23 establece claramente los requisitos que deben cumplir todas las empresas y lugares de trabajo, tanto nacionales como extranjeros, en relación con la seguridad y salud ocupacional. Esta normativa especifica la obligación de desarrollar y mantener Programas de Gestión de Salud y Seguridad en el Trabajo (PGSST) que garanticen un entorno laboral seguro y saludable para todos los trabajadores. Por lo tanto, la implementación de un sistema automatizado para la gestión de la seguridad y salud ocupacional se justifica en el contexto de cumplimiento de esta normativa, ya que facilitará el cumplimiento de los requisitos establecidos y mejorará la eficiencia en la gestión de los PGSST. En este sentido, la implementación de un sistema automatizado para la gestión de la seguridad y salud ocupacional se alinea con los principios y objetivos establecidos en esta la Ley General de Higiene, Seguridad Ocupacional y Bienestar, contribuyendo a fortalecer el cumplimiento de las disposiciones legales y a proteger los derechos y la integridad de los trabajadores en el país.
-
-En conclusión, la justificación legal de este proyecto se sustenta en la necesidad de cumplir con la normativa vigente en materia de seguridad y salud ocupacional en Bolivia. La implementación de un sistema automatizado para la gestión de la seguridad y salud ocupacional ayudará a garantizar el cumplimiento de los requisitos legales establecidos, promoverá un entorno laboral seguro y saludable, y protegerá los derechos y el bienestar de los trabajadores en el país.
+En el marco normativo vigente en Bolivia la NTS-009/23 establece de manera explícita los requisitos que deben cumplir todas las empresas y lugares de trabajo, tanto nacionales como extranjeros, en relación con la seguridad y salud ocupacional. Esta normativa especifica la obligación de desarrollar y mantener PGSST que aseguren un entorno laboral seguro y saludable para todos los trabajadores. En particular, en el capítulo tres ``del contenido técnico'', artículo diez, punto cuatro, inciso c, se define la necesidad de presentar un plan de acción. A su vez, los resultados de la matriz IPER son fundamentales para elaborar los objetivos de SST, el plan de acción, los estudios de higiene, los permisos de trabajo, el cronograma anual de capacitaciones y el manual de primeros auxilios. Al disminuir el tiempo de desarrollo de los programas se facilita el cumplimiento de la normativa.
 
 \subsection{Justificación tecnológica}
 
-La justificación tecnológica de este proyecto radica en la necesidad de aprovechar las ventajas de la Inteligencia Artificial (IA) y las tecnologías de información para mejorar la eficiencia y la efectividad en la gestión de la seguridad y salud ocupacional en las empresas bolivianas.
-
-La implementación de un sistema automatizado basado en IA permitirá identificar proactivamente riesgos laborales, agilizar el desarrollo de Programas de Gestión de Salud y Seguridad en el Trabajo (PGSST) y facilitar la gestión eficiente de los mismos. Esta tecnología proporcionará capacidades avanzadas para analizar grandes cantidades de datos, identificar patrones y tendencias, y realizar predicciones precisas, lo que permitirá una toma de decisiones más informada y rápida en materia de seguridad y salud ocupacional.
-
-En resumen, la adopción de tecnologías de IA y automatización en la gestión de la seguridad y salud ocupacional ofrece una oportunidad única para mejorar la seguridad de los trabajadores, reducir los riesgos laborales y promover un entorno laboral más seguro y saludable en las empresas bolivianas. Esta justificación tecnológica respalda la necesidad de desarrollar e implementar un sistema automatizado para la gestión de la seguridad y salud ocupacional en el contexto específico de Bolivia.
+El proyecto propone un avance en la implementación de soluciones tecnológicas que optimicen el tiempo y la eficiencia en la elaboración de los PGSST. Utilizando transformadores multimodales, se busca automatizar y simplificar el proceso de llenado de formularios y la planificación de actividades, tareas que actualmente consumen una gran cantidad de tiempo y recursos. La automatización permitirá a los profesionales SySO de categoría A concentrarse en aspectos más críticos y estratégicos de la gestión de seguridad y salud ocupacional, aumentando la calidad y precisión del trabajo realizado. 
 
 \subsection{Justificación social}
 
-La justificación social de este proyecto se basa en el impacto positivo que tendrá en la sociedad boliviana al mejorar las condiciones de trabajo y promover un entorno laboral seguro y saludable para todos los trabajadores.
-
-La implementación de un sistema automatizado para la gestión de la seguridad y salud ocupacional beneficiará directamente a los trabajadores al reducir los riesgos laborales y prevenir accidentes y enfermedades relacionadas con el trabajo en menor tiempo y a menor costo. Por ejemplo, según entrevistas realizadas a consultores SySO el tiempo promedio que se tarda en desarrollar un PGSST para Pequeñas y Medianas Empresas (PyME) mediante las metodologías tradicionales es de seis meses (Ver Anexo A para más detalles). La facilidad que se otorgará a disminuir el tiempo de desarrollo, se traduce en un menor precio lo que hace que este sistema sea más accesible para las empresas de todo tipo. Además, un entorno laboral seguro y saludable también tendrá un impacto positivo en la productividad y la eficiencia de las empresas, lo que a su vez beneficiará a la economía en general. Menos accidentes y enfermedades laborales significan menos días de trabajo perdidos, menores costos de atención médica y una fuerza laboral más comprometida y motivada.
-
-En última instancia, la implementación de este sistema contribuirá a construir una cultura de seguridad y salud ocupacional en Bolivia, donde la protección de los trabajadores y el cumplimiento de las normativas de seguridad laboral sean prioridades fundamentales para todas las empresas y organizaciones. Esto no solo beneficiará a los trabajadores individuales y a las empresas, sino que también contribuirá al desarrollo sostenible y al bienestar general de la sociedad boliviana.
+Los profesionales SySO de categoría A son los beneficiados directamente por este sistema. Se espera la reducción del tiempo invertido en tareas administrativas les permitirá enfocar sus esfuerzos en actividades que aportan mayor valor a la seguridad y salud de los trabajadores. Este enfoque mejorado no solo aumenta la satisfacción y eficiencia profesional, sino que también contribuye a un entorno laboral más seguro y saludable. 
 
 %-----------------------------------------------------------------------------------------------------------------------------
 
 \section{Delimitación}
-\subsection{Limites}
+\subsection{Límites}
 
 \noindent
 Los límites del proyecto se describen a continuación:
 
 \begin{itemize}[topsep=0pt]
-	\item El contenido de los documentos generados por el software se encuentra delimitado por los requerimientos técnicos y correspondientes entregables expuestos en NTS-009/23. 
+	\item El contenido de los documentos generados por el software estará delimitado por los requerimientos técnicos y los correspondientes entregables expuestos en NTS-009/23.
 	\item El contenido generado por el software deberá estar en conformidad con la norma ISO 45001:2018, la norma internacional para sistemas de gestión de seguridad y salud en el trabajo (SGSST).
-	\item La ISO 25000:2014 proporciona un marco para la evaluación de la calidad del producto de software. Se utilizarán sus directrices para asegurar que el software desarrollado cumpla con los estándares de calidad y satisfaga las necesidades de los usuarios finales.
-	%\item El sistema se deberá adherir al estándar ISO 420001:2023, mismo que proporciona un marco para gestionar los riesgos y oportunidades asociados con la IA, para garantizar la calidad y la seguridad en todas las operaciones de IA.
-	\item Para utilizar la aplicación se tendrá que estar conectado a internet. 
-	En caso que no se esté conectado a internet, no se tendrá acceso a la aplicación.
-	\item El software no contará con herramientas especializadas en la automatización de los estudios de higiene. Se limitará a plantillas para rellenar y automatizar el análisis de los datos recolectados por ``un profesional inscrito y con credencial categoría ``A'' vigente en el Registro Nacional de Profesionales Técnicos de Higiene, Seguridad Ocupacional y Medicina del Trabajo'' (\cite{NTS-009/23}).
+	\item Para utilizar la aplicación, se deberá estar conectado a internet. En caso de no estar conectado a internet, no se tendrá acceso a la aplicación.
+	\item El software no contará con herramientas especializadas en la automatización de los estudios de higiene. Se limitará a plantillas para rellenar y automatizar el análisis de los datos recolectados por ``un profesional inscrito y con credencial categoría A vigente en el Registro Nacional de Profesionales Técnicos de Higiene, Seguridad Ocupacional y Medicina del Trabajo'' (\cite{NTS-009/23}).
+\end{itemize}
+
+\noindent
+Las exclusiones del proyecto son las siguientes:
+\begin{itemize}[topsep=0pt]
+	\item No se implementarán módulos de audio, inteligencia artificial, interfaz de usuario y entrada desde cero; se utilizarán bibliotecas open-source disponibles.
+	\item No se implementarán módulos dirigidos a capacitar trabajadores en el llenado de registros o plantillas generadas.
+	\item El proyecto no estará dirigido a empresas o sectores que requieran normativa o procedimientos particulares, como es el caso de la industria petrolera.
 \end{itemize}
 
 \subsection{Alcances}
@@ -118,19 +144,12 @@ Los límites del proyecto se describen a continuación:
 \noindent
 El alcance del proyecto incluirá:
 
-\begin{itemize}
-	\item Prototipo funcional de aplicación web que permita agilizar el proceso de desarrollo un de PGSST mediante generación automática de tres de los trece documentos solicitados por la NTS 009/23 de acuerdo a los requisitos recolectados de entrevistas a profesionales en el area.
-	\item Entrevistas realizadas a los usuarios objetivo del producto.
-	\item Documentación de la investigación de las tecnologías que se utilizarán para el
-	desarrollo del software final.
-	\item Documentación del desarrollo del software, en el cual se incluirá los detalles de la automatización del desarrollo de un PGSST y un manual de usuario.
+\begin{itemize}[topsep=0pt]
+	\item Desarrollo de un prototipo funcional del software propuesto.
+	\item Documentación de la investigación de las tecnologías que se utilizarán para el desarrollo del software final.
+	\item Presentación de los siguientes diagramas: diagrama UML estructural de clases del sistema, diagrama de cadena de procesamiento de datos y diagrama entidad-relación de la base de datos.
+	\item Documentación del desarrollo del software, que incluirá los detalles del desarrollo de un PGSST y un manual de usuario.
+	\item Realización de pruebas del prototipo del sistema en colaboración con 5 profesionales.
 \end{itemize}
 
-\noindent
-Las exclusiones del proyecto son las siguientes:
-\begin{itemize}
-	\item No se implementarán los módulos, audio, inteligencia artificial, interfaz de usuario y entrada desde cero, se utilizará bibliotecas open-source disponibles.
-	\item El proyecto no estará dirigido a empresas o rubros que requieran de normativa o procedimientos particulares, como es el caso de la industria petrolera.
-\end{itemize}
-
-Tal y como indica norma, todo PGSST desarrollado, debe ser aprobado por personal debidamente inscrito y con credencial vigente en el Registro Nacional de Profesionales y Técnicos en Higiene, Seguridad Ocupacional y Medicina del Trabajo, a cargo del Ministerio Trabajo, Empleo y Previsión Social (MTEPS) conforme a normativa legal vigente (\cite{NTS-009/23}).
+De acuerdo con la normativa vigente, todo Programa de Gestión de Seguridad y Salud en el Trabajo (PGSST) y cada una de sus partes deben ser aprobados por personal debidamente registrado y con credenciales vigentes en el Registro Nacional de Profesionales y Técnicos en Higiene, Seguridad Ocupacional y Medicina del Trabajo. Este registro está a cargo del Ministerio de Trabajo, Empleo y Previsión Social (MTEPS), conforme a lo establecido en la normativa legal vigente (\cite{NTS-009/23}).
